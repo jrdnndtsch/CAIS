@@ -12,14 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.text_field :school_id %>
-  </div>
-  <div class="field">
     <%= f.label :recreation_id %><br>
-    <%= f.text_field :recreation_id %>
+    <%= f.collection_select :recreation_id, @recreations, :id, :activity %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
+    <%= hidden_field_tag :school_id, @school.id %>
   </div>
 <% end %>

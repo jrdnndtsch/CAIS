@@ -137,13 +137,34 @@
 
 <div>
   <ul>
-  <% @school.school_recreations.each do |recreation| %>
-    <li>recreation <%= recreation.recreation.activity%></li>
+  <% @school.recreations.each do |recreation| %>
+    <li>recreation <%= recreation.activity%></li>
   <% end %>
     
   </ul>
 
 </div>
+
+<div>
+  <ul>
+  <% @school.academics.each do |academic| %>
+    <li>academic <%= academic.course%></li>
+  <% end %>
+    
+  </ul>
+
+</div>
+
+<div>
+  <ul>
+  <% @school.campus.each do |campu| %>
+    <li>campu <%= campu.feature%></li>
+  <% end %>
+    
+  </ul>
+
+</div>
+
 
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>

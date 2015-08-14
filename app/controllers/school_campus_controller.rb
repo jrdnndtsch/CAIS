@@ -15,16 +15,20 @@ class SchoolCampusController < ApplicationController
   # GET /school_campus/new
   def new
     @school_campu = SchoolCampu.new
+    @campus = Campu.all
+    @school = School.find(params[:school_id])
   end
 
   # GET /school_campus/1/edit
   def edit
+    @campus = Campu.all
   end
 
   # POST /school_campus
   # POST /school_campus.json
   def create
     @school_campu = SchoolCampu.new(school_campu_params)
+    @school_campu.school_id = params[:school_id]
 
     respond_to do |format|
       if @school_campu.save

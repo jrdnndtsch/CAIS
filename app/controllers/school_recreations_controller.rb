@@ -15,17 +15,20 @@ class SchoolRecreationsController < ApplicationController
   # GET /school_recreations/new
   def new
     @school_recreation = SchoolRecreation.new
+    @recreations = Recreation.all
+    @school = School.find(params[:school_id])
   end
 
   # GET /school_recreations/1/edit
   def edit
+    @recreations = Recreation.all
   end
 
   # POST /school_recreations
   # POST /school_recreations.json
   def create
     @school_recreation = SchoolRecreation.new(school_recreation_params)
-
+    @school_recreation.school_id = params[:school_id]
     respond_to do |format|
       if @school_recreation.save
         format.html { redirect_to @school_recreation, notice: 'School recreation was successfully created.' }

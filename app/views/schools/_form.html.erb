@@ -119,16 +119,16 @@
     <%= f.label :merit_scholarships %><br>
     <%= f.check_box :merit_scholarships %>
   </div>
-  <hr>
 
-  <h2>School Features</h2>
 
-  <div class="field">
-    <%= f.label :academics %><br>
-    <%= f.collection_select :school_academics, @academics, :id, :course %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 
 <% end %>
+  <hr>
+<h2>School Features</h2>
+<%= link_to 'Add Recreational Offering', new_school_recreation_path(:school_id => @school.id), class: 'button' %>
+<%= link_to 'Add Campus Offerings', new_school_campu_path(:school_id => @school.id), class: 'button' %>
+<%= link_to 'Add Academic Offerings', new_school_academic_path(:school_id => @school.id), class: 'button' %>

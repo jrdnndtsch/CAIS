@@ -15,16 +15,20 @@ class SchoolAcademicsController < ApplicationController
   # GET /school_academics/new
   def new
     @school_academic = SchoolAcademic.new
+    @academics = Academic.all
+    @school = School.find(params[:school_id])
   end
 
   # GET /school_academics/1/edit
   def edit
+    @academics = Academic.all
   end
 
   # POST /school_academics
   # POST /school_academics.json
   def create
     @school_academic = SchoolAcademic.new(school_academic_params)
+    @school_academic.school_id = params[:school_id]
 
     respond_to do |format|
       if @school_academic.save
