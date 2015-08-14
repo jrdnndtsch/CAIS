@@ -122,4 +122,13 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <hr>
+
+  <h2>School Features</h2>
+
+  <div class="field">
+    <%= f.label :academics %><br>
+    <%= f.collection_select :academics, @academics, :id, :course %>
+  </div>
 <% end %>

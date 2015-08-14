@@ -15,10 +15,12 @@ class SchoolsController < ApplicationController
   # GET /schools/new
   def new
     @school = School.new
+    @academics = Academic.all
   end
 
   # GET /schools/1/edit
   def edit
+    @academics = Academic.all
   end
 
   # POST /schools
