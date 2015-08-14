@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recreations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Activity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recreations.each do |recreation| %>
+      <tr>
+        <td><%= recreation.type %></td>
+        <td><%= recreation.activity %></td>
+        <td><%= link_to 'Show', recreation %></td>
+        <td><%= link_to 'Edit', edit_recreation_path(recreation) %></td>
+        <td><%= link_to 'Destroy', recreation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recreation', new_recreation_path %>

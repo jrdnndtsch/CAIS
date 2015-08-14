@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :schools
+  resources :campus
+  resources :recreations
+  resources :academics
+  resources :academics
+  root 'cities#index'
   resources :cities
   resources :provinces
   # The priority is based upon order of creation: first created -> highest priority.

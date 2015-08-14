@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @recreation.type %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @recreation.activity %>
+</p>
+
+<%= link_to 'Edit', edit_recreation_path(@recreation) %> |
+<%= link_to 'Back', recreations_path %>

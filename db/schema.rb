@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814154354) do
+ActiveRecord::Schema.define(version: 20150814170512) do
+
+  create_table "academics", force: :cascade do |t|
+    t.string   "subject"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "course"
+  end
+
+  create_table "campus", force: :cascade do |t|
+    t.string   "type"
+    t.string   "feature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +40,45 @@ ActiveRecord::Schema.define(version: 20150814154354) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recreations", force: :cascade do |t|
+    t.string   "type"
+    t.string   "activity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street_address"
+    t.string   "postal_code"
+    t.string   "website_url"
+    t.string   "contact_email"
+    t.string   "description"
+    t.integer  "girls_boarding"
+    t.integer  "girls_day"
+    t.integer  "boys_boarding"
+    t.integer  "boys_day"
+    t.integer  "campus_size"
+    t.integer  "year_founded"
+    t.integer  "average_class_size"
+    t.integer  "student_teacher_ratio"
+    t.boolean  "dress_code"
+    t.string   "student_body"
+    t.float    "seven_day_tuition"
+    t.float    "five_day_tuition"
+    t.string   "boarding_grades"
+    t.string   "day_grades"
+    t.float    "day_tuition"
+    t.string   "accreditations"
+    t.boolean  "advanced_placement"
+    t.boolean  "international_bac"
+    t.boolean  "payment_plans"
+    t.boolean  "need_based_aid"
+    t.boolean  "merit_scholarships"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  street_address: MyString
+  postal_code: MyString
+  website_url: MyString
+  contact_email: MyString
+  description: MyString
+  girls_boarding: 1
+  girls_day: 1
+  boys_boarding: 1
+  boys_day: 1
+  cmapus_size: 1
+  year_founded: 1
+  average_class_size: 1
+  student_teacher_ratio: 1
+  dress_code: false
+  student_body: MyString
+  seven_day_tuition: 1.5
+  five_day_tuition: 1.5
+  boarding_grades: MyString
+  day_grades: MyString
+  day_tuition: 1.5
+  accreditations: MyString
+  advanced_placement: false
+  international_bac: false
+  payment_plans: false
+  need_based_aid: false
+  merit_scholarships: false
+
+two:
+  name: MyString
+  street_address: MyString
+  postal_code: MyString
+  website_url: MyString
+  contact_email: MyString
+  description: MyString
+  girls_boarding: 1
+  girls_day: 1
+  boys_boarding: 1
+  boys_day: 1
+  cmapus_size: 1
+  year_founded: 1
+  average_class_size: 1
+  student_teacher_ratio: 1
+  dress_code: false
+  student_body: MyString
+  seven_day_tuition: 1.5
+  five_day_tuition: 1.5
+  boarding_grades: MyString
+  day_grades: MyString
+  day_tuition: 1.5
+  accreditations: MyString
+  advanced_placement: false
+  international_bac: false
+  payment_plans: false
+  need_based_aid: false
+  merit_scholarships: false

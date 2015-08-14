@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Schools</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Street address</th>
+      <th>Postal code</th>
+      <th>Website url</th>
+      <th>Contact email</th>
+      <th>Description</th>
+      <th>Girls boarding</th>
+      <th>Girls day</th>
+      <th>Boys boarding</th>
+      <th>Boys day</th>
+      <th>Cmapus size</th>
+      <th>Year founded</th>
+      <th>Average class size</th>
+      <th>Student teacher ratio</th>
+      <th>Dress code</th>
+      <th>Student body</th>
+      <th>Seven day tuition</th>
+      <th>Five day tuition</th>
+      <th>Boarding grades</th>
+      <th>Day grades</th>
+      <th>Day tuition</th>
+      <th>Accreditations</th>
+      <th>Advanced placement</th>
+      <th>International bac</th>
+      <th>Payment plans</th>
+      <th>Need based aid</th>
+      <th>Merit scholarships</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= school.name %></td>
+        <td><%= school.street_address %></td>
+        <td><%= school.postal_code %></td>
+        <td><%= school.website_url %></td>
+        <td><%= school.contact_email %></td>
+        <td><%= school.description %></td>
+        <td><%= school.girls_boarding %></td>
+        <td><%= school.girls_day %></td>
+        <td><%= school.boys_boarding %></td>
+        <td><%= school.boys_day %></td>
+        <td><%= school.cmapus_size %></td>
+        <td><%= school.year_founded %></td>
+        <td><%= school.average_class_size %></td>
+        <td><%= school.student_teacher_ratio %></td>
+        <td><%= school.dress_code %></td>
+        <td><%= school.student_body %></td>
+        <td><%= school.seven_day_tuition %></td>
+        <td><%= school.five_day_tuition %></td>
+        <td><%= school.boarding_grades %></td>
+        <td><%= school.day_grades %></td>
+        <td><%= school.day_tuition %></td>
+        <td><%= school.accreditations %></td>
+        <td><%= school.advanced_placement %></td>
+        <td><%= school.international_bac %></td>
+        <td><%= school.payment_plans %></td>
+        <td><%= school.need_based_aid %></td>
+        <td><%= school.merit_scholarships %></td>
+        <td><%= link_to 'Show', school %></td>
+        <td><%= link_to 'Edit', edit_school_path(school) %></td>
+        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School', new_school_path %>

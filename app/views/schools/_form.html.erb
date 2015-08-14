@@ -1,0 +1,125 @@
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :street_address %><br>
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :website_url %><br>
+    <%= f.text_field :website_url %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br>
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :girls_boarding %><br>
+    <%= f.number_field :girls_boarding %>
+  </div>
+  <div class="field">
+    <%= f.label :girls_day %><br>
+    <%= f.number_field :girls_day %>
+  </div>
+  <div class="field">
+    <%= f.label :boys_boarding %><br>
+    <%= f.number_field :boys_boarding %>
+  </div>
+  <div class="field">
+    <%= f.label :boys_day %><br>
+    <%= f.number_field :boys_day %>
+  </div>
+  <div class="field">
+    <%= f.label :campus_size %><br>
+    <%= f.number_field :campus_size %>
+  </div>
+  <div class="field">
+    <%= f.label :year_founded %><br>
+    <%= f.number_field :year_founded %>
+  </div>
+  <div class="field">
+    <%= f.label :average_class_size %><br>
+    <%= f.number_field :average_class_size %>
+  </div>
+  <div class="field">
+    <%= f.label :student_teacher_ratio %><br>
+    <%= f.number_field :student_teacher_ratio %>
+  </div>
+  <div class="field">
+    <%= f.label :dress_code %><br>
+    <%= f.check_box :dress_code %>
+  </div>
+  <div class="field">
+    <%= f.label :student_body %><br>
+    <%= f.collection_select :student_body, School::STUDENT_BODY, :to_s, :humanize %>
+  </div>
+  <div class="field">
+    <%= f.label :seven_day_tuition %><br>
+    <%= f.text_field :seven_day_tuition %>
+  </div>
+  <div class="field">
+    <%= f.label :five_day_tuition %><br>
+    <%= f.text_field :five_day_tuition %>
+  </div>
+  <div class="field">
+    <%= f.label :boarding_grades %><br>
+    <%= f.text_field :boarding_grades %>
+  </div>
+  <div class="field">
+    <%= f.label :day_grades %><br>
+    <%= f.text_field :day_grades %>
+  </div>
+  <div class="field">
+    <%= f.label :day_tuition %><br>
+    <%= f.text_field :day_tuition %>
+  </div>
+  <div class="field">
+    <%= f.label :accreditations %><br>
+    <%= f.text_field :accreditations %>
+  </div>
+  <div class="field">
+    <%= f.label :advanced_placement %><br>
+    <%= f.check_box :advanced_placement %>
+  </div>
+  <div class="field">
+    <%= f.label :international_bac %><br>
+    <%= f.check_box :international_bac %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_plans %><br>
+    <%= f.check_box :payment_plans %>
+  </div>
+  <div class="field">
+    <%= f.label :need_based_aid %><br>
+    <%= f.check_box :need_based_aid %>
+  </div>
+  <div class="field">
+    <%= f.label :merit_scholarships %><br>
+    <%= f.check_box :merit_scholarships %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
