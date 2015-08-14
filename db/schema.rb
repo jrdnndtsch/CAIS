@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814170512) do
+ActiveRecord::Schema.define(version: 20150814174223) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -43,11 +43,21 @@ ActiveRecord::Schema.define(version: 20150814170512) do
   end
 
   create_table "recreations", force: :cascade do |t|
-    t.string   "type"
     t.string   "activity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "recreation_type"
   end
+
+  create_table "school_recreations", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "recreation_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "school_recreations", ["recreation_id"], name: "index_school_recreations_on_recreation_id"
+  add_index "school_recreations", ["school_id"], name: "index_school_recreations_on_school_id"
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -55,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150814170512) do
     t.string   "postal_code"
     t.string   "website_url"
     t.string   "contact_email"
-    t.string   "description"
+    t.text     "description"
     t.integer  "girls_boarding"
     t.integer  "girls_day"
     t.integer  "boys_boarding"

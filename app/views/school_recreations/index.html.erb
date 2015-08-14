@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing School Recreations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Recreation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @school_recreations.each do |school_recreation| %>
+      <tr>
+        <td><%= school_recreation.school %></td>
+        <td><%= school_recreation.recreation %></td>
+        <td><%= link_to 'Show', school_recreation %></td>
+        <td><%= link_to 'Edit', edit_school_recreation_path(school_recreation) %></td>
+        <td><%= link_to 'Destroy', school_recreation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School recreation', new_school_recreation_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@school_recreation) do |f| %>
+  <% if @school_recreation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school_recreation.errors.count, "error") %> prohibited this school_recreation from being saved:</h2>
+
+      <ul>
+      <% @school_recreation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :school_id %><br>
+    <%= f.text_field :school_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recreation_id %><br>
+    <%= f.text_field :recreation_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
