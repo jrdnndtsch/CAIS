@@ -3,6 +3,6 @@ class School < ActiveRecord::Base
 	has_many :school_recreations
 	has_many :school_campus
 	has_many :campus, through: :school_campus
-	has_many :school_academic
-	has_many :academics, through: :school_academic
+	has_many :school_academics
+	has_many :academics, through: :school_academics
 end

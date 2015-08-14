@@ -119,16 +119,16 @@
     <%= f.label :merit_scholarships %><br>
     <%= f.check_box :merit_scholarships %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
   <hr>
 
   <h2>School Features</h2>
 
   <div class="field">
     <%= f.label :academics %><br>
-    <%= f.collection_select :academics, @academics, :id, :course %>
+    <%= f.collection_select :school_academics, @academics, :id, :course %>
   </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
 <% end %>
