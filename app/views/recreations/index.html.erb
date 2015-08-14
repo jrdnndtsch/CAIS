@@ -14,7 +14,7 @@
   <tbody>
     <% @recreations.each do |recreation| %>
       <tr>
-        <td><%= recreation.type %></td>
+        <td><%= recreation.recreation_type %></td>
         <td><%= recreation.activity %></td>
         <td><%= link_to 'Show', recreation %></td>
         <td><%= link_to 'Edit', edit_recreation_path(recreation) %></td>

@@ -135,5 +135,15 @@
   <%= @school.merit_scholarships %>
 </p>
 
+<div>
+  <ul>
+  <% @school.school_recreations.each do |recreation| %>
+    <li>recreation <%= recreation.recreation.activity%></li>
+  <% end %>
+    
+  </ul>
+
+</div>
+
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>

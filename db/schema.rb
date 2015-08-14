@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814174223) do
+ActiveRecord::Schema.define(version: 20150814183214) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20150814174223) do
   end
 
   create_table "campus", force: :cascade do |t|
-    t.string   "type"
     t.string   "feature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "campu_type"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -48,6 +48,26 @@ ActiveRecord::Schema.define(version: 20150814174223) do
     t.datetime "updated_at",      null: false
     t.string   "recreation_type"
   end
+
+  create_table "school_academics", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "academic_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "school_academics", ["academic_id"], name: "index_school_academics_on_academic_id"
+  add_index "school_academics", ["school_id"], name: "index_school_academics_on_school_id"
+
+  create_table "school_campus", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "campu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "school_campus", ["campu_id"], name: "index_school_campus_on_campu_id"
+  add_index "school_campus", ["school_id"], name: "index_school_campus_on_school_id"
 
   create_table "school_recreations", force: :cascade do |t|
     t.integer  "school_id"

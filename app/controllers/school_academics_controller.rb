@@ -1,0 +1,74 @@
+class SchoolAcademicsController < ApplicationController
+  before_action :set_school_academic, only: [:show, :edit, :update, :destroy]
+
+  # GET /school_academics
+  # GET /school_academics.json
+  def index
+    @school_academics = SchoolAcademic.all
+  end
+
+  # GET /school_academics/1
+  # GET /school_academics/1.json
+  def show
+  end
+
+  # GET /school_academics/new
+  def new
+    @school_academic = SchoolAcademic.new
+  end
+
+  # GET /school_academics/1/edit
+  def edit
+  end
+
+  # POST /school_academics
+  # POST /school_academics.json
+  def create
+    @school_academic = SchoolAcademic.new(school_academic_params)
+
+    respond_to do |format|
+      if @school_academic.save
+        format.html { redirect_to @school_academic, notice: 'School academic was successfully created.' }
+        format.json { render :show, status: :created, location: @school_academic }
+      else
+        format.html { render :new }
+        format.json { render json: @school_academic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /school_academics/1
+  # PATCH/PUT /school_academics/1.json
+  def update
+    respond_to do |format|
+      if @school_academic.update(school_academic_params)
+        format.html { redirect_to @school_academic, notice: 'School academic was successfully updated.' }
+        format.json { render :show, status: :ok, location: @school_academic }
+      else
+        format.html { render :edit }
+        format.json { render json: @school_academic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /school_academics/1
+  # DELETE /school_academics/1.json
+  def destroy
+    @school_academic.destroy
+    respond_to do |format|
+      format.html { redirect_to school_academics_url, notice: 'School academic was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_school_academic
+      @school_academic = SchoolAcademic.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def school_academic_params
+      params.require(:school_academic).permit(:school_id, :academic_id)
+    end
+end
