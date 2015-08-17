@@ -19,6 +19,11 @@
     <%= f.label :street_address %><br>
     <%= f.text_field :street_address %>
   </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.collection_select :city_id, City.all, :id, :name %>
+  </div>
   <div class="field">
     <%= f.label :postal_code %><br>
     <%= f.text_field :postal_code %>
@@ -132,3 +137,4 @@
 <%= link_to 'Add Recreational Offering', new_school_recreation_path(:school_id => @school.id), class: 'button' %>
 <%= link_to 'Add Campus Offerings', new_school_campu_path(:school_id => @school.id), class: 'button' %>
 <%= link_to 'Add Academic Offerings', new_school_academic_path(:school_id => @school.id), class: 'button' %>
+

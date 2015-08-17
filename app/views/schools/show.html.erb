@@ -1,23 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
+<h1><%= @school.name %><h1>
 
-<p>
-  <strong>Street address:</strong>
-  <%= @school.street_address %>
-</p>
+<p><%= @school.street_address %></p>
+<p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
 
-<p>
-  <strong>Postal code:</strong>
-  <%= @school.postal_code %>
-</p>
+<%= link_to @school.website_url, "http://#{@school.website_url}" %>
 
+<p><%= @school.student_body %></p>
+
+<h3>Description</h3>
 <p>
-  <strong>Website url:</strong>
-  <%= @school.website_url %>
+  <%= @school.description %>
 </p>
 
 <p>
@@ -25,10 +19,6 @@
   <%= @school.contact_email %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @school.description %>
-</p>
 
 <p>
   <strong>Girls boarding:</strong>
@@ -75,10 +65,7 @@
   <%= @school.dress_code %>
 </p>
 
-<p>
-  <strong>Student body:</strong>
-  <%= @school.student_body %>
-</p>
+
 
 <p>
   <strong>Seven day tuition:</strong>
@@ -136,11 +123,27 @@
 </p>
 
 <div>
+  <h2>Arts & Athletics</h2>
+
+  <h3>Recreational Sports</h3>
   <ul>
-  <% @school.recreations.each do |recreation| %>
-    <li>recreation <%= recreation.activity%></li>
-  <% end %>
-    
+    <% @school.recreational_sports.each do |recreation| %>
+      <li><%= recreation.activity%></li>
+    <% end %>   
+  </ul>
+
+  <h3>Interscholastic Sports</h3>
+  <ul>
+    <% @school.interscholastic_sports.each do |recreation|%>
+      <li><%= recreation.activity%></li>
+    <% end %>
+  </ul>
+
+  <h3>Arts</h3>
+  <ul>
+    <% @school.arts.each do |recreation|%>
+      <li><%= recreation.activity%></li>
+    <% end %>
   </ul>
 
 </div>
