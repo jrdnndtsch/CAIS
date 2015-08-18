@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818230214) do
+ActiveRecord::Schema.define(version: 20150818231627) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 20150818230214) do
   end
 
   add_index "cities", ["province_id"], name: "index_cities_on_province_id"
-
-  create_table "infos", force: :cascade do |t|
-    t.string   "description"
-    t.string   "department_director"
-    t.decimal  "percentage_at_college"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
 
   create_table "provinces", force: :cascade do |t|
     t.string   "name"
@@ -76,16 +68,6 @@ ActiveRecord::Schema.define(version: 20150818230214) do
 
   add_index "school_campus", ["campu_id"], name: "index_school_campus_on_campu_id"
   add_index "school_campus", ["school_id"], name: "index_school_campus_on_school_id"
-
-  create_table "school_infos", force: :cascade do |t|
-    t.integer  "school_id"
-    t.integer  "info_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "school_infos", ["info_id"], name: "index_school_infos_on_info_id"
-  add_index "school_infos", ["school_id"], name: "index_school_infos_on_school_id"
 
   create_table "school_recreations", force: :cascade do |t|
     t.integer  "school_id"

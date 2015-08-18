@@ -6,8 +6,6 @@ class School < ActiveRecord::Base
 	has_many :campus, through: :school_campus
 	has_many :school_academics
 	has_many :academics, through: :school_academics
-	has_many :school_infos
-	has_many :infos, through: :school_infos
 	belongs_to :city
 	delegate :province, :to => :city
 
