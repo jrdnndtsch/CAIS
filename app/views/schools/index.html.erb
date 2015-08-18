@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Checkbox</th>
       <th>Name</th>
       <th>Street address</th>
       <th>Postal code</th>
@@ -39,6 +40,9 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
+        <td>
+          <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
+        </td>
         <td><%= school.name %></td>
         <td><%= school.street_address %></td>
         <td><%= school.postal_code %></td>
@@ -77,3 +81,35 @@
 <br>
 
 <%= link_to 'New School', new_school_path %>
+
+
+<script>
+$(document).ready(function() {
+  $('.check').on('change', function(){
+    var checked_array = []
+    console.log("changed")
+    console.log($(this).is(':checked'))
+
+    if ($('.check').filter(':checked').length > 3){
+      $(this).removeAttr('checked');
+    }
+
+    $('.check').filter(':checked').each(function() {
+      checked_array.push(this.value)
+    });
+
+    console.log(checked_array)
+
+      $.ajax({
+        url: '',
+        type: "get",
+        data: { 
+          is_monthly : $(this).is(':checked'),
+          _method: 'get'
+        },
+        dataType: "script"
+      });
+          console.log("saved?")
+    });
+  });
+</script>
