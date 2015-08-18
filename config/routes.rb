@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :school_infos
+  resources :school_infos
   resources :infos
   resources :school_academics
   resources :school_campus
