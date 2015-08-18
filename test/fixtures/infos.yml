@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  department_director: MyString
+  percentage_at_college: 9.99
+
+two:
+  description: MyString
+  department_director: MyString
+  percentage_at_college: 9.99

@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :recreation_type %><br>
-    <%= f.text_field :recreation_type %>
-  </div>
-  <div class="field">
-    <%= f.label :activity %><br>
-    <%= f.text_field :activity %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="block">
+      <div class="field">
+        <%= f.label :recreation_type %><br>
+        <%= f.text_field :recreation_type %>
+      </div>
+      <div class="field">
+        <%= f.label :activity %><br>
+        <%= f.text_field :activity %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+ 
 <% end %>
