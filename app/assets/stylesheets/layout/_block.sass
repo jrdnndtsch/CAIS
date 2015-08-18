@@ -1,0 +1,52 @@
+@import mixins/grid
+@import mixins/make-responsive
+.block
+	:border-radius 3px
+	:padding 24px
+	:background-color white
+	:box-shadow 0 2px 4px rgba(0,0,0,0.1)
+	:margin-bottom 25px
+	label
+		:margin-bottom 6px
+		:display inline-block
+	input, select, textarea
+		:border-radius 3px
+		:border 1px solid #CCC
+		:padding 7px 14px
+	select
+		:height 30px	
+		:background white
+	textarea
+		:min-height 180px	
+	input[type=checkbox]
+		:display inline-block
+		:width 20px
+	&--half
+		+make-column(6)
+
+.field
+	input, select, textarea
+		:width 100%
+	&--half
+		:width 49%
+		:display inline-block
+		:margin-right 2%
+		// &:nth-child(2n)
+		// 	:margin-right 0
+		+display-for(xs)
+			:width 100%
+			:margin-right 0	
+	&--third
+		:width 32%
+		:margin-right 1.5%
+		:display inline-block
+		// &:nth-child(3n+2)
+		// 	:margin-right 0
+		+display-for(xs)
+			:width 100%
+			:margin-right 0	
+.last
+	:margin-right 0			
+
+
+					

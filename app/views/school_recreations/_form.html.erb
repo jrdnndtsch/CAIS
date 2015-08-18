@@ -10,14 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :recreation_id %><br>
-    <%= f.collection_select :recreation_id, @recreations, :id, :activity %>
-
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-    <%= hidden_field_tag :school_id, @school.id %>
+  <div class="container">
+    <div class="block">
+      <div class="field">
+        <%= f.label :recreation_id %>
+        <%= f.collection_select :recreation_id, @recreations, :id, :activity %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+      <%= hidden_field_tag :school_id, @school.id %>
+    </div>
   </div>
 <% end %>

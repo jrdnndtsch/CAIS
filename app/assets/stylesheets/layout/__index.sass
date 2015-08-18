@@ -1,0 +1,32 @@
+@import col-gutter
+@import block
+.col
+	&-half
+		+make-column(6)
+		+display-for(sm xs)
+			+make-column(12)	
+	&-third
+		:background cyan
+		+make-column(4)
+		+display-for(sm)
+			+make-column(6)
+			&:last-of-type
+				+make-column(12)
+		+display-for(xs)
+			+make-column(12)		
+	&-fourth
+		+make-column(3)
+		+display-for(md)
+			+make-column(6)
+		+display-for(sm xs)
+			+make-column(12)	
+	&-sixth
+		+make-column(2)	
+		+display-for(md)
+			+make-column(4)
+		+display-for(sm xs)
+			+make-column(12)		
+
+
+
+
