@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :school_academics
   resources :school_campus
   resources :school_recreations
-  resources :schools do 
-    get :compare
+  resources :schools do
+    collection do
+      get :compare
+    end
   end
   resources :campus
   resources :recreations

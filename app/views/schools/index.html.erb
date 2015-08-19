@@ -108,14 +108,17 @@ $(document).ready(function() {
 
     console.log("sending this: " +checked_array)
       $.ajax({
-        url: '',
+        url: '/schools/compare',
         type: "get",
         data: { 
           is_checked : checked_array,
           _method: 'get'
         },
-        dataType: "script"
+         success: function(data){
+          console.log(data)
+         }
       });
+
     
   });
 

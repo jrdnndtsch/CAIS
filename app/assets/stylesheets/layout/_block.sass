@@ -23,6 +23,13 @@
 		:width 20px
 	&--half
 		+make-column(6)
+	&--third
+		:float left
+		+make-column(3.8)
+		+make-gutter(0,0.3)
+		&:last-of-type	
+			+make-column(3.5)
+			+make-gutter(0,0)	
 
 .field
 	input, select, textarea

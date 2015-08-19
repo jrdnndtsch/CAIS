@@ -1,0 +1,20 @@
+@import variables/colors
+@import mixins/grid
+
+#single-school
+	h2, a
+		:color $red	
+	h2
+		:margin 6px 0	
+	a
+		:text-decoration none
+		:margin-bottom 6px
+		:display inline-block
+		&:hover
+			:text-decoration underline 
+.school-single
+	&__profile
+		+make-column(7)
+	&__summary
+		p 
+			:margin 0 0 6px 0

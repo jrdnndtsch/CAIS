@@ -4,6 +4,9 @@ class SchoolsController < ApplicationController
 
   def compare 
     @schools = School.all
+    # if param[:is_checked]
+    #   @compared = param[:is_checked]
+    # end  
   end
   # GET /schools
   # GET /schools.json

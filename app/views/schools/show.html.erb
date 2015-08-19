@@ -1,172 +1,173 @@
 <p id="notice"><%= notice %></p>
+<div class="container" id="single-school">
+  <div class="school-single__profile">
+    <div class="school-single__summary">
+      <h2><%= @school.name %></h2>
+      <p><%= @school.street_address %></p>
+      <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
+      <%= link_to @school.website_url, "http://#{@school.website_url}" %>
+      <p><%= @school.student_body %></p>
+    </div>  
 
-<h1><%= @school.name %><h1>
+    <p>
+      <%= @school.description %>
+    </p>
 
-<p><%= @school.street_address %></p>
-<p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
-
-<%= link_to @school.website_url, "http://#{@school.website_url}" %>
-
-<p><%= @school.student_body %></p>
-
-<h3>Description</h3>
-<p>
-  <%= @school.description %>
-</p>
-
-<p>
-  <strong>Contact email:</strong>
-  <%= @school.contact_email %>
-</p>
-
-
-<p>
-  <strong>Girls boarding:</strong>
-  <%= @school.girls_boarding %>
-</p>
-
-<p>
-  <strong>Girls day:</strong>
-  <%= @school.girls_day %>
-</p>
-
-<p>
-  <strong>Boys boarding:</strong>
-  <%= @school.boys_boarding %>
-</p>
-
-<p>
-  <strong>Boys day:</strong>
-  <%= @school.boys_day %>
-</p>
-
-<p>
-  <strong>Campus size:</strong>
-  <%= @school.campus_size %>
-</p>
-
-<p>
-  <strong>Year founded:</strong>
-  <%= @school.year_founded %>
-</p>
-
-<p>
-  <strong>Average class size:</strong>
-  <%= @school.average_class_size %>
-</p>
-
-<p>
-  <strong>Student teacher ratio:</strong>
-  <%= @school.student_teacher_ratio %>
-</p>
-
-<p>
-  <strong>Dress code:</strong>
-  <%= @school.dress_code %>
-</p>
+    <p>
+      <strong>Contact email:</strong>
+      <%= @school.contact_email %>
+    </p>
 
 
+    <p>
+      <strong>Girls boarding:</strong>
+      <%= @school.girls_boarding %>
+    </p>
 
-<p>
-  <strong>Seven day tuition:</strong>
-  <%= @school.seven_day_tuition %>
-</p>
+    <p>
+      <strong>Girls day:</strong>
+      <%= @school.girls_day %>
+    </p>
 
-<p>
-  <strong>Five day tuition:</strong>
-  <%= @school.five_day_tuition %>
-</p>
+    <p>
+      <strong>Boys boarding:</strong>
+      <%= @school.boys_boarding %>
+    </p>
 
-<p>
-  <strong>Boarding grades:</strong>
-  <%= @school.boarding_grades %>
-</p>
+    <p>
+      <strong>Boys day:</strong>
+      <%= @school.boys_day %>
+    </p>
 
-<p>
-  <strong>Day grades:</strong>
-  <%= @school.day_grades %>
-</p>
+    <p>
+      <strong>Campus size:</strong>
+      <%= @school.campus_size %>
+    </p>
 
-<p>
-  <strong>Day tuition:</strong>
-  <%= @school.day_tuition %>
-</p>
+    <p>
+      <strong>Year founded:</strong>
+      <%= @school.year_founded %>
+    </p>
 
-<p>
-  <strong>Accreditations:</strong>
-  <%= @school.accreditations %>
-</p>
+    <p>
+      <strong>Average class size:</strong>
+      <%= @school.average_class_size %>
+    </p>
 
-<p>
-  <strong>Advanced placement:</strong>
-  <%= @school.advanced_placement %>
-</p>
+    <p>
+      <strong>Student teacher ratio:</strong>
+      <%= @school.student_teacher_ratio %>
+    </p>
 
-<p>
-  <strong>International bac:</strong>
-  <%= @school.international_bac %>
-</p>
+    <p>
+      <strong>Dress code:</strong>
+      <%= @school.dress_code %>
+    </p>
 
-<p>
-  <strong>Payment plans:</strong>
-  <%= @school.payment_plans %>
-</p>
 
-<p>
-  <strong>Need based aid:</strong>
-  <%= @school.need_based_aid %>
-</p>
 
-<p>
-  <strong>Merit scholarships:</strong>
-  <%= @school.merit_scholarships %>
-</p>
+    <p>
+      <strong>Seven day tuition:</strong>
+      <%= number_to_currency(@school.seven_day_tuition)  %>
+    </p>
 
-<div>
-  <h2>Arts & Athletics</h2>
+    <p>
+      <strong>Five day tuition:</strong>
+      <%= number_to_currency(@school.five_day_tuition) %>
+    </p>
 
-  <h3>Recreational Sports</h3>
-  <ul>
-    <% @school.recreational_sports.each do |recreation| %>
-      <li><%= recreation.activity%></li>
-    <% end %>   
-  </ul>
+    <p>
+      <strong>Boarding grades:</strong>
+      <%= @school.boarding_grades %>
+    </p>
 
-  <h3>Interscholastic Sports</h3>
-  <ul>
-    <% @school.interscholastic_sports.each do |recreation|%>
-      <li><%= recreation.activity%></li>
-    <% end %>
-  </ul>
+    <p>
+      <strong>Day grades:</strong>
+      <%= @school.day_grades %>
+    </p>
 
-  <h3>Arts</h3>
-  <ul>
-    <% @school.arts.each do |recreation|%>
-      <li><%= recreation.activity%></li>
-    <% end %>
-  </ul>
+    <p>
+      <strong>Day tuition:</strong>
+      <%= number_to_currency(@school.day_tuition) %>
+    </p>
 
-</div>
+    <p>
+      <strong>Accreditations:</strong>
+      <%= @school.accreditations %>
+    </p>
 
-<div>
-  <ul>
-  <% @school.academics.each do |academic| %>
-    <li>academic <%= academic.course%></li>
-  <% end %>
-    
-  </ul>
+    <p>
+      <strong>Advanced placement:</strong>
+      <%= @school.advanced_placement %>
+    </p>
 
-</div>
+    <p>
+      <strong>International bac:</strong>
+      <%= @school.international_bac %>
+    </p>
 
-<div>
-  <ul>
-  <% @school.campus.each do |campu| %>
-    <li>campu <%= campu.feature%></li>
-  <% end %>
-    
-  </ul>
+    <p>
+      <strong>Payment plans:</strong>
+      <%= @school.payment_plans %>
+    </p>
 
-</div>
+    <p>
+      <strong>Need based aid:</strong>
+      <%= @school.need_based_aid %>
+    </p>
+
+    <p>
+      <strong>Merit scholarships:</strong>
+      <%= @school.merit_scholarships %>
+    </p>
+
+    <div>
+      <h2>Arts & Athletics</h2>
+
+      <h3>Recreational Sports</h3>
+      <ul>
+        <% @school.recreational_sports.each do |recreation| %>
+          <li><%= recreation.activity%></li>
+        <% end %>   
+      </ul>
+
+      <h3>Interscholastic Sports</h3>
+      <ul>
+        <% @school.interscholastic_sports.each do |recreation|%>
+          <li><%= recreation.activity%></li>
+        <% end %>
+      </ul>
+
+      <h3>Arts</h3>
+      <ul>
+        <% @school.arts.each do |recreation|%>
+          <li><%= recreation.activity%></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+    <div>
+      <ul>
+      <% @school.academics.each do |academic| %>
+        <li>academic <%= academic.course%></li>
+      <% end %>
+        
+      </ul>
+
+    </div>
+
+    <div>
+      <ul>
+      <% @school.campus.each do |campu| %>
+        <li>campu <%= campu.feature%></li>
+      <% end %>
+        
+      </ul>
+
+    </div>
+  </div>  
+</div>  
 
 
 <%= link_to 'Edit', edit_school_path(@school) %> |
