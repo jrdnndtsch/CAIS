@@ -2,6 +2,13 @@
 
 <h1>Listing Schools</h1>
 
+<div id="compare-space">
+  <%= render 'compare_list'%>
+</div>
+
+<%= params[:is_checked] %>
+
+
 <table>
   <thead>
     <tr>
@@ -108,15 +115,12 @@ $(document).ready(function() {
 
     console.log("sending this: " +checked_array)
       $.ajax({
-        url: '/schools/compare',
+        url: 'schools',
         type: "get",
         data: { 
-          is_checked : checked_array,
-          _method: 'get'
+          is_checked : checked_array
         },
-         success: function(data){
-          console.log(data)
-         }
+        dataType: "script"
       });
 
     
