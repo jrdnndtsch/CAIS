@@ -1,9 +1,9 @@
 <div class="container" id="compare">
 	<%= @compared %>
 	<h1>Compare Schools</h1>
-	<% @school = @schools.find(10) %>
-	<% @school_two = @schools.find(11) %>
-	<% @allschools = [10, 11, 9]%>
+	<% @school = @schools.find(1) %>
+	<% @school_two = @schools.find(2) %>
+	<% @allschools = [1, 2, 4]%>
 	<% @allschools.each do |school| %>
 		<% @school = @schools.find(school) %>
 	<div class="block block--third">

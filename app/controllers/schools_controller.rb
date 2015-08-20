@@ -4,9 +4,10 @@ class SchoolsController < ApplicationController
 
   def compare 
     @schools = School.all
-    # if param[:is_checked]
-    #   @compared = param[:is_checked]
-    # end  
+    if params[:is_checked]
+      # @compared = param[:is_checked]
+      render js: "window.location.pathname='#{compare_schools_path}'" 
+    end  
   end
   # GET /schools
   # GET /schools.json
