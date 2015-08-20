@@ -1,1 +1,8 @@
 $("#compare-space>").html("<%= escape_javascript render('compare_list') %>");
+$('.compare-modal').removeClass('hidden')
+$('.content').addClass('modaled')
+
+$('.close').on('click', function(){
+   $('.compare-modal').addClass('hidden')
+   $('.content').removeClass('modaled')
+})
