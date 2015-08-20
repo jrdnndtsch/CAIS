@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :school_infos
   resources :school_infos
   resources :infos
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   resources :recreations
   resources :academics
   resources :academics
-  root 'cities#index'
+  root 'schools#index'
   resources :cities
   resources :provinces
   # The priority is based upon order of creation: first created -> highest priority.
