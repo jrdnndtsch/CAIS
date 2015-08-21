@@ -78,13 +78,13 @@ class School < ActiveRecord::Base
 		
 	end
 
-	def self.search(province_id="any")
+	def self.search(province="any", student_body, student_body_size, international_bac, advanced_placement)
 		# schools = School.order(:name)
-		schools = School.school_from_province(province_id) 
-		schools = schools.where(student_body: 'co-ed' )
-		schools = schools.where(student_body_size: 1..1000)
-		schools = schools.where(international_bac: true)
-		schools = schools.where(advanced_placement: true)
+		schools = School.school_from_province(province) 
+		schools = schools.where(student_body: student_body)
+		schools = schools.where(student_body_size: student_body_size)
+		schools = schools.where(international_bac: international_bac)
+		schools = schools.where(advanced_placement: advanced_placement)
 	end
 
 end

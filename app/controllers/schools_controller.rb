@@ -17,8 +17,15 @@ class SchoolsController < ApplicationController
   def index
     @provinces = Province.all
     @schools = School.all
-    if params[:province]
-      @schools = School.school_from_province(params[:province])
+    if params[:student_body]
+      province = params[:province]
+      student_body = params[:student_body]
+      student_body_size = params[:student_body_size]
+      international_bac = params[:international_bac]
+      advanced_placement = params[:advanced_placement]
+      @schools = School.search(province, student_body, student_body_size, international_bac, advanced_placement)
+      # @schools = School.school_from_province(params[:province])
+
       render :schools_js
     end
     if params[:is_checked]
