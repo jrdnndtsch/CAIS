@@ -47,11 +47,15 @@
 		:width 32%
 		:margin-right 1.5%
 		:display inline-block
-		// &:nth-child(3n+2)
-		// 	:margin-right 0
 		+display-for(xs)
 			:width 100%
 			:margin-right 0	
+	&--quarter
+		:width 24%
+		:margin-right 1%
+		+display-for(xs)
+			:width 100%
+			:margin-right 0				
 .last
 	:margin-right 0			
 

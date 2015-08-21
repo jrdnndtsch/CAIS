@@ -21,10 +21,13 @@
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       <br>
 
-      <%= text_field_tag 'slider-min' %>
-      <%= text_field_tag 'slider-max' %>
-    <div id="slider">
+    <h3>Number of Students</h3>
+    <div class="search-space">
+      <%= text_field_tag 'slider-min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider-max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
+        <div id="slider"></div>
+      </div>
     </div>
+
   <br>
       <%= submit_tag 'Search', remote: true %>
 
@@ -37,13 +40,12 @@
     <h1>Listing Schools</h1>
 
 
-    <%= params[:is_checked] %>
 
+    <%= params[:is_checked] %>
 
     <div id="schools-listing">
       <%= render 'schools_listing'%>
-    </div>
-
+    </div>  
 
    
 
@@ -104,7 +106,7 @@ $(document).ready(function() {
   $('.compare-btn').on('click', function(){
 
     console.log("sending this: " +checked_array)
-    console.log($('.compare-modal'))
+    console.log($('#compare'))
       $.ajax({
         url: 'schools',
         type: "get",

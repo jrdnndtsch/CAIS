@@ -2,9 +2,54 @@
 @import layout/_index
 
 #all-schools
+	.search-space
+		:padding 20px
+		+make-column(9)
+		:background white
+		:margin-bottom 25px
+		#slider
+			:width 80%
+			:margin 0 10%
+		.noUi-handle
+			:width 28px
+			:border-radius 50%
+			:left -14px
+	#schools-listing
+		+make-column(9)
+		:background white
+		:border 1px solid $mid-grey
+	.school-listing-item
+		:padding 20px 
+		&:nth-child(odd)
+			:background $light-grey
 	h2
+		:margin 6px 0
 		:color $red
 	p 
 		:margin 0 0 6px 0
 	a
-		:color $red		
+		:color $red	
+		:display block
+		:margin-bottom 12px
+	.selector
+		+make-column(1)
+		:display inline-block
+		input[type=checkbox]
+			:vertical-align middle
+	.quick-info
+		:padding-left 10px
+		+make-column(7)
+		:display inline-block
+		:vertical-align middle
+	.quick-stats
+		+make-column(4)	
+		:display inline-block
+		:vertical-align middle
+		ul 
+			:list-style none
+			:padding 0
+			span 
+				:float right
+			li 
+				:border-bottom 1px solid $mid-grey
+				:line-height 1.5			
