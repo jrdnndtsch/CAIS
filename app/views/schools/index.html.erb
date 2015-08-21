@@ -21,13 +21,12 @@
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       <br>
 
-    <h3>Number of Students</h3>
-    <div class="search-space">
-      <%= text_field_tag 'slider-min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider-max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
-        <div id="slider"></div>
-      </div>
-    </div>
-
+      <h3>Number of Students</h3>
+         <div class="search-space">
+           <%= text_field_tag 'slider-min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider-max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
+             <div id="slider"></div>
+           </div>
+         </div>
   <br>
       <%= submit_tag 'Search', remote: true %>
 
@@ -45,7 +44,14 @@
 
     <div id="schools-listing">
       <%= render 'schools_listing'%>
+<<<<<<< HEAD
     </div>  
+=======
+    </div>
+
+
+        
+>>>>>>> 34aff6ea0d1ef04e14d2a36aff141f04a1c494ff
 
    
 
