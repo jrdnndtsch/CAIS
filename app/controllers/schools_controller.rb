@@ -32,7 +32,11 @@ class SchoolsController < ApplicationController
         else
           international_bac = params[:international_bac]  
       end
-      province = params[:province]
+      if params[:province].present?
+        province = params[:province]
+      else
+        province = 'any'
+      end
       student_body = params[:student_body]
       min = params[:slider_min]
       max = params[:slider_max]

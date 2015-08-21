@@ -83,12 +83,13 @@ class School < ActiveRecord::Base
 		schools = School.school_from_province(province) 
 		schools = schools.where(student_body: student_body)
 		schools = schools.where(student_body_size: min..max)
-		if international_bac != 'no_preference'
+		if international_bac == true || international_bac == false
 			schools = schools.where(international_bac: international_bac)
 		end	
-		if advanced_placement != 'no_preference'
+		if advanced_placement == true || advanced_placement == false
 			schools = schools.where(advanced_placement: advanced_placement)
 		end
+		return schools
 	end
 
 end

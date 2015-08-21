@@ -8,7 +8,7 @@
   <%= form_tag(schools_path, :method => "get", remote: true, class: "navbar-form", id: "search-form") do %>
     <div class="input-append inline-block">
       <%= label_tag :province %>
-      <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,), prompt: "any", :class => "inline-block functional_area_filter" %>
+      <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,0), prompt: "any", :class => "inline-block functional_area_filter" %>
       <br>
 
       <%= label_tag :student_body%>
@@ -44,16 +44,10 @@
 
     <div id="schools-listing">
       <%= render 'schools_listing'%>
-<<<<<<< HEAD
-    </div>  
-=======
+
     </div>
 
 
-        
->>>>>>> 34aff6ea0d1ef04e14d2a36aff141f04a1c494ff
-
-   
 
 
     <button class="compare-btn">Compare</button>
