@@ -5,7 +5,7 @@
   </div>
 
   <h1>Search Form</h1>
-  <%= form_tag(schools_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+  <%= form_tag(schools_path, :method => "get", remote: true, class: "navbar-form", id: "search-form") do %>
     <div class="input-append inline-block">
       <%= label_tag :province %>
       <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,), prompt: "any", :class => "inline-block functional_area_filter" %>
@@ -26,7 +26,8 @@
     <div id="slider">
     </div>
   <br>
-      <input class="btn btn-default inline-block " value="Filter" type="submit"></input>
+      <%= submit_tag 'Search', remote: true%>
+      <input class="btn btn-default submit-search" value="Submit" type="submit"></input>
     </div>
   <% end %>
   <hr>
@@ -38,35 +39,11 @@
     <%= params[:is_checked] %>
 
 
+    <div id="schools-listing">
+      <%= render 'schools_listing'%>
+    </div>
 
-        <% @schools.each do |school| %>
-        <div class="selector"> 
-          <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
-        </div>
-        <div class="quick-info">
-          <h2><%= school.name %></h2>
-          <p><%= school.street_address %></p>
-          <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %></p>
-          <%= link_to school.website_url, "http://#{school.website_url}" %>
-          <%= link_to 'View Full Profile', school %>
-        </div>
-        <div class="quick-stats">
-          <ul>
-            <li>Campus Size: <span><%= school.campus_size%></span></li>
-            <li>Year Founded: <span><%= school.year_founded %></span></li>
-            <li>Student Body: <span><%= school.student_body_size %></span></li>
-            <li>Boys: <span><%= school.total_boys%></span></li>
-            <li>Girls: <span><%= school.total_girls%></span></li>
-            <li>Boarding Grades: <span><%= school.boarding_grades%></span></li>
-            <li>Day Grades: <span><%= school.day_grades%></span></li>
-          </ul>
-        </div>
-           
-         <% if user_signed_in? %>
-          <%= link_to 'Edit', edit_school_path(school) %>
-          <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
-         <% end %> 
-        <% end %>
+
    
 
 
@@ -100,6 +77,8 @@ slider.noUiSlider.on('update', function( values, handle ) {
 });
 
 </script>
+
+
 
 <script>
 $(document).ready(function() {
