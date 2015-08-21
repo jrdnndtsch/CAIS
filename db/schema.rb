@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820193314) do
+ActiveRecord::Schema.define(version: 20150821144509) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20150820193314) do
     t.integer  "city_id"
     t.integer  "school_id"
     t.integer  "info_id"
+    t.integer  "student_body_size"
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"

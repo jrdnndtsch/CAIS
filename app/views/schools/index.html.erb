@@ -1,88 +1,79 @@
 <p id="notice"><%= notice %></p>
-
-<div id="compare-space">
-  <%= render 'compare_list'%>
-</div>
-<div class="content">
-  <h1>Listing Schools</h1>
-
-  <div id="slider">
+<div class="container" id="all-schools">
+  <div id="compare-space">
+    <%= render 'compare_list'%>
   </div>
+  <div class="content">
+    <h1>Listing Schools</h1>
+    <input type="text" id="slider-min">
+    <input type="text" id="slider-max">
+    <div id="slider">
+    </div>
 
 
-  <%= params[:is_checked] %>
+    <%= params[:is_checked] %>
 
 
 
-      <% @schools.each do |school| %>
-      <div class="selector"> 
-        <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
-      </div>
-      <div class="quick-info">
-        <%= school.name %>
-        <p><%= school.street_address %></p>
-        <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %></p>
-        <%= link_to school.website_url, "http://#{school.website_url}" %>
-        <%= link_to 'View Full Profile', school %>
-      </div>
-      <div class="quick-stats">
-        <ul>
-          <li>Campus Size: <span><%= school.campus_size%></span></li>
-          <li>Year Founded: <span><%= school.year_founded %></span></li>
-          <li>Student Body: <span><%= school.student_body_size %></span></li>
-          <li>Boys: <span><%= school.total_boys%></span></li>
-          <li>Girls: <span><%= school.total_girls%></span></li>
-          <li>Boarding Grades: <span><%= school.boarding_grades%></span></li>
-          <li>Day Grades: <span><%= school.day_grades%></span></li>
-        </ul>
-      </div>
-         
-       
-        <%= link_to 'Edit', edit_school_path(school) %>
-        <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
-        
-      <% end %>
- 
+        <% @schools.each do |school| %>
+        <div class="selector"> 
+          <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
+        </div>
+        <div class="quick-info">
+          <h2><%= school.name %></h2>
+          <p><%= school.street_address %></p>
+          <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %></p>
+          <%= link_to school.website_url, "http://#{school.website_url}" %>
+          <%= link_to 'View Full Profile', school %>
+        </div>
+        <div class="quick-stats">
+          <ul>
+            <li>Campus Size: <span><%= school.campus_size%></span></li>
+            <li>Year Founded: <span><%= school.year_founded %></span></li>
+            <li>Student Body: <span><%= school.student_body_size %></span></li>
+            <li>Boys: <span><%= school.total_boys%></span></li>
+            <li>Girls: <span><%= school.total_girls%></span></li>
+            <li>Boarding Grades: <span><%= school.boarding_grades%></span></li>
+            <li>Day Grades: <span><%= school.day_grades%></span></li>
+          </ul>
+        </div>
+           
+         <% if user_signed_in? %>
+          <%= link_to 'Edit', edit_school_path(school) %>
+          <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+         <% end %> 
+        <% end %>
+   
 
 
-  <button class="compare-btn">Compare</button>
-  <br>
-<%= link_to 'New School', new_school_path %>
+    <button class="compare-btn">Compare</button>
+    <br>
+  <%= link_to 'New School', new_school_path %>
+  </div>
 </div>
-
 <script>
-  var slider = document.getElementById('slider');
+var slider = document.getElementById('slider');
 
   noUiSlider.create(slider, {
-    start: [20, 80],
+    start: [0, 2000],
     step: 1,
     connect: true,
     range: {
       'min': 0,
-      'max': 100
+      'max': 2000
     }
   });
 
   var inputNumber = document.getElementById('input-number');
 
-  html5Slider.noUiSlider.on('update', function( values, handle ) {
-
-    var value = values[handle];
-
-    if ( handle ) {
-      inputNumber.value = value;
-    } else {
-      select.value = Math.round(value);
-    }
-  });
-
-  select.addEventListener('change', function(){
-    html5Slider.noUiSlider.set([this.value, null]);
-  });
-
-  inputNumber.addEventListener('change', function(){
-    html5Slider.noUiSlider.set([null, this.value]);
-  });
+slider.noUiSlider.on('update', function( values, handle ) {
+  var num = slider.noUiSlider.get()
+  var min = Math.floor(num[0])
+  var max = Math.floor(num[1])
+   
+  $('#slider-min').attr('value', min)
+  $('#slider-max').attr('value', max)
+});
 
 </script>
 
