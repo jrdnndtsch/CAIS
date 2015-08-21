@@ -6,7 +6,8 @@
 <div class="content">
   <h1>Listing Schools</h1>
 
-  <input type="range"  min="0" max="100" />
+  <div id="slider">
+  </div>
 
 
   <%= params[:is_checked] %>
@@ -49,6 +50,41 @@
 <%= link_to 'New School', new_school_path %>
 </div>
 
+<script>
+  var slider = document.getElementById('slider');
+
+  noUiSlider.create(slider, {
+    start: [20, 80],
+    step: 1,
+    connect: true,
+    range: {
+      'min': 0,
+      'max': 100
+    }
+  });
+
+  var inputNumber = document.getElementById('input-number');
+
+  html5Slider.noUiSlider.on('update', function( values, handle ) {
+
+    var value = values[handle];
+
+    if ( handle ) {
+      inputNumber.value = value;
+    } else {
+      select.value = Math.round(value);
+    }
+  });
+
+  select.addEventListener('change', function(){
+    html5Slider.noUiSlider.set([this.value, null]);
+  });
+
+  inputNumber.addEventListener('change', function(){
+    html5Slider.noUiSlider.set([null, this.value]);
+  });
+
+</script>
 
 <script>
 $(document).ready(function() {
