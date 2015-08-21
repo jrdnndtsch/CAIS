@@ -1,5 +1,6 @@
 class School < ActiveRecord::Base
 	STUDENT_BODY = %w[ co-ed boys gilrs ]
+	TRUE_FALSE = %w[ no_preference true false]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
 	has_many :school_campus
@@ -39,9 +40,9 @@ class School < ActiveRecord::Base
 		return array
 	end
 
-	def student_body_size
-		self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day
-	end
+	# def student_body_size
+	# 	self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day
+	# end
 
 	def total_boarding
 		self.girls_boarding + self.boys_boarding
@@ -67,12 +68,23 @@ class School < ActiveRecord::Base
 		(self.total_boys.to_f/self.student_body_size.to_f) * 100
 	end
 
-	def self.search
-		# schools = School.order(:name)
-		schools = School.joins(:city).where(cities: {province_id: 2}) 
-		schools = schools.where("student_body == ?", 'co-ed' )
-		schools = schools.where(student_body_size: 1..100)
+	def self.school_from_province(province_id="any")
+
+		if province_id == 'any'
+			return School.all
+		else
+			return School.joins(:city).where(cities: {province_id: province_id})
+		end
 		
+	end
+
+	def self.search(province_id="any")
+		# schools = School.order(:name)
+		schools = School.school_from_province(province_id) 
+		schools = schools.where(student_body: 'co-ed' )
+		schools = schools.where(student_body_size: 1..1000)
+		schools = schools.where(international_bac: true)
+		schools = schools.where(advanced_placement: true)
 	end
 
 end
