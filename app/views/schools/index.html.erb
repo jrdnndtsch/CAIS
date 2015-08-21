@@ -22,7 +22,7 @@
       <br>
       <h3>Number of Students</h3>
          <div class="search-space">
-           <%= text_field_tag 'slider-min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider-max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
+           <%= text_field_tag 'slider_min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider_max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
              <div id="slider"></div>
            </div>
          </div>
@@ -75,8 +75,8 @@ slider.noUiSlider.on('update', function( values, handle ) {
   var min = Math.floor(num[0])
   var max = Math.floor(num[1])
    
-  $('#slider-min').attr('value', min)
-  $('#slider-max').attr('value', max)
+  $('#slider_min').attr('value', min)
+  $('#slider_max').attr('value', max)
 });
 
 </script>

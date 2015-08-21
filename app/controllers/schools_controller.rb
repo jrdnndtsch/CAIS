@@ -18,12 +18,25 @@ class SchoolsController < ApplicationController
     @provinces = Province.all
     @schools = School.all
     if params[:student_body]
+      if params[:advanced_placement] == 'true'
+         advanced_placement = true
+        elsif params[:advanced_placement] == 'false'
+          advanced_placement = false
+        else
+          advanced_placement = params[:advanced_placement]  
+      end
+      if params[:international_bac] == 'true'
+         international_bac = true
+        elsif params[:international_bac] == 'false'
+          international_bac = false
+        else
+          international_bac = params[:international_bac]  
+      end
       province = params[:province]
       student_body = params[:student_body]
-      student_body_size = params[:student_body_size]
-      international_bac = params[:international_bac]
-      advanced_placement = params[:advanced_placement]
-      @schools = School.search(province, student_body, student_body_size, international_bac, advanced_placement)
+      min = params[:slider_min]
+      max = params[:slider_max]
+      @schools = School.search(province, student_body, min, max, international_bac, advanced_placement)
       # @schools = School.school_from_province(params[:province])
 
       render :schools_js
