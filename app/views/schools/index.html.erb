@@ -3,12 +3,36 @@
   <div id="compare-space">
     <%= render 'compare_list'%>
   </div>
-  <div class="content">
-    <h1>Listing Schools</h1>
-    <input type="text" id="slider-min">
-    <input type="text" id="slider-max">
+
+  <h1>Search Form</h1>
+  <%= form_tag(schools_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+    <div class="input-append inline-block">
+      <%= label_tag :province %>
+      <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,), prompt: "any", :class => "inline-block functional_area_filter" %>
+      <br>
+
+      <%= label_tag :student_body%>
+       <%= select_tag :student_body, options_for_select(School::STUDENT_BODY.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>  
+        <br>
+       <%= label_tag :international_baccalaureate%>
+       <%= select_tag :international_bac, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
+      <br>
+      <%= label_tag :advanced_placement%>
+       <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
+      <br>
+
+      <%= text_field_tag 'slider-min' %>
+      <%= text_field_tag 'slider-max' %>
     <div id="slider">
     </div>
+  <br>
+      <input class="btn btn-default inline-block " value="Filter" type="submit"></input>
+    </div>
+  <% end %>
+  <hr>
+
+  <div class="content">
+    <h1>Listing Schools</h1>
 
 
     <%= params[:is_checked] %>

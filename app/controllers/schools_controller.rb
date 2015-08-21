@@ -15,6 +15,7 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
+    @provinces = Province.all
     @schools = School.all
     if params[:is_checked]
       @stuff = "stuff"
