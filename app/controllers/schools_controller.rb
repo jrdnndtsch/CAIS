@@ -16,10 +16,13 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @provinces = Province.all
-    @schools = School.all
+    
     if params[:province]
       @schools = School.school_from_province(params[:province])
+      # raise "hell"
       render :schools_js
+    else
+      @schools = School.all
     end
     if params[:is_checked]
       @stuff = "stuff"

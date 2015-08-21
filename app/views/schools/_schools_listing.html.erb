@@ -1,28 +1,28 @@
         <% @schools.each do |school| %>
-        <div class="selector"> 
-          <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
-        </div>
-        <div class="quick-info">
-          <h2><%= school.name %></h2>
-          <p><%= school.street_address %></p>
-          <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %></p>
-          <%= link_to school.website_url, "http://#{school.website_url}" %>
-          <%= link_to 'View Full Profile', school %>
-        </div>
-        <div class="quick-stats">
-          <ul>
-            <li>Campus Size: <span><%= school.campus_size%></span></li>
-            <li>Year Founded: <span><%= school.year_founded %></span></li>
-            <li>Student Body: <span><%= school.student_body_size %></span></li>
-            <li>Boys: <span><%= school.total_boys%></span></li>
-            <li>Girls: <span><%= school.total_girls%></span></li>
-            <li>Boarding Grades: <span><%= school.boarding_grades%></span></li>
-            <li>Day Grades: <span><%= school.day_grades%></span></li>
-          </ul>
-        </div>
-           
-         <% if user_signed_in? %>
-          <%= link_to 'Edit', edit_school_path(school) %>
-          <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
-         <% end %> 
+          <div class="selector"> 
+            <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
+          </div>
+          <div class="quick-info">
+            <h2><%= school.name %></h2>
+            <p><%= school.street_address %></p>
+            <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %></p>
+            <%= link_to school.website_url, "http://#{school.website_url}" %>
+            <%= link_to 'View Full Profile', school %>
+          </div>
+          <div class="quick-stats">
+            <ul>
+              <li>Campus Size: <span><%= school.campus_size%></span></li>
+              <li>Year Founded: <span><%= school.year_founded %></span></li>
+              <li>Student Body: <span><%= school.student_body_size %></span></li>
+              <li>Boys: <span><%= school.total_boys%></span></li>
+              <li>Girls: <span><%= school.total_girls%></span></li>
+              <li>Boarding Grades: <span><%= school.boarding_grades%></span></li>
+              <li>Day Grades: <span><%= school.day_grades%></span></li>
+            </ul>
+          </div>
+             
+           <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_school_path(school) %>
+            <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+           <% end %> 
         <% end %>
