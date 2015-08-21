@@ -5,7 +5,7 @@
   </div>
 
   <h1>Search Form</h1>
-  <%= form_tag(schools_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+  <%= form_tag(schools_path, :method => "get", remote: true, class: "navbar-form", id: "search-form") do %>
     <div class="input-append inline-block">
       <%= label_tag :province %>
       <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,), prompt: "any", :class => "inline-block functional_area_filter" %>
@@ -30,7 +30,8 @@
       </div>
     </div>
   <br>
-      <input class="btn btn-default inline-block " value="Filter" type="submit"></input>
+      <%= submit_tag 'Search', remote: true%>
+      <input class="btn btn-default submit-search" value="Submit" type="submit"></input>
     </div>
   <% end %>
   <hr>
@@ -41,6 +42,10 @@
 
 
     <%= params[:is_checked] %>
+
+    <div id="schools-listing">
+      <%= render 'schools_listing'%>
+    </div>
 
 
         <div class="school-listing">
@@ -74,6 +79,7 @@
          <% end %> 
         <% end %>
       </div>   
+
    
 
 
@@ -107,6 +113,8 @@ slider.noUiSlider.on('update', function( values, handle ) {
 });
 
 </script>
+
+
 
 <script>
 $(document).ready(function() {

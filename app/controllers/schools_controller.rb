@@ -17,6 +17,10 @@ class SchoolsController < ApplicationController
   def index
     @provinces = Province.all
     @schools = School.all
+    if params[:province]
+      @schools = School.school_from_province(params[:province])
+      render :schools_js
+    end
     if params[:is_checked]
       @stuff = "stuff"
       @compared = params[:is_checked]
