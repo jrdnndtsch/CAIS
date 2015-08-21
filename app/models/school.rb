@@ -72,6 +72,7 @@ class School < ActiveRecord::Base
 		schools = School.joins(:city).where(cities: {province_id: 2}) 
 		schools = schools.where("student_body == ?", 'co-ed' )
 		schools = schools.where(student_body_size: 1..100)
+		
 	end
 
 end
