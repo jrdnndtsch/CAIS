@@ -38,9 +38,13 @@
         <%= f.label :contact_email %>
         <%= f.text_field :contact_email %>
       </div>
-      <div class="field">
+      <div class="field field--half">
         <%= f.label :student_body %>
         <%= f.collection_select :student_body, School::STUDENT_BODY, :to_s, :humanize %>
+      </div><!--
+      *--><div class="field field--half last">
+        <%= f.label :student_body_size %>
+        <%= f.text_field :student_body_size %>
       </div>
       <div class="field">
         <%= f.label :description %>
