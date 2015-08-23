@@ -4,35 +4,39 @@
     <%= render 'compare_list'%>
   </div>
 
-  <h1>Search Form</h1>
-  <%= form_tag(schools_path, :method => "get", remote: true, class: "navbar-form", id: "search-form") do %>
-    <div class="input-append inline-block">
-      <%= label_tag :province %>
-      <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,0), prompt: "any", :class => "inline-block functional_area_filter" %>
-      <br>
-
-      <%= label_tag :student_body%>
-       <%= select_tag :student_body, options_for_select(School::STUDENT_BODY.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>  
-        <br>
+  <div class="search-space">
+    <h2>Find Your School</h2>
+    <div class="quick-search">
+      <%= form_tag(schools_path, :method => "get", remote: true, class: "navbar-form", id: "search-form") do %>
+      <div class="option">
+        <label for="province">I want to go to a school in</label>
+        <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,0), prompt: "Any Province", :class => "inline-block functional_area_filter" %>
+      </div>
+      <div class="option">
+        <p class="slider-text">My school should be between <%= text_field_tag 'slider_min', nil, class: 'select-num' %> and  <%= text_field_tag 'slider_max', nil, class: 'select-num' %> students</p><!--  
+        *--><div id="slider"></div>
+      </div> 
+      <div class="option">
+        <label for="student_body">The student body should be</label>
+        <%= select_tag :student_body, options_for_select(School::STUDENT_BODY.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>  
+      </div>
+      <p class="show-advanced-search option">Show Advanced Options</p>
+    </div>
+    <div class="advanced-search hidden">
+      <div class="option">
        <%= label_tag :international_baccalaureate%>
        <%= select_tag :international_bac, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
-      <br>
+      </div> 
+      <div class="option">
       <%= label_tag :advanced_placement%>
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
-      <br>
-
-      <h3>Number of Students</h3>
-         <div class="search-space">
-           <%= text_field_tag 'slider_min', nil, class: 'field--quarter' %><!--*--><%= text_field_tag 'slider_max', nil, class: 'field--quarter' %><!--*--><div class="field--half last">
-             <div id="slider"></div>
-           </div>
-         </div>
-  <br>
+      </div> 
+    </div>  
       <%= submit_tag 'Search', remote: true %>
-
-      <input class="btn btn-default submit-search" value="Submit" type="submit"></input>
-    </div>
+<!-- 
+      <input class="btn btn-default submit-search" value="Submit" type="submit"></input> -->
   <% end %>
+  </div>
   <hr>
 
   <div class="content">
@@ -79,6 +83,11 @@ slider.noUiSlider.on('update', function( values, handle ) {
   $('#slider_max').attr('value', max)
 });
 
+$('#slider_min, #slider_max').on('change', function(){
+  num = $(this).val()
+  slider.noUiSlider.set(num)
+})
+
 </script>
 
 
@@ -124,4 +133,12 @@ $(document).ready(function() {
 
           console.log("saved?")
     });
+</script>
+
+<script>
+  $('.show-advanced-search').on('click', function(){
+    $(this).css('display', 'none')
+    $('.advanced-search').removeClass('hidden')
+
+  })
 </script>
