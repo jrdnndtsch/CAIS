@@ -24,12 +24,13 @@
             <li>Day Grades: <span><%= school.day_grades%></span></li>
           </ul>
         </div>
-        </div>
-           
            <% if user_signed_in? %>
+           <div class="edit">
             <%= link_to 'Edit', edit_school_path(school) %>
-            <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
            <% end %> 
+        </div>
         <% end %>
         <% end %>
         </div>

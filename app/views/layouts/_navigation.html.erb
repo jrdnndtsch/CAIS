@@ -1,0 +1,61 @@
+<div class="navigation">
+	<div class="logo">
+		<img src="./images/cais-logo.png" alt="">
+	</div><!--
+	*--><div class="site-nav-container">
+	<ul class="site-nav">
+		<li class="dropdown">
+			<a href="#" >About</a>
+			<ul class="sub-menu nav-about hidden">
+				<li><a href="#">Why Boarding?</a></li>
+				<li><a href="#">Why Canada?</a></li>
+				<li><a href="#">Why CAIS?</a></li>
+				<li><a href="#">International Agents</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<a href="#" >Students</a>
+			<ul class="sub-menu nav-students hidden">
+				<li><a href="#">A School for You</a></li>
+				<li><a href="#">What's Boarding?</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<a href="#" >Parents</a>
+			<ul class="sub-menu nav-parents hidden">
+				<li><a href="#">Boarding Advantages</a></li>
+				<li><a href="#">Boarding Myths Busted</a></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<a href="#" class="selected">Find Your School</a>
+			<ul class="sub-menu nav-finder hidden">
+				<li><a href="#">Find Your School</a></li>
+				<li><a href="#">Summer Programs</a></li>
+				<li><a href="#">Schools By Province</a></li>
+				<li><a href="#">Events</a></li>
+			</ul>
+		</li>
+		<li><a href="#">How to Apply & Fees</a></li>
+		<li ><a href="#" class="last">Request Information</a></li>
+	</ul>
+	</div><!--
+	*--><ul class="social-nav">
+		<li><a href="#" class="fa fa-facebook"><i></i></a></li>
+		<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+		<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+		<li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+	</ul>
+</div>
+
+<script>
+	$('.dropdown').on('mouseenter', function(){
+		sub = $(this).children('.sub-menu')
+		sub.removeClass('hidden')
+	})
+	$('.dropdown').on('mouseleave', function(){
+		sub = $(this).children('.sub-menu')
+		sub.addClass('hidden')
+	})
+</script>
