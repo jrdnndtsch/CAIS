@@ -122,48 +122,44 @@
     </p>
 
     <div>
-      <h2>Arts & Athletics</h2>
 
-      <h3>Recreational Sports</h3>
+
+      <h2>Academics</h2>
       <ul>
-        <% @school.recreational_sports.each do |recreation| %>
-          <li><%= recreation.activity%></li>
-        <% end %>   
-      </ul>
-
-      <h3>Interscholastic Sports</h3>
-      <ul>
-        <% @school.interscholastic_sports.each do |recreation|%>
-          <li><%= recreation.activity%></li>
-        <% end %>
-      </ul>
-
-      <h3>Arts</h3>
-      <ul>
-        <% @school.arts.each do |recreation|%>
-          <li><%= recreation.activity%></li>
-        <% end %>
-      </ul>
-
-    </div>
-
-    <div>
-      <ul>
-      <% @school.academics.each do |academic| %>
-        <li>academic <%= academic.course%></li>
+      <% @school.amenity_type(@school, "academics").each do |a|%>
+          <li> <h3><%= a.academic.subject %></h3> </li>
+          <ul>
+            <% @school.amenity_detail_list(@school, "academics", a.academic.id).each do |detail|%>
+            <li><%= detail.academic.course %></li>
+            <% end %>
+          </ul>
       <% end %>
-        
       </ul>
 
-    </div>
-
-    <div>
+      <h2>Recreations</h2>
       <ul>
-      <% @school.campus.each do |campu| %>
-        <li>campu <%= campu.feature%></li>
+      <% @school.amenity_type(@school, "recreations").each do |a|%>
+          <li> <h3><%= a.recreation.recreation_type %></h3> </li>
+          <ul>
+            <% @school.amenity_detail_list(@school, "recreations", a.recreation.id).each do |detail|%>
+            <li><%= detail.recreation.activity %></li>
+            <% end %>
+          </ul>
       <% end %>
-        
       </ul>
+
+      <h2>Campus</h2>
+      <ul>
+      <% @school.amenity_type(@school, "campus").each do |a|%>
+          <li> <h3><%= a.campu.campu_type %></h3> </li>
+          <ul>
+            <% @school.amenity_detail_list(@school, "campus", a.campu.id).each do |detail|%>
+            <li><%= detail.campu.feature %></li>
+            <% end %>
+          </ul>
+      <% end %>
+      </ul>
+
 
     </div>
   </div>  

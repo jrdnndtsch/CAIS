@@ -10,6 +10,16 @@ class School < ActiveRecord::Base
 	belongs_to :city
 	delegate :province, :to => :city
 
+	def amenity_type(school, amenity)
+		school.send("school_"+amenity)
+	end
+
+
+	def amenity_detail_list(school,amenity, amenity_type_id)
+		amen = amenity.singularize
+		school.send("school_"+amenity).where(amen => amenity_type_id)
+	end
+
 	def arts
 		array = []
 		self.school_recreations.each do |recreation|
