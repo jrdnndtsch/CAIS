@@ -94,7 +94,7 @@ $('#slider_min, #slider_max').on('change', function(){
 <script>
 $(document).ready(function() {
   var checked_array = []
-  $('.check').on('change', function(){
+$(document).on('change', '.check', function(){
     checked_array = []
     console.log("changed")
     console.log($(this).is(':checked'))
@@ -108,8 +108,8 @@ $(document).ready(function() {
     });
 
     console.log(checked_array)
+});
 
-  });
 
   $('.compare-btn').on('click', function(){
 
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
 
           console.log("saved?")
-    });
+});
 </script>
 
 <script>
