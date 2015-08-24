@@ -157,3 +157,304 @@ caa = Campu.create!(
 cab = Campu.create!(
 	campu_type: "Clubs & Organizations",
 	feature: "Game Room")
+
+isa = Recreation.create!(
+	recreation_type: "Interscholastic Sports",
+	activity: "Aerobics")
+isb = Recreation.create!(
+	recreation_type: "Interscholastic Sports",
+	activity: "Canoeing")
+rsa = Recreation.create!(
+	recreation_type: "Recreational Sports",
+	activity: "Golf")
+rsb = Recreation.create!(
+	recreation_type: "Recreational Sports",
+	activity: "Soccor")
+ara = Recreation.create!(
+	recreation_type: "Arts",
+	activity: "Choir")
+arb = Recreation.create!(
+	recreation_type: "Arts",
+	activity: "Jazz Ensemble")
+
+school1 = School.create!(
+	name: "First School",
+	street_address: "123 Main Street",
+	postal_code: "A1B 2C3",
+	website_url: "www.example.com",
+	contact_email: "email@example.com",
+	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod gravida interdum. Nulla ut luctus diam. Phasellus volutpat vestibulum augue eget rhoncus. Ut vestibulum dignissim risus vitae sagittis. Donec vel tincidunt massa. Curabitur interdum condimentum malesuada. Vestibulum rutrum vehicula metus quis varius. Ut blandit urna id massa tincidunt feugiat. Proin pellentesque, sem vel lobortis ultrices, lectus risus pretium metus, id egestas ex lacus sed sem. Proin tempor eu elit non bibendum.",
+	girls_boarding: 	56,
+	girls_day:   		74,
+	boys_boarding:		68,
+	boys_day:    		50,
+	campus_size: 		30,
+	year_founded:		1872,
+	average_class_size: 9,
+	student_teacher_ratio: 7,
+	dress_code:			false,
+	student_body: 		'co-ed',
+	seven_day_tuition:	60000,
+	five_day_tuition:	30000,
+	boarding_grades:	"k-12",
+	day_grades:			"k-12",
+	day_tuition: 		5000,
+	accreditations:		"CAIS",
+	advanced_placement: true,
+	international_bac:	true,
+	payment_plans:		true,
+	need_based_aid:		true,
+	merit_scholarships:	true,
+	city: 				toronto,	
+	student_body_size: 	248
+	)
+
+school2 = School.create!(
+	name: "Second School",
+	street_address: "123 Main Street",
+	postal_code: "A1B 2C3",
+	website_url: "www.example.com",
+	contact_email: "email@example.com",
+	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod gravida interdum. Nulla ut luctus diam. Phasellus volutpat vestibulum augue eget rhoncus. Ut vestibulum dignissim risus vitae sagittis. Donec vel tincidunt massa. Curabitur interdum condimentum malesuada. Vestibulum rutrum vehicula metus quis varius. Ut blandit urna id massa tincidunt feugiat. Proin pellentesque, sem vel lobortis ultrices, lectus risus pretium metus, id egestas ex lacus sed sem. Proin tempor eu elit non bibendum.",
+	girls_boarding: 	56,
+	girls_day:   		74,
+	boys_boarding:		0,
+	boys_day:    		0,
+	campus_size: 		30,
+	year_founded:		1872,
+	average_class_size: 9,
+	student_teacher_ratio: 7,
+	dress_code:			false,
+	student_body: 		'boys',
+	seven_day_tuition:	60000,
+	five_day_tuition:	30000,
+	boarding_grades:	"k-12",
+	day_grades:			"k-12",
+	day_tuition: 		5000,
+	accreditations:		"CAIS",
+	advanced_placement: true,
+	international_bac:	true,
+	payment_plans:		true,
+	need_based_aid:		true,
+	merit_scholarships:	true,
+	city: 				toronto,	
+	student_body_size: 	130
+	)
+
+school3 = School.create!(
+	name: "Third School",
+	street_address: "123 Main Street",
+	postal_code: "A1B 2C3",
+	website_url: "www.example.com",
+	contact_email: "email@example.com",
+	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod gravida interdum. Nulla ut luctus diam. Phasellus volutpat vestibulum augue eget rhoncus. Ut vestibulum dignissim risus vitae sagittis. Donec vel tincidunt massa. Curabitur interdum condimentum malesuada. Vestibulum rutrum vehicula metus quis varius. Ut blandit urna id massa tincidunt feugiat. Proin pellentesque, sem vel lobortis ultrices, lectus risus pretium metus, id egestas ex lacus sed sem. Proin tempor eu elit non bibendum.",
+	girls_boarding: 	56,
+	girls_day:   		74,
+	boys_boarding:		68,
+	boys_day:    		50,
+	campus_size: 		30,
+	year_founded:		1872,
+	average_class_size: 9,
+	student_teacher_ratio: 7,
+	dress_code:			false,
+	student_body: 		'co-ed',
+	seven_day_tuition:	60000,
+	five_day_tuition:	30000,
+	boarding_grades:	"k-12",
+	day_grades:			"k-12",
+	day_tuition: 		5000,
+	accreditations:		"CAIS",
+	advanced_placement: false,
+	international_bac:	true,
+	payment_plans:		true,
+	need_based_aid:		true,
+	merit_scholarships:	true,
+	city: 				montreal,	
+	student_body_size: 	248
+	)
+
+school4 = School.create!(
+	name: "Fourth School",
+	street_address: "123 Main Street",
+	postal_code: "A1B 2C3",
+	website_url: "www.example.com",
+	contact_email: "email@example.com",
+	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod gravida interdum. Nulla ut luctus diam. Phasellus volutpat vestibulum augue eget rhoncus. Ut vestibulum dignissim risus vitae sagittis. Donec vel tincidunt massa. Curabitur interdum condimentum malesuada. Vestibulum rutrum vehicula metus quis varius. Ut blandit urna id massa tincidunt feugiat. Proin pellentesque, sem vel lobortis ultrices, lectus risus pretium metus, id egestas ex lacus sed sem. Proin tempor eu elit non bibendum.",
+	girls_boarding: 	56,
+	girls_day:   		74,
+	boys_boarding:		68,
+	boys_day:    		50,
+	campus_size: 		30,
+	year_founded:		1872,
+	average_class_size: 9,
+	student_teacher_ratio: 7,
+	dress_code:			false,
+	student_body: 		'co-ed',
+	seven_day_tuition:	60000,
+	five_day_tuition:	30000,
+	boarding_grades:	"k-12",
+	day_grades:			"k-12",
+	day_tuition: 		5000,
+	accreditations:		"CAIS",
+	advanced_placement: false,
+	international_bac:	false,
+	payment_plans:		true,
+	need_based_aid:		true,
+	merit_scholarships:	true,
+	city: 				montreal,	
+	student_body_size: 	248
+	)
+school5 = School.create!(
+	name: "Fifth School",
+	street_address: "123 Main Street",
+	postal_code: "A1B 2C3",
+	website_url: "www.example.com",
+	contact_email: "email@example.com",
+	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod gravida interdum. Nulla ut luctus diam. Phasellus volutpat vestibulum augue eget rhoncus. Ut vestibulum dignissim risus vitae sagittis. Donec vel tincidunt massa. Curabitur interdum condimentum malesuada. Vestibulum rutrum vehicula metus quis varius. Ut blandit urna id massa tincidunt feugiat. Proin pellentesque, sem vel lobortis ultrices, lectus risus pretium metus, id egestas ex lacus sed sem. Proin tempor eu elit non bibendum.",
+	girls_boarding: 	260,
+	girls_day:   		340,
+	boys_boarding:		380,
+	boys_day:    		200,
+	campus_size: 		30,
+	year_founded:		1872,
+	average_class_size: 9,
+	student_teacher_ratio: 7,
+	dress_code:			false,
+	student_body: 		'co-ed',
+	seven_day_tuition:	60000,
+	five_day_tuition:	30000,
+	boarding_grades:	"k-12",
+	day_grades:			"k-12",
+	day_tuition: 		5000,
+	accreditations:		"CAIS",
+	advanced_placement: true,
+	international_bac:	false,
+	payment_plans:		true,
+	need_based_aid:		true,
+	merit_scholarships:	true,
+	city: 				calgary,	
+	student_body_size: 	1180
+	)
+
+schre1 = SchoolRecreation.create!(
+	school: school1,
+	recreation: isa
+	)
+schre2 = SchoolRecreation.create!(
+	school: school1,
+	recreation: rsa
+	)
+schre3 = SchoolRecreation.create!(
+	school: school2,
+	recreation: isa
+	)
+schre4 = SchoolRecreation.create!(
+	school: school2,
+	recreation: rsa
+	)
+schre5 = SchoolRecreation.create!(
+	school: school3,
+	recreation: isa
+	)
+schre6 = SchoolRecreation.create!(
+	school: school3,
+	recreation: rsa
+	)
+schre7 = SchoolRecreation.create!(
+	school: school4,
+	recreation: isa
+	)
+schre8 = SchoolRecreation.create!(
+	school: school4,
+	recreation: rsa
+	)
+schre9 = SchoolRecreation.create!(
+	school: school5,
+	recreation: isa
+	)
+schre10 = SchoolRecreation.create!(
+	school: school5,
+	recreation: rsa
+	)
+
+schac1 = SchoolAcademic.create!(
+	school: school1,
+	academic: csa
+	)
+schac2 = SchoolAcademic.create!(
+	school: school1,
+	academic: apa
+	)
+schac3 = SchoolAcademic.create!(
+	school: school2,
+	academic: csa
+	)
+schac4 = SchoolAcademic.create!(
+	school: school2,
+	academic: apa
+	)
+schac5 = SchoolAcademic.create!(
+	school: school3,
+	academic: csa
+	)
+schac6 = SchoolAcademic.create!(
+	school: school3,
+	academic: apa
+	)
+schac7 = SchoolAcademic.create!(
+	school: school4,
+	academic: csa
+	)
+schac8 = SchoolAcademic.create!(
+	school: school4,
+	academic: apa
+	)
+schac9 = SchoolAcademic.create!(
+	school: school5,
+	academic: csa
+	)
+schac10 = SchoolAcademic.create!(
+	school: school5,
+	academic: apa
+	)
+
+schcu1 = SchoolCampu.create!(
+	school: school1,
+	academic: cab
+	)
+schcu2 = SchoolCampu.create!(
+	school: school1,
+	academic: fab
+	)
+schcu3 = SchoolCampu.create!(
+	school: school2,
+	academic: cab
+	)
+schcu4 = SchoolCampu.create!(
+	school: school2,
+	academic: fab
+	)
+schcu5 = SchoolCampu.create!(
+	school: school3,
+	academic: cab
+	)
+schcu6 = SchoolCampu.create!(
+	school: school3,
+	academic: fab
+	)
+schcu7 = SchoolCampu.create!(
+	school: school4,
+	academic: cab
+	)
+schcu8 = SchoolCampu.create!(
+	school: school4,
+	academic: fab
+	)
+schcu9 = SchoolCampu.create!(
+	school: school5,
+	academic: cab
+	)
+schcu10 = SchoolCampu.create!(
+	school: school5,
+	academic: fab
+	)

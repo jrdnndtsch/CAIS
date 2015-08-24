@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-	STUDENT_BODY = %w[ co-ed boys gilrs ]
+	STUDENT_BODY = %w[ co-ed boys girls ]
 	TRUE_FALSE = %w[ no_preference true false]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
@@ -30,25 +30,25 @@ class School < ActiveRecord::Base
 		return array
 	end
 
-	def recreational_sports
-		array = []
-		self.school_recreations.each do |recreation|
-			if recreation.recreation.recreation_type == 'Recreational Sports'
-				array << recreation.recreation
-			end
-		end
-		return array
-	end
+	# def recreational_sports
+	# 	array = []
+	# 	self.school_recreations.each do |recreation|
+	# 		if recreation.recreation.recreation_type == 'Recreational Sports'
+	# 			array << recreation.recreation
+	# 		end
+	# 	end
+	# 	return array
+	# end
 
-	def interscholastic_sports
-		array = []
-		self.school_recreations.each do |recreation|
-			if recreation.recreation.recreation_type == 'Interscholastic Sports'
-				array << recreation.recreation
-			end
-		end
-		return array
-	end
+	# def interscholastic_sports
+	# 	array = []
+	# 	self.school_recreations.each do |recreation|
+	# 		if recreation.recreation.recreation_type == 'Interscholastic Sports'
+	# 			array << recreation.recreation
+	# 		end
+	# 	end
+	# 	return array
+	# end
 
 	# def student_body_size
 	# 	self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day
