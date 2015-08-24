@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :campus
   resources :recreations
   resources :academics
-  resources :academics
   root 'schools#index'
   resources :cities
   resources :provinces

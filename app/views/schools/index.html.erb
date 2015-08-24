@@ -32,30 +32,25 @@
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       </div> 
     </div>  
-      <%= submit_tag 'Search', remote: true %>
-<!-- 
-      <input class="btn btn-default submit-search" value="Submit" type="submit"></input> -->
+      <%= submit_tag 'Search', remote: true, id: 'editor' %>
+      <a href="#" id="reset-form">Reset</a>
   <% end %>
   </div>
   <hr>
 
   <div class="content">
-    <h1>Listing Schools</h1>
+  <button class="compare-btn">Compare Select Schools</button>
+    <br>
+  
+  <% if user_signed_in? %>
+    <%= link_to 'Add New School', new_school_path %>
+  <% end %>
 
-
-
-    <%= params[:is_checked] %>
 
     <div id="schools-listing">
       <%= render 'schools_listing'%>
     </div>
-
-
-
-
-    <button class="compare-btn">Compare</button>
-    <br>
-  <%= link_to 'New School', new_school_path %>
+    
   </div>
 </div>
 <script>
@@ -94,6 +89,17 @@ $('#slider_min, #slider_max').on('change', function(){
 <script>
 $(document).ready(function() {
   var checked_array = []
+
+// $("#editor").on("ajax:success", function(event, data, status, xhr) {
+//   console.log("ajax success!")
+//   $("#editor").html($(data).find("#editor").html());
+// });
+
+$(document).on('click', '#reset-form', function(e){
+  e.preventDefault();
+  $('#search-form')[0].reset();
+});
+
 $(document).on('change', '.check', function(){
     checked_array = []
     console.log("changed")

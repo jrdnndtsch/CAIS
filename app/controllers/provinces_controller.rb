@@ -15,6 +15,7 @@ class ProvincesController < ApplicationController
   # GET /provinces/new
   def new
     @province = Province.new
+    @provinces = Province.all
   end
 
   # GET /provinces/1/edit
