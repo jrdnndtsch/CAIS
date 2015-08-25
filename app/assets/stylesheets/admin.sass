@@ -1,0 +1,15 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import variables/colors
+@import mixins/button
+
+.list
+	&:hover
+		:color $red
+
+.admin-title
+	:color $red 
+	:text-align center
+button
+	+button-style

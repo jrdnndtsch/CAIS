@@ -29,7 +29,7 @@ class ProvincesController < ApplicationController
 
     respond_to do |format|
       if @province.save
-        format.html { redirect_to @province, notice: 'Province was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Province was successfully created.' }
         format.json { render :show, status: :created, location: @province }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProvincesController < ApplicationController
   def update
     respond_to do |format|
       if @province.update(province_params)
-        format.html { redirect_to @province, notice: 'Province was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'Province was successfully updated.' }
         format.json { render :show, status: :ok, location: @province }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ProvincesController < ApplicationController
   def destroy
     @province.destroy
     respond_to do |format|
-      format.html { redirect_to provinces_url, notice: 'Province was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Province was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

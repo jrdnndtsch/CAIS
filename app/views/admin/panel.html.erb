@@ -1,0 +1,86 @@
+<h1 class="admin-title">Hello, I'm panel</h1>
+
+<hr>
+<h2>Add A new School</h2>
+<div class="block">
+  <button class="compare-btn"><%= link_to "New School", new_school_path %></button> 
+</div>
+<hr>
+
+<h2>Add new Academics</h2>
+
+<%= render 'academics/form' %>
+
+<h3 id="academics" class="list">List of Academics</h3>
+<div id="academics-list" class="hidden">
+  <%= render 'academics/index' %>
+</div>
+
+<hr>
+
+<h2>Add new Recreation</h2>
+
+<%= render 'recreations/form' %>
+
+<h3 id="recreations" class="list">List of Recreations</h3>
+<div id="recreations-list" class="hidden">
+  <%= render 'recreations/index' %>
+</div>
+
+<hr>
+
+<h2>Add new Campu</h2>
+
+<%= render 'campus/form' %>
+
+<h3 id="campus" class="list">List of Campus</h3>
+<div id="campus-list" class="hidden">
+  <%= render 'campus/index' %>
+</div>
+
+<hr>
+
+<h2>Add new City</h2>
+
+<%= render 'cities/form' %>
+
+<h3 id="cities" class="list">List of Cities</h3>
+<div id="cities-list" class="hidden">
+  <%= render 'cities/index' %>
+</div>
+
+<hr>
+
+<h2>Add new province</h2>
+
+<%= render 'provinces/form' %>
+
+<h3 id="provinces" class="list">List of provinces</h3>
+<div id="provinces-list" class="hidden">
+  <%= render 'provinces/index' %>
+</div>
+
+<hr>
+<%= link_to "Back", schools_path %>
+
+
+<script>
+
+  $('#academics').on('click', function(){
+    $('#academics-list').toggleClass('hidden')
+  });
+  $('#recreations').on('click', function(){
+    $('#recreations-list').toggleClass('hidden')
+  });
+
+  $('#campus').on('click', function(){
+    $('#campus-list').toggleClass('hidden')
+  });
+  $('#cities').on('click', function(){
+    $('#cities-list').toggleClass('hidden')
+  });
+  $('#provinces').on('click', function(){
+    $('#provinces-list').toggleClass('hidden')
+  });
+  
+</script>
