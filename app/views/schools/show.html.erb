@@ -170,5 +170,7 @@
 </div>  
 
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_school_path(@school) %> 
+<% end %>

@@ -1,5 +1,6 @@
 @import variables/colors
 @import layout/_index
+@import mixins/button
 
 #all-schools
 	.search-space
@@ -60,7 +61,7 @@
 			:-moz-box-shadow none
 		.noUi-target	
 			:border 1px solid $mid-grey	
-		.show-advanced-search
+		.show-advanced-search, .hide-advanced-search
 			:color $red
 			:cursor pointer
 			:display inline-block
@@ -69,10 +70,14 @@
 	#schools-listing, .schools-listing
 		:background white
 		:border 1px solid $mid-grey	
+		:margin 25px 0
 	.school-listing-item
 		:padding 20px 
 		&:nth-child(odd)
 			:background $light-grey
+	.compare-btn
+		+button-style	
+		:margin-bottom 25px	
 	h2
 		:margin 6px 0
 		:color $red
