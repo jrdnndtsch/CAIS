@@ -1,8 +1,5 @@
-<p id="notice"><%= notice %></p>
+
 <div class="" id="all-schools">
-  <div id="compare-space">
-    <%= render 'compare_list'%>
-  </div>
 
   <div class="search-space">
     <h2>Find Your School</h2>
@@ -31,6 +28,7 @@
       <%= label_tag :advanced_placement%>
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       </div> 
+      <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
       <a href="#" id="reset-form">Reset</a>
@@ -39,6 +37,7 @@
   <hr>
 
   <div class="content">
+
   <button class="compare-btn">Compare Select Schools</button>
     <br>
   
@@ -50,7 +49,6 @@
     <div id="schools-listing">
       <%= render 'schools_listing'%>
     </div>
-    
   </div>
 </div>
 <script>
@@ -145,5 +143,10 @@ $(document).on('change', '.check', function(){
     $(this).css('display', 'none')
     $('.advanced-search').removeClass('hidden')
 
+  });
+
+  $('.hide-advanced-search').on('click', function(){
+    $('.advanced-search').addClass('hidden')
+    $('.show-advanced-search').css('display', 'block')
   })
 </script>

@@ -9,13 +9,14 @@
 
 </head>
 <body>
-	
-	<% if notice %>
-	  <p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	  <p class="alert alert-danger"><%= alert %></p>
-	<% end %>
+	<div id="flash">
+		<% if notice %>
+		  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
+	</div>
 	<p class="navbar-text pull-right login-bar">
 	<% if user_signed_in? %>
 	  Logged in as <strong><%= current_user.email %></strong>.
@@ -31,6 +32,11 @@
 		</div>	
 	</div>
 	<div class="container">
+		<div id="compare-space" class="hidden">
+		  <%= render 'schools/compare_list'%>
+		</div>
+	</div>
+	<div class="container page-content">
 		<div class="main-section">
 			<%= yield %>
 		</div><!--
@@ -45,3 +51,11 @@
 
 </body>
 </html>
+
+<script>
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flash').remove();
+    }, 2000);
+   })
+</script>

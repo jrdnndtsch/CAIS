@@ -1,126 +1,72 @@
-<div class="compare-modal hidden">
-
-
-	<div class="container" id="compare-list">
+<div class="compare-modal">
+	<div class="" id="compare-list">
 		<p class="close">close</p>
 		<% if @compared.present? %>
-
-		<h1>Compare Schools</h1>
 		<% @compared.each do |school| %>
 			<% @school = @schools.find(school) %>
-		<div class="block block--third">
-			<h1><%= @school.name %><h1>
-
-			<p><%= @school.street_address %></p>
-			<p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
-
-			<%= link_to @school.website_url, "http://#{@school.website_url}" %>
-
-			 <%= @school.contact_email %>
-			<p> <%= @school.description %></p>
-
-
-			 <p>
-			  <strong>Girls boarding:</strong>
-			  <%= @school.girls_boarding %>
-			</p>
-
-			<p>
-			  <strong>Girls day:</strong>
-			  <%= @school.girls_day %>
-			</p>
-
-			<p>
-			  <strong>Boys boarding:</strong>
-			  <%= @school.boys_boarding %>
-			</p>
-
-			<p>
-			  <strong>Boys day:</strong>
-			  <%= @school.boys_day %>
-			</p>
-
-			<p>
-			  <strong>Campus size:</strong>
-			  <%= @school.campus_size %>
-			</p>
-
-			<p>
-			  <strong>Year founded:</strong>
-			  <%= @school.year_founded %>
-			</p>
-
-			<p>
-			  <strong>Average class size:</strong>
-			  <%= @school.average_class_size %>
-			</p>
-
-			<p>
-			  <strong>Student teacher ratio:</strong>
-			  <%= @school.student_teacher_ratio %>
-			</p>
-
-			<p>
-			  <strong>Dress code:</strong>
-			  <%= @school.dress_code %>
-			</p>
-
-
-
-			<p>
-			  <strong>Seven day tuition:</strong>
-			  <%= number_to_currency(@school.seven_day_tuition)  %>
-			</p>
-
-			<p>
-			  <strong>Five day tuition:</strong>
-			  <%= number_to_currency(@school.five_day_tuition) %>
-			</p>
-
-			<p>
-			  <strong>Boarding grades:</strong>
-			  <%= @school.boarding_grades %>
-			</p>
-
-			<p>
-			  <strong>Day grades:</strong>
-			  <%= @school.day_grades %>
-			</p>
-
-			<p>
-			  <strong>Day tuition:</strong>
-			  <%= number_to_currency(@school.day_tuition) %>
-			</p>
-
-			<p>
-			  <strong>Accreditations:</strong>
-			  <%= @school.accreditations %>
-			</p>
-
-			<p>
-			  <strong>Advanced placement:</strong>
-			  <%= @school.advanced_placement %>
-			</p>
-
-			<p>
-			  <strong>International bac:</strong>
-			  <%= @school.international_bac %>
-			</p>
-
-			<p>
-			  <strong>Payment plans:</strong>
-			  <%= @school.payment_plans %>
-			</p>
-
-			<p>
-			  <strong>Need based aid:</strong>
-			  <%= @school.need_based_aid %>
-			</p>
-
-			<p>
-			  <strong>Merit scholarships:</strong>
-			  <%= @school.merit_scholarships %>
-			</p>
+		<div class="compare-third">
+			<div class="compare-content">
+				<div class="quick-info">
+				    <h2><%= @school.name %></h2>
+				    <p><%= @school.street_address %></p>
+				    <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
+				    <%= link_to @school.website_url, "http://#{@school.website_url}" %>
+					<p> <%= @school.description %></p>
+				</div>
+				<div class="student-pop-info">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Boarding</th>
+								<th>Day</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Girls</td>
+								<td><%= @school.girls_boarding %></td>
+								<td> <%= @school.girls_day %></td>
+								<td>girls total</td>
+							</tr>
+							<tr>
+								<td>Boys</td>
+								<td><%= @school.boys_boarding %></td>
+								<td><%= @school.boys_day %></td>
+								<td>boys total</td>
+							</tr>
+							<tr>
+								<td>Total</td>
+								<td>total </td>
+								<td>total </td>
+								<td>total</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<ul>
+					<li>Campus Size: <span><%= @school.campus_size %></span></li>
+					<li>Year Founded: <span><%= @school.year_founded %></span></li>
+					<li>Reigious Affiliation: <span></span></li>
+					<li>Average Class Size: <span><%= @school.average_class_size %></span></li>
+					<li>Student/Teacher Ratio: <span><%= @school.student_teacher_ratio %></span></li>
+					<li>Dress Code: <span><%= @school.dress_code %></span></li>
+					<li>Student Body: <span>@school.student_body</span></li>
+					<li>7-Day Boarding Tuition: <span><%= number_to_currency(@school.seven_day_tuition)  %></span></li>
+					<li>5-Day Boarding Tuition: <span><%= number_to_currency(@school.five_day_tuition) %></span></li>
+					<li>Boarding Grades: <span> <%= @school.boarding_grades %></span></li>
+					<li>Day Grades: <span><%= @school.day_grades %></span></li>
+					<li>Day Tuition: <span><%= number_to_currency(@school.day_tuition) %></span></li>
+					<li>Accredidations: <span><%= @school.accreditations %></span></li>
+					<li>Advanced Placement: <span><%= @school.advanced_placement %></span></li>
+					<li>Internati'l Baccalaureate: <span><%= @school.international_bac %></span></li>
+					<li>Payment Plans: <span><%= @school.payment_plans %></span></li>
+					<li>Need-Based Aid: <span><%= @school.need_based_aid %></span></li>
+					<li>Merit Scholarships: <span><%= @school.merit_scholarships %></span></li>
+				</ul>	
+				<%= link_to 'View Full Profile', @school %>
+			</div>		
 		</div>	
 	<% end %>
 	<% end %>

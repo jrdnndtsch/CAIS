@@ -1,14 +1,67 @@
 @import mixins/center
+@import mixins/grid
+@import variables/colors
+@import mixins/make-responsive
+#compare-space 
+
+	:position relative
+	:border-radius 3px
+	:padding 24px
+	:background-color white
+	:border 1px solid rgba(0,0,0,0.1)
+	:box-shadow 0 2px 4px rgba(0,0,0,0.1)
 .compare-modal
-	// :width 80%
-	// :margin 0 10%
-	// :height 90vh
 	:z-index 10
-	:background grey
-	:position absolute
-	// +center
+	:font-size 0
+	.compare-third
+		+make-column(3.75)
+		+make-gutter(0,0.375)
+		:display inline-block
+		:vertical-align top
+		:background $light-grey
+		:padding 12px
+		+display-for(sm xs)
+			+make-column(12)
+			+make-gutter(0,0)
+		&:nth-child(odd)
+			:background white
+		&:last-of-type
+			+make-gutter(0,0)
+		.compare-content
+			:font-size 13px
+		h2
+			:margin 6px 0
+			:color $red
+		p 
+			:margin 0 0 6px 0
+		a
+			:color $red	
+			:display block
+			:margin-bottom 12px		
+		table, th, td 
+			:border 1px solid $mid-grey
+			:text-align center	
+		table 
+			:width 100%
+			:margin-bottom 12px	
+		td, th 
+			:line-height 24px	
+		ul 
+			:list-style none
+			:margin 0
+			:padding 0
+			li 
+				:border-bottom 1px solid $mid-grey
+				:line-height 18px
+				:margin-bottom 6px
+				&:last-of-type
+					:border-bottom none	
+
+
+	
 .hidden
 	:display none
 .modaled
 	:position fixed
-	:opacity 50%	
+
+
