@@ -30,24 +30,29 @@
       </div> 
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
-      <%= submit_tag 'Search', remote: true %>
-<!-- 
-      <input class="btn btn-default submit-search" value="Submit" type="submit"></input> -->
+      <%= submit_tag 'Search', remote: true, id: 'editor' %>
+      <a href="#" id="reset-form">Reset</a>
   <% end %>
   </div>
   <hr>
 
   <div class="content">
+
     <%= params[:is_checked] %>
+
 
     <div id="schools-listing">
       <%= render 'schools_listing'%>
     </div>
 
+
     <button class="compare-btn">Compare</button>
   <% if user_signed_in? %>
   <%= link_to 'New School', new_school_path %>
   <% end %>
+
+    
+
   </div>
 </div>
 <script>
@@ -86,7 +91,18 @@ $('#slider_min, #slider_max').on('change', function(){
 <script>
 $(document).ready(function() {
   var checked_array = []
-  $('.check').on('change', function(){
+
+// $("#editor").on("ajax:success", function(event, data, status, xhr) {
+//   console.log("ajax success!")
+//   $("#editor").html($(data).find("#editor").html());
+// });
+
+$(document).on('click', '#reset-form', function(e){
+  e.preventDefault();
+  $('#search-form')[0].reset();
+});
+
+$(document).on('change', '.check', function(){
     checked_array = []
     console.log("changed")
     console.log($(this).is(':checked'))
@@ -100,8 +116,8 @@ $(document).ready(function() {
     });
 
     console.log(checked_array)
+});
 
-  });
 
   $('.compare-btn').on('click', function(){
 
@@ -123,7 +139,7 @@ $(document).ready(function() {
 
 
           console.log("saved?")
-    });
+});
 </script>
 
 <script>

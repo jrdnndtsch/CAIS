@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
     <%= f.label :course %><br>
     <%= f.text_field :course %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.collection_select :subject, Academic::SUBJECT, :to_s, :humanize %>
   </div>
   <div class="actions">
     <%= f.submit %>

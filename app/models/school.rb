@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-	STUDENT_BODY = %w[ co-ed boys gilrs ]
+	STUDENT_BODY = %w[ co-ed boys girls ]
 	TRUE_FALSE = %w[ no_preference true false]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
@@ -9,6 +9,16 @@ class School < ActiveRecord::Base
 	has_many :academics, through: :school_academics
 	belongs_to :city
 	delegate :province, :to => :city
+
+	def amenity_type(school, amenity)
+		school.send("school_"+amenity)
+	end
+
+
+	def amenity_detail_list(school,amenity, amenity_type_id)
+		amen = amenity.singularize
+		school.send("school_"+amenity).where(amen => amenity_type_id)
+	end
 
 	def arts
 		array = []
@@ -20,25 +30,25 @@ class School < ActiveRecord::Base
 		return array
 	end
 
-	def recreational_sports
-		array = []
-		self.school_recreations.each do |recreation|
-			if recreation.recreation.recreation_type == 'Recreational Sports'
-				array << recreation.recreation
-			end
-		end
-		return array
-	end
+	# def recreational_sports
+	# 	array = []
+	# 	self.school_recreations.each do |recreation|
+	# 		if recreation.recreation.recreation_type == 'Recreational Sports'
+	# 			array << recreation.recreation
+	# 		end
+	# 	end
+	# 	return array
+	# end
 
-	def interscholastic_sports
-		array = []
-		self.school_recreations.each do |recreation|
-			if recreation.recreation.recreation_type == 'Interscholastic Sports'
-				array << recreation.recreation
-			end
-		end
-		return array
-	end
+	# def interscholastic_sports
+	# 	array = []
+	# 	self.school_recreations.each do |recreation|
+	# 		if recreation.recreation.recreation_type == 'Interscholastic Sports'
+	# 			array << recreation.recreation
+	# 		end
+	# 	end
+	# 	return array
+	# end
 
 	# def student_body_size
 	# 	self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day
