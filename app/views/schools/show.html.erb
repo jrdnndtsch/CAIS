@@ -122,8 +122,6 @@
     </p>
 
     <div>
-
-
       <h2>Academics</h2>
       <ul>
       <% @school.amenity_type(@school, "academics").each do |a|%>
@@ -159,12 +157,12 @@
           </ul>
       <% end %>
       </ul>
-
-
     </div>
+    
   </div>  
 </div>  
 
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_school_path(@school) %> |
+<% end%>
 <%= link_to 'Back', schools_path %>
