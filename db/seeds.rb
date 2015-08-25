@@ -420,41 +420,41 @@ schac10 = SchoolAcademic.create!(
 
 schcu1 = SchoolCampu.create!(
 	school: school1,
-	academic: cab
+	campu: cab
 	)
 schcu2 = SchoolCampu.create!(
 	school: school1,
-	academic: fab
+	campu: fab
 	)
 schcu3 = SchoolCampu.create!(
 	school: school2,
-	academic: cab
+	campu: cab
 	)
 schcu4 = SchoolCampu.create!(
 	school: school2,
-	academic: fab
+	campu: fab
 	)
 schcu5 = SchoolCampu.create!(
 	school: school3,
-	academic: cab
+	campu: cab
 	)
 schcu6 = SchoolCampu.create!(
 	school: school3,
-	academic: fab
+	campu: fab
 	)
 schcu7 = SchoolCampu.create!(
 	school: school4,
-	academic: cab
+	campu: cab
 	)
 schcu8 = SchoolCampu.create!(
 	school: school4,
-	academic: fab
+	campu: fab
 	)
 schcu9 = SchoolCampu.create!(
 	school: school5,
-	academic: cab
+	campu: cab
 	)
 schcu10 = SchoolCampu.create!(
 	school: school5,
-	academic: fab
+	campu: fab
 	)
