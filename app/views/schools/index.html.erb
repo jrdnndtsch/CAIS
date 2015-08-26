@@ -38,7 +38,16 @@
 
   <div class="content">
 
+
     <%= params[:is_checked] %>
+
+ <!--  <button class="compare-btn">Compare Select Schools</button>
+    <br>
+  
+  <% if user_signed_in? %>
+    <%= link_to 'Add New School', new_school_path %>
+  <% end %> -->
+
 
 
     <div id="schools-listing">
@@ -52,7 +61,6 @@
   <% end %>
 
     
-
   </div>
 </div>
 <script>
