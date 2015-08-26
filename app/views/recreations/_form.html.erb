@@ -13,12 +13,12 @@
 
     <div class="block">
       <div class="field">
-        <%= f.label :recreation_type %><br>
-        <%= f.text_field :recreation_type %>
-      </div>
-      <div class="field">
         <%= f.label :activity %><br>
         <%= f.text_field :activity %>
+      </div>
+      <div class="field">
+        <%= f.label :recreation_type %><br>
+        <%= f.collection_select :recreation_type, Recreation::TYPE, :to_s, :humanize %>
       </div>
       <div class="actions">
         <%= f.submit %>
