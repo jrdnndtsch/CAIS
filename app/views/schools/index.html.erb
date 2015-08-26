@@ -31,7 +31,7 @@
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
-      <%= link_to "Reset", schools_path%>
+      <%= submit_tag 'Reset Form', remote: true, :type => 'reset', id:'reset' %>
       <!-- <a href="#" id="reset-form">Reset</a> -->
   <% end %>
   </div>
@@ -64,6 +64,8 @@
     
   </div>
 </div>
+
+
 <script>
 var slider = document.getElementById('slider');
 
@@ -93,6 +95,12 @@ $('#slider_min, #slider_max').on('change', function(){
   slider.noUiSlider.set(num)
 })
 
+$('#reset').on('click', function(){
+  $('#slider_min').attr('value', 0)
+  $('#slider_max').attr('value', 2000)
+  slider.noUiSlider.set([0, 2000])
+});
+
 </script>
 
 
@@ -106,10 +114,10 @@ $(document).ready(function() {
 //   $("#editor").html($(data).find("#editor").html());
 // });
 
-$(document).on('click', '#reset-form', function(e){
-  e.preventDefault();
-  $('#search-form')[0].reset();
-});
+// $(document).on('click', '#reset-form', function(e){
+//   e.preventDefault();
+//   $('#search-form')[0].reset();
+// });
 
 $(document).on('change', '.check', function(){
     checked_array = []
@@ -147,7 +155,6 @@ $(document).on('change', '.check', function(){
   });
 
 
-          console.log("saved?")
 });
 </script>
 
