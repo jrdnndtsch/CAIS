@@ -31,7 +31,8 @@
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
-      <a href="#" id="reset-form">Reset</a>
+      <%= link_to "Reset", schools_path%>
+      <!-- <a href="#" id="reset-form">Reset</a> -->
   <% end %>
   </div>
   <hr>
