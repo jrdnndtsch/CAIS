@@ -3,15 +3,15 @@ class SchoolsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
 
-  def compare 
-    @schools = School.all
-    @compared = params[:is_checked]
-    if params[:is_checked]
-      # raise "hell"
-      render :compare_js
-      # render js: "window.location.pathname='#{compare_schools_path}'" 
-    end  
-  end
+  # def compare 
+  #   @schools = School.all
+  #   @compared = params[:is_checked]
+  #   if params[:is_checked]
+  #     # raise "hell"
+  #     render :compare_js
+  #     # render js: "window.location.pathname='#{compare_schools_path}'" 
+  #   end  
+  # end
   # GET /schools
   # GET /schools.json
   def index
@@ -67,6 +67,11 @@ class SchoolsController < ApplicationController
   # GET /schools/1/edit
   def edit
     @academics = Academic.all
+    @campus = Campu.all 
+    @recreations = Recreation.all
+    @school_academic = SchoolAcademic.new
+    @school_campu = SchoolCampu.new
+    @school_recreation = SchoolRecreation.new
   end
 
   # POST /schools

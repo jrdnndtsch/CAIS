@@ -93,7 +93,7 @@ slider.noUiSlider.on('update', function( values, handle ) {
 $('#slider_min, #slider_max').on('change', function(){
   num = $(this).val()
   slider.noUiSlider.set(num)
-})
+});
 
 $('#reset').on('click', function(){
   $('#slider_min').attr('value', 0)
@@ -109,37 +109,25 @@ $('#reset').on('click', function(){
 $(document).ready(function() {
   var checked_array = []
 
-// $("#editor").on("ajax:success", function(event, data, status, xhr) {
-//   console.log("ajax success!")
-//   $("#editor").html($(data).find("#editor").html());
-// });
+  $(document).on('change', '.check', function(){
+      checked_array = []
+      console.log("checked" + $(this).is(':checked'))
 
-// $(document).on('click', '#reset-form', function(e){
-//   e.preventDefault();
-//   $('#search-form')[0].reset();
-// });
+      if ($('.check').filter(':checked').length > 3){
+        $(this).removeAttr('checked');
+      }
 
-$(document).on('change', '.check', function(){
-    checked_array = []
-    console.log("changed")
-    console.log($(this).is(':checked'))
+      $('.check').filter(':checked').each(function() {
+        checked_array.push(this.value)
+      });
 
-    if ($('.check').filter(':checked').length > 3){
-      $(this).removeAttr('checked');
-    }
-
-    $('.check').filter(':checked').each(function() {
-      checked_array.push(this.value)
-    });
-
-    console.log(checked_array)
-});
+      console.log(checked_array)
+  });
 
 
   $('.compare-btn').on('click', function(){
 
     console.log("sending this: " +checked_array)
-    console.log($('#compare'))
       $.ajax({
         url: 'schools',
         type: "get",
@@ -148,9 +136,6 @@ $(document).on('change', '.check', function(){
         },
         dataType: "script"
       });
-
-
-
     
   });
 
@@ -162,11 +147,10 @@ $(document).on('change', '.check', function(){
   $('.show-advanced-search').on('click', function(){
     $(this).css('display', 'none')
     $('.advanced-search').removeClass('hidden')
-
   });
 
   $('.hide-advanced-search').on('click', function(){
     $('.advanced-search').addClass('hidden')
     $('.show-advanced-search').css('display', 'block')
-  })
+  });
 </script>
