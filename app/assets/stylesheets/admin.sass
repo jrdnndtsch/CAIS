@@ -1,0 +1,45 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import variables/colors
+@import mixins/button
+
+.list
+	:border 1px solid #ccc 
+	:border-radius 3px
+	:display inline-block
+	:padding 10px
+	&:hover
+		:color $red
+
+.admin-title
+	:color $red 
+	:text-align center
+button
+	+button-style
+
+.admin-table
+	:margin 0px
+	:padding 0px
+	:width 100%
+	:border 1px solid #cccccc
+	:border-radius 3px
+.admin-table table
+	:border-collapse  collapse
+	:border-spacing  0
+	:width 100%
+	:height 100%
+	:margin 0px 
+	:padding 0px
+.admin-table td
+	:vertical-align middle
+	:color green
+	:background-color #ffffff
+	:border 1px solid #cccccc
+	:border-width 0px 1px 1px 0px
+	:text-align left
+	:padding 8px
+	:font-size 14px
+	// :font-family Arial
+	:font-weight normal
+	:color #000333

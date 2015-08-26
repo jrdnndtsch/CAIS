@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   root 'schools#index'
   resources :cities
   resources :provinces
+
+  get 'admin/panel'
+  get '/admin' => 'admin#panel'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

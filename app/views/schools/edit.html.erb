@@ -1,6 +1,14 @@
-<div class="contianer">
+<div>
 	<h1>Editing School</h1>
 	<%= render 'form' %>
+
+	  <hr>
+	<h2>School Features</h2>
+	<%= link_to 'Add Recreational Offering', new_school_recreation_path(:school_id => @school.id), class: 'button' %>
+	<%= link_to 'Add Campus Offerings', new_school_campu_path(:school_id => @school.id), class: 'button' %>
+	<%= link_to 'Add Academic Offerings', new_school_academic_path(:school_id => @school.id), class: 'button' %>
+
+
 	<%= link_to 'Show', @school %> |
 	<%= link_to 'Back', schools_path %>
 </div>		

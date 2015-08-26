@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Campus</h1>
 
-<table>
+<table class="admin-table">
   <thead>
     <tr>
       <th>Type</th>
@@ -16,7 +14,6 @@
       <tr>
         <td><%= campu.campu_type %></td>
         <td><%= campu.feature %></td>
-        <td><%= link_to 'Show', campu %></td>
         <td><%= link_to 'Edit', edit_campu_path(campu) %></td>
         <td><%= link_to 'Destroy', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

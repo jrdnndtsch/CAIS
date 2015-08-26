@@ -1,8 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Provinces</h1>
-
-<table>
+<table class="admin-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,7 +11,6 @@
     <% @provinces.each do |province| %>
       <tr>
         <td><%= province.name %></td>
-        <td><%= link_to 'Show', province %></td>
         <td><%= link_to 'Edit', edit_province_path(province) %></td>
         <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

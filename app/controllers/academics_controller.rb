@@ -28,7 +28,7 @@ class AcademicsController < ApplicationController
 
     respond_to do |format|
       if @academic.save
-        format.html { redirect_to @academic, notice: 'Academic was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Academic was successfully created.' }
         format.json { render :show, status: :created, location: @academic }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AcademicsController < ApplicationController
   def update
     respond_to do |format|
       if @academic.update(academic_params)
-        format.html { redirect_to @academic, notice: 'Academic was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'Academic was successfully updated.' }
         format.json { render :show, status: :ok, location: @academic }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AcademicsController < ApplicationController
   def destroy
     @academic.destroy
     respond_to do |format|
-      format.html { redirect_to academics_url, notice: 'Academic was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Academic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
