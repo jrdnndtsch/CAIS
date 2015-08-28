@@ -117,7 +117,7 @@ $(document).ready(function() {
 
   $(document).on('click', '#reset-form', function(e){
     e.preventDefault();
-    // $('#search-form')[0].reset;
+    $('#search-form')[0].reset();
     $('#slider_min').val(0)
     $('#slider_max').val(2000)
     valReset();
