@@ -1,9 +1,15 @@
 @import mixins/grid
+@import mixins/make-responsive
 .sidebar-section
 	+make-column(3.5)
 	:display inline-block
 	:vertical-align top
 	:background white
+	+display-for(sm xs)
+		+make-column(6)
+		+make-gutter(3,3)
 .main-section
 	+make-column(8.5)	
 	:display inline-block
+	+display-for(sm xs)
+		+make-column(12)

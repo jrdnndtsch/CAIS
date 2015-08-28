@@ -4,7 +4,7 @@
     <div class="school-single__summary">
       <h2><%= @school.name %></h2>
       <p><%= @school.street_address %></p>
-      <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %></p>
+      <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %> (<a href="https://www.google.ca/maps/place/<%= @school.street_address %>,+<%= @school.city.name %>,+<%= @school.city.province.name%>+<%= @school.postal_code %>" target="_blank" class="map-link">View map</a>)</p>
       <%= link_to @school.website_url, "http://#{@school.website_url}" %>
       <p><%= @school.student_body %></p>
     </div>  

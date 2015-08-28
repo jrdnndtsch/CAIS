@@ -1,6 +1,7 @@
 @import variables/colors
 @import layout/_index
 @import mixins/button
+@import mixins/make-responsive
 
 #all-schools
 	.search-space
@@ -86,8 +87,11 @@
 		:margin 0 0 6px 0
 	a
 		:color $red	
-		:display block
+		// :display block
 		:margin-bottom 12px
+	.quick-info
+		a 
+			:display block	
 	.selector
 		+make-column(1)
 		:display inline-block
@@ -98,10 +102,15 @@
 		+make-column(7)
 		:display inline-block
 		:vertical-align middle
+		+display-for(sm xs)
+			+make-column(11)
 	.quick-stats
 		+make-column(4)	
 		:display inline-block
 		:vertical-align middle
+		+display-for(sm xs)
+			+make-column(11)
+			+make-gutter(1,0)
 		ul 
 			:list-style none
 			:padding 0
@@ -109,4 +118,9 @@
 				:float right
 			li 
 				:border-bottom 1px solid $mid-grey
-				:line-height 1.5			
+				:line-height 1.5	
+.map-link
+	:display inline !important
+.edit 
+	a 
+		:display inline							
