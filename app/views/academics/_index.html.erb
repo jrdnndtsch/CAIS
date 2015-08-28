@@ -2,6 +2,7 @@
 <table class="admin-table">
   <thead>
     <tr>
+      <th>Used</th>
       <th>Subject</th>
       <th>Course</th>
       <th colspan="3"></th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @academics.each do |academic| %>
       <tr>
+        <td><%= SchoolAcademic.where(academic_id: academic.id).count%> times</td>
         <td><%= academic.subject %></td>
         <td><%= academic.course %></td>
         <td><%= link_to 'Edit', edit_academic_path(academic) %></td>
