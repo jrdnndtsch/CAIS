@@ -31,7 +31,7 @@
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
-      <%= submit_tag 'Reset Form', remote: true, :type => 'reset', id:'reset' %>
+      <%= submit_tag 'Reset Form', remote: true, :type => 'reset', id:'reset-form' %>
       <!-- <a href="#" id="reset-form">Reset</a> -->
   <% end %>
   </div>
@@ -111,23 +111,22 @@ $('#slider_min, #slider_max').on('change', function(){
 $(document).ready(function() {
   var checked_array = []
 
-  $(document).on('change', '.check', function(){
-      checked_array = []
-      console.log("checked" + $(this).is(':checked'))
+  // $(document).on('change', '.check', function(){
+  //     checked_array = []
+     
 
-$(document).on('click', '#reset-form', function(e){
-  e.preventDefault();
-  $('#search-form')[0].reset();
-  $('#slider_min').val(0)
-  $('#slider_max').val(2000)
-  valReset();
+  $(document).on('click', '#reset-form', function(e){
+    e.preventDefault();
+    // $('#search-form')[0].reset;
+    $('#slider_min').val(0)
+    $('#slider_max').val(2000)
+    valReset();
 
-});
+  });
 
 $(document).on('change', '.check', function(){
     checked_array = []
-    console.log("changed")
-    console.log($(this).is(':checked'))
+   
 
     if ($('.check').filter(':checked').length > 3){
       $(this).removeAttr('checked');
