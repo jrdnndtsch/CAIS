@@ -110,9 +110,27 @@ $('#slider_min, #slider_max').on('change', function(){
 <script>
 $(document).ready(function() {
   var checked_array = []
+//reset the form
+  $(document).on('click', '#reset-form', function(e){
+    e.preventDefault();
+    $('#search-form')[0].reset();
+    $('#slider_min').val(0)
+    $('#slider_max').val(2000)
+    valReset();
+  });
+//check if more than three are changed
+  $(document).on('change', '.check', function(){
+      checked_array = []
 
-  // $(document).on('change', '.check', function(){
-  //     checked_array = []
+      if ($('.check').filter(':checked').length > 3){
+        $(this).removeAttr('checked');
+      }
+      $('.check').filter(':checked').each(function() {
+        checked_array.push(this.value)
+      });
+  });
+
+
      
 
   $(document).on('click', '#reset-form', function(e){
@@ -141,6 +159,7 @@ $(document).on('change', '.check', function(){
   });
 
 
+
   $('.compare-btn').on('click', function(){
 
     console.log("sending this: " +checked_array)
@@ -151,10 +170,10 @@ $(document).on('change', '.check', function(){
           is_checked : checked_array
         },
         dataType: "script"
+
       });
     
   });
-
 
 });
 </script>
