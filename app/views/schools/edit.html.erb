@@ -8,6 +8,52 @@
 	<%= link_to 'Add Campus Offerings', new_school_campu_path(:school_id => @school.id), class: 'button' %>
 	<%= link_to 'Add Academic Offerings', new_school_academic_path(:school_id => @school.id), class: 'button' %>
 
+	<hr>
+	<div>
+	  <h2>Academics</h2>
+	  <%= render 'school_academics/form' %>
+		<ul>
+		<% @school.amenity_type(@school, "academics").each do |a|%>
+		    <li> <h3><%= a.academic.subject %></h3> </li>
+		    <ul>
+		      <% @school.amenity_detail_list(@school, "academics", a.academic.id).each do |detail|%>
+		      <li><%= detail.academic.course %></li>
+		      <% end %>
+		    </ul>
+		<% end %>
+		</ul>
+
+	  <hr>
+
+	  <h2>Recreations</h2>
+	  <%= render 'school_recreations/form' %>
+	  <ul>
+	  <% @school.amenity_type(@school, "recreations").each do |a|%>
+	      <li> <h3><%= a.recreation.recreation_type %></h3> </li>
+	      <ul>
+	        <% @school.amenity_detail_list(@school, "recreations", a.recreation.id).each do |detail|%>
+	        <li><%= detail.recreation.activity %></li>
+	        <% end %>
+	      </ul>
+	  <% end %>
+	  </ul>
+
+	  <hr>
+
+	  <h2>Campus</h2>
+	  <%= render 'school_campus/form' %>
+	  <ul>
+	  <% @school.amenity_type(@school, "campus").each do |a|%>
+	      <li> <h3><%= a.campu.campu_type %></h3> </li>
+	      <ul>
+	        <% @school.amenity_detail_list(@school, "campus", a.campu.id).each do |detail|%>
+	        <li><%= detail.campu.feature %></li>
+	        <% end %>
+	      </ul>
+	  <% end %>
+	  </ul>
+	</div>
+
 
 	<%= link_to 'Show', @school %> |
 	<%= link_to 'Back', schools_path %>

@@ -31,7 +31,7 @@
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
-      <%= link_to "Reset", schools_path%>
+      <%= submit_tag 'Reset Form', remote: true, :type => 'reset', id:'reset-form' %>
       <!-- <a href="#" id="reset-form">Reset</a> -->
   <% end %>
   </div>
@@ -64,6 +64,8 @@
     
   </div>
 </div>
+
+
 <script>
 var slider = document.getElementById('slider');
 
@@ -95,8 +97,10 @@ function valReset(){
   slider.noUiSlider.set([low, high])
 }
 $('#slider_min, #slider_max').on('change', function(){
+
   valReset()
 })
+
 
 
 </script>
@@ -109,6 +113,7 @@ $(document).ready(function() {
 //reset the form
   $(document).on('click', '#reset-form', function(e){
     e.preventDefault();
+    $('#search-form')[0].reset();
     $('#slider_min').val(0)
     $('#slider_max').val(2000)
     valReset();
@@ -125,11 +130,39 @@ $(document).ready(function() {
       });
   });
 
-//ajax for compare modal
+
+     
+
+  $(document).on('click', '#reset-form', function(e){
+    e.preventDefault();
+    // $('#search-form')[0].reset;
+    $('#slider_min').val(0)
+    $('#slider_max').val(2000)
+    valReset();
+
+  });
+
+$(document).on('change', '.check', function(){
+    checked_array = []
+   
+
+    if ($('.check').filter(':checked').length > 3){
+      $(this).removeAttr('checked');
+    }
+
+
+      $('.check').filter(':checked').each(function() {
+        checked_array.push(this.value)
+      });
+
+      console.log(checked_array)
+  });
+
+
+
   $('.compare-btn').on('click', function(){
 
     console.log("sending this: " +checked_array)
-    console.log($('#compare'))
       $.ajax({
         url: 'schools',
         type: "get",
@@ -137,8 +170,11 @@ $(document).ready(function() {
           is_checked : checked_array
         },
         dataType: "script"
-      }); 
+
+      });
+    
   });
+
 });
 </script>
 
@@ -146,11 +182,10 @@ $(document).ready(function() {
   $('.show-advanced-search').on('click', function(){
     $(this).css('display', 'none')
     $('.advanced-search').removeClass('hidden')
-
   });
 
   $('.hide-advanced-search').on('click', function(){
     $('.advanced-search').addClass('hidden')
     $('.show-advanced-search').css('display', 'block')
-  })
+  });
 </script>
