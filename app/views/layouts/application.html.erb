@@ -59,4 +59,23 @@
       $('#flash').remove();
     }, 2000);
    })
+
+  $(function(){
+    function expand(section){
+      $('.'+ section + '-expand').toggleClass('hidden')
+      console.log('working')
+      console.log(section)
+    };
+
+
+    $('.expand-academics').on('click', function(){
+      expand('academics');
+    });
+    $('.expand-recreations').on('click', function(){
+      expand('recreations');
+    });
+    $('.expand-campus').on('click', function(){
+      expand('campus');
+    })
+  })
 </script>

@@ -64,6 +64,7 @@
       <p>Merit scholarships: <span><%= @school.merit_scholarships %></span></p>
     </div>  
     <div class="expand-details">
+      <% if @school.amenity_type(@school, "academics").exists? %>
       <h3>Academics <span class="expand-academics">&#9660;</span></h3>
       <ul class="academics-expand expanded hidden">
       <% @school.amenity_type(@school, "academics").each do |a|%>
@@ -75,7 +76,8 @@
           </ul>
       <% end %>
       </ul>
-
+      <% end %>
+      <% if @school.amenity_type(@school, "recreations").exists? %>
       <h3>Recreations <span class="expand-recreations">&#9660;</span></h3>
       <ul class="recreations-expand expanded hidden">
       <% @school.amenity_type(@school, "recreations").each do |a|%>
@@ -87,7 +89,9 @@
           </ul>
       <% end %>
       </ul>
+      <% end %>
 
+       <% if @school.amenity_type(@school, "campus").exists? %>
       <h3>Campus <span class="expand-campus">&#9660;</span></h3>
       <ul class="campus-expand expanded hidden">
       <% @school.amenity_type(@school, "campus").each do |a|%>
@@ -99,6 +103,7 @@
           </ul>
       <% end %>
       </ul>
+      <% end %>
     </div>
     
   </div>  
@@ -110,20 +115,5 @@
 <% end %>
 
 <script>
-  $(function(){
-    function expand(section){
-      $('.'+ section + '-expand').toggleClass('hidden')
-    };
-
-
-    $('.expand-academics').on('click', function(){
-      expand('academics');
-    });
-    $('.expand-recreations').on('click', function(){
-      expand('recreations');
-    });
-    $('.expand-campus').on('click', function(){
-      expand('campus');
-    })
-  })
+  
 </script>
