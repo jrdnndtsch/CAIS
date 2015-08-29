@@ -1,8 +1,9 @@
 @import variables/colors
 @import mixins/grid
+@import mixins/make-responsive
 
 #single-school
-	h2, a
+	h2, a, h3
 		:color $red	
 	h2
 		:margin 6px 0	
@@ -11,10 +12,30 @@
 		:margin-bottom 6px
 		:display inline-block
 		&:hover
-			:text-decoration underline 
+			:text-decoration underline
+	.expand
+		:font-size 12px		 
 .school-single
 	&__profile
 		+make-column(7)
+		+display-for(sm xs)
+			+make-column(11)
 	&__summary
 		p 
 			:margin 0 0 6px 0
+	&__details
+		:margin-bottom 18px
+		p 
+			:background $light-grey
+			:margin 0
+			:padding 10px 
+			&:nth-child(even)
+				:background white		
+		span 
+			:float right
+.expand-details
+	.expanded
+		:list-style none				
+		:padding 0
+	span 
+		:cursor pointer	
