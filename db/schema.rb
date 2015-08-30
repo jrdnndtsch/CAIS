@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830163835) do
+ActiveRecord::Schema.define(version: 20150830202108) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 20150830163835) do
     t.datetime "updated_at",                          null: false
     t.integer  "city_id"
     t.integer  "school_id"
-    t.integer  "info_id"
     t.integer  "student_body_size"
     t.string   "featured_file_name"
     t.string   "featured_content_type"
@@ -142,7 +141,6 @@ ActiveRecord::Schema.define(version: 20150830163835) do
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"
-  add_index "schools", ["info_id"], name: "index_schools_on_info_id"
   add_index "schools", ["school_id"], name: "index_schools_on_school_id"
 
   create_table "users", force: :cascade do |t|
