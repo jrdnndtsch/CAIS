@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :school_infos
-  resources :school_infos
-  resources :infos
   resources :school_academics
   resources :school_campus
   resources :school_recreations
