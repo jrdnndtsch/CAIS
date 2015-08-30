@@ -11,6 +11,9 @@
     <div class="image">
       <%= image_tag @school.featured.url %>
     </div>
+    <div class="logo">
+      <%= image_tag @school.logo.url %>
+    </div>
 
     <p>
       <%= @school.description %>
@@ -115,5 +118,28 @@
 <% end %>
 
 <script>
+  $(document).on('ready page:load', function(){
+    function expand(section){
+      $('.'+ section + '-expand').toggleClass('hidden')
+      console.log($('.'+ section + '-expand'))
+    };
+
+
+    $(document).on('click', '.expand-academics', function(){
+      // expand('academics');
+       console.log('it worked')
+       $('.academics-expand').toggleClass('hidden')
+    });
+    $(document).on('click', '.expand-recreations', function(){
+      // expand('recreations');
+       console.log('it worked')
+       $('.recreations-expand').toggleClass('hidden')
+    });
+    $(document).on('click', '.expand-campus', function(){
+      // expand('campus');
+      console.log('it worked')
+      $('.campus-expand').toggleClass('hidden')
+    })
+  });  
   
 </script>

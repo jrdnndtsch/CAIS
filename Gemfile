@@ -59,4 +59,9 @@ group :development, :test do
   #better errors
   gem 'better_errors'
 end
+#deployment
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 

@@ -17,6 +17,14 @@
         <%= f.label :name %>
         <%= f.text_field :name %>
       </div>
+      <div class="field field--half">
+        <%= f.label :logo %>
+        <%= f.file_field :logo %>
+      </div><!--
+      *--><div class="field field--half last">
+        <label for="featured">Featured Image</label>
+        <%= f.file_field :featured %>
+      </div>
       <div class="field field--third">
         <%= f.label :street_address %>
         <%= f.text_field :street_address %>
@@ -49,9 +57,6 @@
       <div class="field">
         <%= f.label :description %>
         <%= f.text_area :description %>
-      </div>
-      <div class="field">
-        <%= f.file_field :featured %>
       </div>
     </section>
     <section class="school__at-a-glance block">
