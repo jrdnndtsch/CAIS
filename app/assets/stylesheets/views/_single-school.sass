@@ -1,7 +1,32 @@
 @import variables/colors
 @import mixins/grid
 @import mixins/make-responsive
-
+.school-single__header
+	:max-width 1400px
+	:height 350px
+	:position relative
+	.header-overlay
+		:background rgba(166,166,166,.4)
+		:position absolute 
+		:height 350px
+		:width 100%
+		:top 0
+		:left 0
+		:z-index 10
+	.single-title
+		:z-index 100
+		:color white
+		:position absolute
+		:top 50%
+		:left 50%
+		:transform translate(-50%, -50%)
+		:-webkit-transform translate(-50%, -50%)
+		:font-size 62px
+		:font-weight 400
+		:letter-spacing 1.2px
+		:margin 0
+		:width 100%
+		:text-align center	
 #single-school
 	h2, a, h3
 		:color $red	
@@ -33,6 +58,12 @@
 				:background white		
 		span 
 			:float right
+	&__logo
+		:vertical-align top	
+		img
+			:max-height 150px
+			:width auto
+			:float right	
 .expand-details
 	.expanded
 		:list-style none				

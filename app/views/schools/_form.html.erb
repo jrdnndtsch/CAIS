@@ -46,13 +46,17 @@
         <%= f.label :contact_email %>
         <%= f.text_field :contact_email %>
       </div>
-      <div class="field field--half">
+      <div class="field field--third">
         <%= f.label :student_body %>
         <%= f.collection_select :student_body, School::STUDENT_BODY, :to_s, :humanize %>
       </div><!--
-      *--><div class="field field--half last">
+      *--><div class="field field--third">
         <%= f.label :student_body_size %>
         <%= f.text_field :student_body_size %>
+      </div><!--
+      *--><div class="field field--third last">
+        <%= f.label :religion %>
+        <%= f.text_field :religion %>
       </div>
       <div class="field">
         <%= f.label :description %>
@@ -116,6 +120,10 @@
       <div class="field">
         <%= f.label :accreditations %>
         <%= f.text_field :accreditations %>
+      </div>
+      <div class="field">
+        <%= f.check_box :pre_grade_nine_boarding %>
+        <%= f.label :pre_grade_nine_boarding %>
       </div>
       <div class="field">
         <%= f.check_box :dress_code %>

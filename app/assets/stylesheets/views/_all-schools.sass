@@ -77,9 +77,12 @@
 		:padding 20px 
 		&:nth-child(odd)
 			:background $light-grey
-	.compare-btn
-		+button-style	
-		:margin-bottom 25px	
+	.compare-btn	
+		:color $red
+		:cursor pointer
+		:margin-top 25px
+		&:hover
+			:text-decoration underline
 	h2
 		:margin 6px 0
 		:color $red

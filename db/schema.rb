@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830202108) do
+ActiveRecord::Schema.define(version: 20150830210459) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -104,29 +104,29 @@ ActiveRecord::Schema.define(version: 20150830202108) do
     t.string   "website_url"
     t.string   "contact_email"
     t.text     "description"
-    t.integer  "girls_boarding",        default: 0
-    t.integer  "girls_day",             default: 0
-    t.integer  "boys_boarding",         default: 0
-    t.integer  "boys_day",              default: 0
-    t.integer  "campus_size",           default: 0
+    t.integer  "girls_boarding",          default: 0
+    t.integer  "girls_day",               default: 0
+    t.integer  "boys_boarding",           default: 0
+    t.integer  "boys_day",                default: 0
+    t.integer  "campus_size",             default: 0
     t.integer  "year_founded"
-    t.integer  "average_class_size",    default: 0
-    t.integer  "student_teacher_ratio", default: 0
+    t.integer  "average_class_size",      default: 0
+    t.integer  "student_teacher_ratio",   default: 0
     t.boolean  "dress_code"
     t.string   "student_body"
-    t.float    "seven_day_tuition",     default: 0.0
-    t.float    "five_day_tuition",      default: 0.0
+    t.float    "seven_day_tuition",       default: 0.0
+    t.float    "five_day_tuition",        default: 0.0
     t.string   "boarding_grades"
     t.string   "day_grades"
-    t.float    "day_tuition",           default: 0.0
+    t.float    "day_tuition",             default: 0.0
     t.string   "accreditations"
     t.boolean  "advanced_placement"
     t.boolean  "international_bac"
     t.boolean  "payment_plans"
     t.boolean  "need_based_aid"
     t.boolean  "merit_scholarships"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "city_id"
     t.integer  "school_id"
     t.integer  "student_body_size"
@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(version: 20150830202108) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "religion"
+    t.boolean  "pre_grade_nine_boarding"
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"

@@ -1,0 +1,6 @@
+<% if @school.featured.exists? %>
+<div class="school-single__header" style="background: url(<%=@school.featured.url%>); background-size:cover;">
+	<div class="header-overlay"></div>
+	<h1 class="single-title"><%= @school.name %></h1>
+</div>
+<% end %>

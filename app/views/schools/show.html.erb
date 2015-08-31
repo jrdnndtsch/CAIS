@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
+
 <div class="container" id="single-school">
   <div class="school-single__profile">
-    <div class="school-single__summary">
+    <div class="school-single__summary field--half">
       <h2><%= @school.name %></h2>
       <p><%= @school.street_address %></p>
       <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %> (<a href="https://www.google.ca/maps/place/<%= @school.street_address %>,+<%= @school.city.name %>,+<%= @school.city.province.name%>+<%= @school.postal_code %>" target="_blank" class="map-link">View map</a>)</p>
       <%= link_to @school.website_url, "http://#{@school.website_url}" %>
-      <p><%= @school.student_body %></p>
-    </div>  
-    <div class="image">
-      <%= image_tag @school.featured.url %>
-    </div>
-    <div class="logo">
+      <p><%= @school.student_body %>, <%= @school.religion %></p>
+    </div><!--
+    *--><div class="school-single__logo field--half last">
+      <% if @school.logo.exists? %>
       <%= image_tag @school.logo.url %>
+      <% end %>
     </div>
 
     <p>
@@ -56,6 +56,7 @@
 
       <p>Accreditations: <span><%= @school.accreditations %></span></p>
 
+      <p>Pre-Grade Nine Boarding: <span><%= @school.pre_grade_nine_boarding %></span></p>
       <p>Advanced placement: <span><%= @school.advanced_placement %></span></p>
 
       <p>International bac: <span><%= @school.international_bac %></span></p>
