@@ -182,4 +182,9 @@ $(document).on('change', '.check', function(){
     $('.advanced-search').addClass('hidden')
     $('.show-advanced-search').css('display', 'block')
   });
+  $('#editor').on('click', function(){
+    $('html, body').animate({
+           scrollTop: $("#schools-listing").offset().top
+       }, 1000);
+  })
 </script>
