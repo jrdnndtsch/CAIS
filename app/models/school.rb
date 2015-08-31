@@ -10,16 +10,16 @@ class School < ActiveRecord::Base
 	belongs_to :city
 	delegate :province, :to => :city
 	has_attached_file :logo,
-	:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
-	:styles => { :medium => "300x300" },
-	:google_drive_options => { 
-	    :public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
+		:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
+		:styles => { :medium => "300x300" },
+		:google_drive_options => { 
+	    	:public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
 	has_attached_file :featured,
-	:storage => :google_drive,
-	:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
-	:styles => { :medium => "300x300" },
-	:google_drive_options => {
-	    :public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
+		:storage => :google_drive,
+		:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
+		:styles => { :medium => "300x300" },
+		:google_drive_options => {
+	    	:public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
 
 	def amenity_type(school, amenity)
 		school.send("school_"+amenity)
@@ -99,7 +99,7 @@ class School < ActiveRecord::Base
 		
 	end
 
-	def self.search(province="any", student_body, min, max, international_bac, advanced_placement)
+	def self.search(province="any", student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
 		# schools = School.order(:name)
 		schools = School.school_from_province(province) 
 		schools = schools.where(student_body: student_body)
@@ -109,6 +109,9 @@ class School < ActiveRecord::Base
 		end	
 		if advanced_placement == true || advanced_placement == false
 			schools = schools.where(advanced_placement: advanced_placement)
+		end
+		if pre_grade_nine_boarding == true || pre_grade_nine_boarding == false
+			schools = schools.where(pre_grade_nine_boarding: pre_grade_nine_boarding)
 		end
 		return schools
 	end

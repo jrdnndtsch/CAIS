@@ -32,6 +32,13 @@ class SchoolsController < ApplicationController
         else
           international_bac = params[:international_bac]  
       end
+      if params[:pre_grade_nine_boarding] == 'true'
+         pre_grade_nine_boarding = true
+        elsif params[:pre_grade_nine_boarding] == 'false'
+          pre_grade_nine_boarding = false
+        else
+          pre_grade_nine_boarding = params[:pre_grade_nine_boarding]  
+      end
       if params[:province].present?
         province = params[:province]
       else
@@ -40,7 +47,7 @@ class SchoolsController < ApplicationController
       student_body = params[:student_body]
       min = params[:slider_min]
       max = params[:slider_max]
-      @schools = School.search(province, student_body, min, max, international_bac, advanced_placement)
+      @schools = School.search(province, student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
       # @schools = School.school_from_province(params[:province])
       render :schools_js
     else

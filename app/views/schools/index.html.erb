@@ -28,6 +28,10 @@
       <%= label_tag :advanced_placement%>
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       </div> 
+      <div class="option">
+        <%= label_tag :pre_grade_nine_boarding%>
+         <%= select_tag :pre_grade_nine_boarding, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
+      </div>
       <p class="hide-advanced-search option">Hide Advanced Options</p>
     </div>  
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
