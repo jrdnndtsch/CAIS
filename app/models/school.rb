@@ -9,16 +9,17 @@ class School < ActiveRecord::Base
 	has_many :academics, through: :school_academics
 	belongs_to :city
 	delegate :province, :to => :city
-	has_attached_file :logo,
-		:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
-		:styles => { :medium => "300x300" },
-		:google_drive_options => { 
-	    	:public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
 	has_attached_file :featured,
-		:storage => :google_drive,
+		# :storage => :google_drive,
 		:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
 		:styles => { :medium => "300x300" },
 		:google_drive_options => {
+	    	:public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
+	has_attached_file :logo,
+		# :storage => :google_drive,
+		:google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
+		:styles => { :large => "1000x1000" },
+		:google_drive_options => { 
 	    	:public_folder_id => '0B6WGxRG8NX0PfjRMdjRjRmNYcnRmYWYtSW1xdmZyTEVudVIzZDRQN0ZwMGFET0pnaUFVMTQ'}
 
 	def amenity_type(school, amenity)
