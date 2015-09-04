@@ -18,12 +18,16 @@
         <%= f.text_field :name %>
       </div>
       <div class="field field--half">
-        <%= f.label :logo %>
-        <%= f.file_field :logo %>
+        <%= f.label :logo_image_url %>
+        <%= f.text_field :logo_image_url %>
       </div><!--
       *--><div class="field field--half last">
-        <%= f.label :featured %>
-        <%= f.file_field :featured %>
+        <%= f.label :featured_image_url %>
+        <%= f.text_field :featured_image_url %>
+      </div>
+      <div class="field">
+        <%= f.label :video_url %>
+        <%= f.text_field :video_url %>
       </div>
       <div class="field field--third">
         <%= f.label :street_address %>
@@ -138,6 +142,10 @@
         <%= f.label :international_bac %>
       </div>
       <div class="field">
+        <%= f.check_box :esl%>
+        <%= f.label :esl %>
+      </div>
+      <div class="field">
         <%= f.check_box :payment_plans %>
         <%= f.label :payment_plans %>
       </div>
@@ -148,6 +156,10 @@
       <div class="field">
         <%= f.check_box :merit_scholarships %>
         <%= f.label :merit_scholarships %>
+      </div>
+      <div class="field">
+        <%= f.label :summer_programs%>
+        <%= f.text_area :summer_programs%>
       </div>
     </section>
 

@@ -10,14 +10,19 @@
       <p><%= @school.student_body %>, <%= @school.religion %></p>
     </div><!--
     *--><div class="school-single__logo field--half last">
-      <% if @school.logo.exists? %>
-      <%= image_tag @school.logo.url %>
+      <% if @school.logo_image_url.present? %>
+      <%= image_tag 'http://drive.google.com/uc?export=view&id=' + @school.logo_image_url %>
       <% end %>
     </div>
 
     <p>
       <%= @school.description %>
     </p>
+    <% if @school.video_url.present? %>
+    <div class="video">
+      <iframe width="560" height="315" src="<%= @school.video_url%>" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <% end %>
     <div class="school-single__details">
       <p>Contact email: <span><%= @school.contact_email %></span></p>
 
@@ -60,6 +65,7 @@
       <p>Advanced placement: <span><%= @school.advanced_placement %></span></p>
 
       <p>International bac: <span><%= @school.international_bac %></span></p>
+      <p>ESL: <span><%= @school.esl %></span></p>
 
       <p>Payment plans: <span><%= @school.payment_plans %></span></p>
 
@@ -108,6 +114,12 @@
       <% end %>
       </ul>
       <% end %>
+      <% if @school.summer_programs %>
+      <h3>Campus <span class="expand-summer">&#9660;</span></h3>
+      <div class="summer-expand expanded hidden">
+        <%= @school.summer_programs %>
+      </div>
+      <% end %>
     </div>
     
   </div>  
@@ -130,17 +142,24 @@
       // expand('academics');
        console.log('it worked')
        $('.academics-expand').toggleClass('hidden')
+       $('.expand-academics').toggleClass('rotate')
     });
     $(document).on('click', '.expand-recreations', function(){
       // expand('recreations');
        console.log('it worked')
        $('.recreations-expand').toggleClass('hidden')
+       $('.expand-recreations').toggleClass('rotate')
     });
     $(document).on('click', '.expand-campus', function(){
       // expand('campus');
       console.log('it worked')
       $('.campus-expand').toggleClass('hidden')
-    })
+      $('.expand-campus').toggleClass('rotate')
+    });
+    $(document).on('click', '.expand-summer', function(){
+      $('.summer-expand').toggleClass('hidden')
+      $('.expand-summer').toggleClass('rotate')
+    });
   });  
   
 </script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830210459) do
+ActiveRecord::Schema.define(version: 20150904182549) do
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
@@ -140,6 +140,11 @@ ActiveRecord::Schema.define(version: 20150830210459) do
     t.datetime "logo_updated_at"
     t.string   "religion"
     t.boolean  "pre_grade_nine_boarding"
+    t.string   "featured_image_url"
+    t.string   "logo_image_url"
+    t.string   "video_url"
+    t.text     "summer_programs"
+    t.boolean  "esl"
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"

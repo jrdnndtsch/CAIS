@@ -16,7 +16,7 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @provinces = Province.all
-    @schools = School.all
+    @schools = School.all.order('name')
     if params[:student_body]
       if params[:advanced_placement] == 'true'
          advanced_placement = true
@@ -47,11 +47,11 @@ class SchoolsController < ApplicationController
       student_body = params[:student_body]
       min = params[:slider_min]
       max = params[:slider_max]
-      @schools = School.search(province, student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
+      @schools = School.search(province, student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding).order('name')
       # @schools = School.school_from_province(params[:province])
       render :schools_js
     else
-      @schools = School.all
+      @schools = School.all.order('name')
     end
     if params[:is_checked]
       @stuff = "stuff"
@@ -129,6 +129,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :street_address, :postal_code, :website_url, :contact_email, :description, :girls_boarding, :girls_day, :boys_boarding, :boys_day, :campus_size, :year_founded, :average_class_size, :student_teacher_ratio, :dress_code, :student_body, :seven_day_tuition, :five_day_tuition, :boarding_grades, :day_grades, :day_tuition, :accreditations, :advanced_placement, :international_bac, :payment_plans, :need_based_aid, :merit_scholarships, :city_id, :featured, :logo, :religion, :pre_grade_nine_boarding)
+      params.require(:school).permit(:name, :street_address, :postal_code, :website_url, :contact_email, :description, :girls_boarding, :girls_day, :boys_boarding, :boys_day, :campus_size, :year_founded, :average_class_size, :student_teacher_ratio, :dress_code, :student_body, :seven_day_tuition, :five_day_tuition, :boarding_grades, :day_grades, :day_tuition, :accreditations, :advanced_placement, :international_bac, :payment_plans, :need_based_aid, :merit_scholarships, :city_id, :featured, :logo, :religion, :pre_grade_nine_boarding, :featured_image_url, :logo_image_url, :video_url, :summer_programs, :esl)
     end
 end

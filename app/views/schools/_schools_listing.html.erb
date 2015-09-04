@@ -7,7 +7,7 @@
           <%= check_box_tag(:compare, value=school.id, checked = false, class: 'check')%>
         </div><!--
         *--><div class="quick-info">
-          <h2><%= school.name %></h2>
+          <h2><%= link_to school.name, school %></h2>
           <p><%= school.street_address %></p>
           <p><%= school.city.name %>, <%= school.city.province.name%>, <%= school.postal_code %> (<a href="https://www.google.ca/maps/place/<%= school.street_address %>,+<%= school.city.name %>,+<%= school.city.province.name%>+<%= school.postal_code %>" target="_blank" class="map-link">View map</a>)</p>
           <%= link_to school.website_url, "http://#{school.website_url}", :target => "_blank" %>
