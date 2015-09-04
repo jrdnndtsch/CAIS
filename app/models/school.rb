@@ -12,7 +12,9 @@ class School < ActiveRecord::Base
 	validate :validate_student_body_size
 	
 	def validate_student_body_size
-		self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day == self.student_body_size
+		if self.student_body_size.present?
+			errors.add(:student_body_size, "student body size must match total boarding and day") if self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day != self.student_body_size
+		end	
 	end
 	def amenity_type(school, amenity)
 		school.send("school_"+amenity)
