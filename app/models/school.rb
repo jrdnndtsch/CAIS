@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-	STUDENT_BODY = %w[ co-ed boys girls ]
+	STUDENT_BODY = %w[ no_preference co-ed boys girls ]
 	TRUE_FALSE = %w[ no_preference true false]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
@@ -92,8 +92,11 @@ class School < ActiveRecord::Base
 	def self.search(province="any", student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
 		# schools = School.order(:name)
 		schools = School.school_from_province(province) 
-		schools = schools.where(student_body: student_body)
 		schools = schools.where(student_body_size: min..max)
+		if student_body != 'no_preference'
+			schools = schools.where(student_body: student_body)
+		end
+		# raise "hell"
 		if international_bac == true || international_bac == false
 			schools = schools.where(international_bac: international_bac)
 		end	
