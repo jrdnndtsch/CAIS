@@ -32,7 +32,7 @@ class SchoolCampusController < ApplicationController
 
     respond_to do |format|
       if @school_campu.save
-        format.html { redirect_to @school_campu, notice: 'School campu was successfully created.' }
+        format.html { redirect_to edit_school_path(params[:school_id]), notice: 'School campu was successfully created.' }
         format.json { render :show, status: :created, location: @school_campu }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class SchoolCampusController < ApplicationController
   def update
     respond_to do |format|
       if @school_campu.update(school_campu_params)
-        format.html { redirect_to @school_campu, notice: 'School campu was successfully updated.' }
+        format.html { redirect_to edit_school_path(params[:school_id]), notice: 'School campu was successfully updated.' }
         format.json { render :show, status: :ok, location: @school_campu }
       else
         format.html { render :edit }

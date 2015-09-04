@@ -31,7 +31,7 @@ class SchoolRecreationsController < ApplicationController
     @school_recreation.school_id = params[:school_id]
     respond_to do |format|
       if @school_recreation.save
-        format.html { redirect_to @school_recreation, notice: 'School recreation was successfully created.' }
+        format.html { redirect_to edit_school_path(params[:school_id]), notice: 'School recreation was successfully created.' }
         format.json { render :show, status: :created, location: @school_recreation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class SchoolRecreationsController < ApplicationController
   def update
     respond_to do |format|
       if @school_recreation.update(school_recreation_params)
-        format.html { redirect_to @school_recreation, notice: 'School recreation was successfully updated.' }
+        format.html { redirect_to edit_school_path(params[:school_id]), notice: 'School recreation was successfully updated.' }
         format.json { render :show, status: :ok, location: @school_recreation }
       else
         format.html { render :edit }
