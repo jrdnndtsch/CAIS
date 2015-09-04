@@ -9,8 +9,11 @@ class School < ActiveRecord::Base
 	has_many :academics, through: :school_academics
 	belongs_to :city
 	delegate :province, :to => :city
+	validate :validate_student_body_size
 	
-
+	def validate_student_body_size
+		self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day == self.student_body_size
+	end
 	def amenity_type(school, amenity)
 		school.send("school_"+amenity)
 	end
@@ -30,30 +33,6 @@ class School < ActiveRecord::Base
 		end
 		return array
 	end
-
-	# def recreational_sports
-	# 	array = []
-	# 	self.school_recreations.each do |recreation|
-	# 		if recreation.recreation.recreation_type == 'Recreational Sports'
-	# 			array << recreation.recreation
-	# 		end
-	# 	end
-	# 	return array
-	# end
-
-	# def interscholastic_sports
-	# 	array = []
-	# 	self.school_recreations.each do |recreation|
-	# 		if recreation.recreation.recreation_type == 'Interscholastic Sports'
-	# 			array << recreation.recreation
-	# 		end
-	# 	end
-	# 	return array
-	# end
-
-	# def student_body_size
-	# 	self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day
-	# end
 
 	def total_boarding
 		self.girls_boarding + self.boys_boarding
@@ -88,6 +67,7 @@ class School < ActiveRecord::Base
 		end
 		
 	end
+
 
 	def self.search(province="any", student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
 		# schools = School.order(:name)
