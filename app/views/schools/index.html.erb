@@ -1,4 +1,3 @@
-
 <div class="" id="all-schools">
 
   <div class="search-space">
@@ -40,7 +39,7 @@
   <% end %>
   </div>
   <hr>
-  <div class="compare-btn"> select schools to compare</div>
+  <div class="compare-btn"> Compare Selected School</div>
   <div class="content">
 
 
@@ -49,7 +48,7 @@
       <%= render 'schools_listing'%>
     </div>
 
-  <div class="compare-btn"> select schools to compare</div>
+  <div class="compare-btn">Compare Selected Schools</div>
     
   <% if user_signed_in? %>
   <%= link_to 'New School', new_school_path %>
