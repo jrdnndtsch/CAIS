@@ -3,15 +3,7 @@ class SchoolsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
 
-  # def compare 
-  #   @schools = School.all
-  #   @compared = params[:is_checked]
-  #   if params[:is_checked]
-  #     # raise "hell"
-  #     render :compare_js
-  #     # render js: "window.location.pathname='#{compare_schools_path}'" 
-  #   end  
-  # end
+
   # GET /schools
   # GET /schools.json
   def index
@@ -48,7 +40,6 @@ class SchoolsController < ApplicationController
       min = params[:slider_min]
       max = params[:slider_max]
       @schools = School.search(province, student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding).order('name')
-      # @schools = School.school_from_province(params[:province])
       render :schools_js
     else
       @schools = School.all.order('name')

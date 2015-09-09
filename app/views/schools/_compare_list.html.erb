@@ -51,7 +51,7 @@
 					<li>Religious Affiliation: <span><%= @school.religion%></span></li>
 					<li>Average Class Size: <span><%= @school.average_class_size %></span></li>
 					<li>Student/Teacher Ratio: <span><%= @school.student_teacher_ratio %></span></li>
-					<li>Dress Code: <span><%= @school.dress_code %></span></li>
+					<li>Dress Code: <span><%= human_boolean(@school.dress_code) %></span></li>
 					<li>Student Body: <span><%=@school.student_body%></span></li>
 					<li>7-Day Boarding Tuition: <span><%= number_to_currency(@school.seven_day_tuition)  %></span></li>
 					<li>5-Day Boarding Tuition: <span><%= number_to_currency(@school.five_day_tuition) %></span></li>
@@ -59,13 +59,13 @@
 					<li>Day Grades: <span><%= @school.day_grades %></span></li>
 					<li>Day Tuition: <span><%= number_to_currency(@school.day_tuition) %></span></li>
 					<li>Accredidations: <span><%= @school.accreditations %></span></li>
-					<li>Pre-Grade Nine Boarding: <span><%= @school.pre_grade_nine_boarding %></span></li>
-					<li>Advanced Placement: <span><%= @school.advanced_placement %></span></li>
-					<li>Internati'l Baccalaureate: <span><%= @school.international_bac %></span></li>
-					<li>ESL: <span><%= @school.esl%></span></li>
-					<li>Payment Plans: <span><%= @school.payment_plans %></span></li>
-					<li>Need-Based Aid: <span><%= @school.need_based_aid %></span></li>
-					<li>Merit Scholarships: <span><%= @school.merit_scholarships %></span></li>
+					<li>Pre-Grade Nine Boarding: <span><%= human_boolean(@school.pre_grade_nine_boarding) %></span></li>
+					<li>Advanced Placement: <span><%= human_boolean(@school.advanced_placement) %></span></li>
+					<li>Internati'l Baccalaureate: <span><%= human_boolean(@school.international_bac) %></span></li>
+					<li>ESL: <span><%= human_boolean(@school.esl)%></span></li>
+					<li>Payment Plans: <span><%= human_boolean(@school.payment_plans) %></span></li>
+					<li>Need-Based Aid: <span><%= human_boolean(@school.need_based_aid)%></span></li>
+					<li>Merit Scholarships: <span><%= human_boolean(@school.merit_scholarships) %></span></li>
 				</ul>	
 				<%= link_to 'View Full Profile', @school %>
 			</div>		
