@@ -1,6 +1,6 @@
 class School < ActiveRecord::Base
 	STUDENT_BODY = %w[ no_preference co-ed boys girls ]
-	TRUE_FALSE = %w[ no_preference true false]
+	TRUE_FALSE = %w[ no_preference yes no]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
 	has_many :school_campus

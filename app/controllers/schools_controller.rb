@@ -18,23 +18,23 @@ class SchoolsController < ApplicationController
     @provinces = Province.all
     @schools = School.all.order('name')
     if params[:student_body]
-      if params[:advanced_placement] == 'true'
+      if params[:advanced_placement] == 'yes'
          advanced_placement = true
-        elsif params[:advanced_placement] == 'false'
+        elsif params[:advanced_placement] == 'no'
           advanced_placement = false
         else
           advanced_placement = params[:advanced_placement]  
       end
-      if params[:international_bac] == 'true'
+      if params[:international_bac] == 'yes'
          international_bac = true
-        elsif params[:international_bac] == 'false'
+        elsif params[:international_bac] == 'no'
           international_bac = false
         else
           international_bac = params[:international_bac]  
       end
-      if params[:pre_grade_nine_boarding] == 'true'
+      if params[:pre_grade_nine_boarding] == 'yes'
          pre_grade_nine_boarding = true
-        elsif params[:pre_grade_nine_boarding] == 'false'
+        elsif params[:pre_grade_nine_boarding] == 'no'
           pre_grade_nine_boarding = false
         else
           pre_grade_nine_boarding = params[:pre_grade_nine_boarding]  
