@@ -115,7 +115,7 @@
       <% end %>
       </ul>
       <% end %>
-      <% if @school.summer_programs %>
+      <% if @school.summer_programs.present? %>
       <h3>Summer Programs <span class="expand-summer">&#9660;</span></h3>
       <div class="summer-expand expanded hidden">
         <%= @school.summer_programs %>
