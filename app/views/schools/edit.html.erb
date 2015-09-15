@@ -13,7 +13,7 @@
 		      <li class="expand-title"> <h4><%= a.academic.subject %></h4> </li>
 		      <ul>
 		        <% @school.amenity_detail_list(@school, "academics", a.academic.id).each do |detail|%>
-		        <li><%= detail.academic.course %></li>
+		        <li><%= detail.academic.course %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		        <% end %>
 		      </ul>
 		  <% end %>
@@ -32,7 +32,7 @@
 		      <li class="expand-title"> <h4><%= a.recreation.recreation_type %></h4> </li>
 		      <ul>
 		        <% @school.amenity_detail_list(@school, "recreations", a.recreation.id).each do |detail|%>
-		        <li><%= detail.recreation.activity %></li>
+		        <li><%= detail.recreation.activity %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		        <% end %>
 		      </ul>
 		   <% end %>
@@ -50,7 +50,7 @@
 		      <li class="expand-title"> <h4><%= a.campu.campu_type %></h4> </li>
 		      <ul>
 		        <% @school.amenity_detail_list(@school, "campus", a.campu.id).each do |detail|%>
-		        <li><%= detail.campu.feature %></li>
+		        <li><%= detail.campu.feature %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		        <% end %>
 		      </ul>
 		  <% end %>

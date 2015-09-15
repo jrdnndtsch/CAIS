@@ -59,9 +59,10 @@ class SchoolAcademicsController < ApplicationController
   # DELETE /school_academics/1
   # DELETE /school_academics/1.json
   def destroy
+    @school = @school_academic.school
     @school_academic.destroy
     respond_to do |format|
-      format.html { redirect_to school_academics_url, notice: 'School academic was successfully destroyed.' }
+      format.html { redirect_to edit_school_path(@school), notice: 'School academic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

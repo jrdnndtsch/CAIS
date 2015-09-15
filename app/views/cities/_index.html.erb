@@ -2,6 +2,7 @@
 <table class="admin-table">
   <thead>
     <tr>
+      <th>Used</th>
       <th>Name</th>
       <th>Province</th>
       <th colspan="3"></th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
+        <td><%= School.where(city_id: city.id).count%> times</td>
         <td><%= city.name %></td>
         <td><%= city.province.name %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>

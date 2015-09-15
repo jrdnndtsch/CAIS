@@ -2,6 +2,7 @@
 <table class="admin-table">
   <thead>
     <tr>
+      <th>Used</th>
       <th>Type</th>
       <th>Activity</th>
       <th colspan="3"></th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @recreations.each do |recreation| %>
       <tr>
+        <td><%= SchoolRecreation.where(recreation_id: recreation.id).count%> times</td>
         <td><%= recreation.recreation_type %></td>
         <td><%= recreation.activity %></td>
         <td><%= link_to 'Edit', edit_recreation_path(recreation) %></td>

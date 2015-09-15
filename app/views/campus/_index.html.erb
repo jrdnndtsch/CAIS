@@ -3,6 +3,7 @@
 <table class="admin-table">
   <thead>
     <tr>
+      <th>Used</th>
       <th>Type</th>
       <th>Feature</th>
       <th colspan="3"></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @campus.each do |campu| %>
       <tr>
+        <td><%= SchoolCampu.where(campu_id: campu.id).count%> times</td>
         <td><%= campu.campu_type %></td>
         <td><%= campu.feature %></td>
         <td><%= link_to 'Edit', edit_campu_path(campu) %></td>
