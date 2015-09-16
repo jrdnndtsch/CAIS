@@ -17,7 +17,7 @@
     </div>
 
     <p>
-      <%= @school.description %>
+      <%= simple_format(@school.description) %>
     </p>
     <% if @school.video_url.present? %>
     <div class="video">
