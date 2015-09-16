@@ -17,7 +17,10 @@
         <td><%= campu.campu_type %></td>
         <td><%= campu.feature %></td>
         <td><%= link_to 'Edit', edit_campu_path(campu) %></td>
-        <td><%= link_to 'Destroy', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if SchoolCampu.where(campu_id: campu.id).count == 0%>
+          <%= link_to 'Destroy', campu, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>

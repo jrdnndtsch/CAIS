@@ -16,7 +16,9 @@
         <td><%= city.name %></td>
         <td><%= city.province.name %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if School.where(city_id: city.id).count == 0 %>
+          <%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>

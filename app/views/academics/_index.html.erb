@@ -16,7 +16,10 @@
         <td><%= academic.subject.humanize %></td>
         <td><%= academic.course %></td>
         <td><%= link_to 'Edit', edit_academic_path(academic) %></td>
-        <td><%= link_to 'Destroy', academic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if SchoolAcademic.where(academic_id: academic.id).count == 0 %>
+          <%= link_to 'Destroy', academic, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>

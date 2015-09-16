@@ -14,7 +14,10 @@
         <td><%= City.where(province_id: province.id).count%> times</td>
         <td><%= province.name %></td>
         <td><%= link_to 'Edit', edit_province_path(province) %></td>
-        <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if City.where(province_id: province.id).count == 0 %>
+          <%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
