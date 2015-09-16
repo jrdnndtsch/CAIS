@@ -1,9 +1,23 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  // font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+@font-face {
+   font-family: 'Proxima_Nova';
+    src: asset-url('fonts/proxima_nova.eot');
+    src: asset-url('fonts/proxima_nova.svg#proxima_nova') format('svg'), 
+         asset-url('fonts/proxima_nova.eot?#iefix') format('embedded-opentype'),
+         asset-url('fonts/proxima_nova.woff') format('woff'),
+         asset-url('fonts/proxima_nova.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+body{
+  font-family: 'Proxima_Nova';
 }
 
 p, ol, ul, td {
