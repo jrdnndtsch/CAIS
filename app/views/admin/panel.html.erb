@@ -61,7 +61,7 @@
 </div>
 
 <hr>
-<%= link_to "Back", schools_path %>
+<%= link_to "Back", :back %>
 
 
 <script>
@@ -82,5 +82,37 @@
   $('#provinces').on('click', function(){
     $('#provinces-list').toggleClass('hidden')
   });
+
+  $('.academic_submit :submit').on('click', function(e){
+    if($('#academic_course').val() === "" ){
+      e.preventDefault();
+      alert('Please enter a course')
+    }
+  });
+    $('.campu_submit :submit').on('click', function(e){
+    if($('#campu_feature').val() === "" ){
+      e.preventDefault();
+      alert('Please enter a feature')
+    }
+  });
+    $('.recreation_submit :submit').on('click', function(e){
+      if($('#recreation_activity').val() === "" ){
+        e.preventDefault();
+        alert('Please enter an activity')
+      }
+    });
+    $('.city_submit :submit').on('click', function(e){
+      if($('#city_name').val() === "" ){
+        e.preventDefault();
+        alert('Please enter a city')
+      }
+    });
+    $('.province_submit :submit').on('click', function(e){
+      if($('#province_name').val() === "" ){
+        e.preventDefault();
+        alert('Please enter a province')
+      }
+    });
+
   
 </script>
