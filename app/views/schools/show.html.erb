@@ -19,6 +19,7 @@
     <p>
       <%= simple_format(@school.description) %>
     </p>
+    
     <% if @school.video_url.present? %>
     <div class="video">
       <iframe width="560" height="315" src="<%= @school.video_url%>" frameborder="0" allowfullscreen></iframe>
