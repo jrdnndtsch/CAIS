@@ -1,4 +1,4 @@
 class Academic < ActiveRecord::Base
-	SUBJECT = %w[ computer_studies advanced/enrichment_programs english science humanities/social_sciences support_programs special_programs performing/visual_arts music foriegn_languages history mathematics religion/philosophy distinctive_or_new_programs ]
+	SUBJECT = [ 'Computer Studies', 'Advanced/Enrichment_programs', 'English', 'Science', 'Humanities/Social Sciences', 'Support Programs', 'Special Programs', 'Performing/Visual Arts', 'Music', 'Foriegn Languages', 'History', 'Mathematics', 'Religion/Philosophy', 'Distinctive or New Programs' ]
 	has_many :school_academics
 end

@@ -1,4 +1,4 @@
 class Campu < ActiveRecord::Base
-	TYPE = %w[ student_life dorm_amenities facilities clubs_&_organizations ]
+	TYPE = [ 'Student Life', 'Dorm Amenities', 'Facilities', 'Clubs & Organizations' ]
 	has_many :school_campus
 end
