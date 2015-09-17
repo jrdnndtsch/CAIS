@@ -43,7 +43,7 @@
 
       <p>Average class size: <span><%= @school.average_class_size %></span></p>
 
-      <p>Student teacher ratio: <span><%= @school.student_teacher_ratio %></span></p>
+      <p>Student teacher ratio: <span><%= @school.student_teacher_ratio %>:1</span></p>
 
       <p>Dress code: <span><%= human_boolean(@school.dress_code) %></span></p>
 
@@ -119,7 +119,7 @@
       <% if @school.summer_programs.present? %>
       <h3>Summer Programs <span class="expand-summer">&#9660;</span></h3>
       <div class="summer-expand expanded hidden">
-        <%= @school.summer_programs %>
+        <%= simple_format(@school.summer_programs) %>
       </div>
       <% end %>
     </div>

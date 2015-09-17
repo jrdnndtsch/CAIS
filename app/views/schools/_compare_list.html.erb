@@ -11,7 +11,7 @@
 				    <p><%= @school.street_address %></p>
 				    <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %> (<a href="https://www.google.ca/maps/place/<%= @school.street_address %>,+<%= @school.city.name %>,+<%= @school.city.province.name%>+<%= @school.postal_code %>" target="_blank" class="map-link">View map</a>)</p>
 				    <%= link_to @school.website_url, "http://#{@school.website_url}", :target => "_blank" %>
-					<p> <%= @school.description %></p>
+					<p> <%=simple_format(@school.description) %></p>
 				</div>
 				<div class="student-pop-info">
 					<table>
@@ -50,7 +50,7 @@
 					<li>Year Founded: <span><%= @school.year_founded %></span></li>
 					<li>Religious Affiliation: <span><%= @school.religion%></span></li>
 					<li>Average Class Size: <span><%= @school.average_class_size %></span></li>
-					<li>Student/Teacher Ratio: <span><%= @school.student_teacher_ratio %></span></li>
+					<li>Student/Teacher Ratio: <span><%= @school.student_teacher_ratio %>:1</span></li>
 					<li>Dress Code: <span><%= human_boolean(@school.dress_code) %></span></li>
 					<li>Student Body: <span><%=@school.student_body%></span></li>
 					<li>7-Day Boarding Tuition: <span><%= number_to_currency(@school.seven_day_tuition)  %></span></li>
