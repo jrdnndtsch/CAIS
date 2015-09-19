@@ -2,36 +2,38 @@
 	<h1>Editing School</h1>
 	<%= render 'form' %>
 	<hr>
+
+	
+
 	<hr>
 	 <div class="expand-details">
 	  <h2>Academics</h2>
 	  <%= render 'school_academics/form' %>
-	  <% if @school.amenity_type(@school, "academics").exists? %>
-		  <h3>Academics <span class="expand-academics">&#9660;</span></h3>
-		  <ul class="academics-expand expanded hidden">
-		  <% @school.amenity_type(@school, "academics").each do |a|%>
-		      <li class="expand-title"> <h4><%= a.academic.subject %></h4> </li>
-		      <ul>
-		        <% @school.amenity_detail_list(@school, "academics", a.academic.id).each do |detail|%>
-		        <li><%= detail.academic.course %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		        <% end %>
-		      </ul>
-		  <% end %>
-		  </ul>
-	  <% end %>
+	<% if @school.amenity_type(@school, "academic").present? %>
+        <h3>Academics <span class="expand-academics">&#9660;</span></h3>
+        <ul class="academics-expand expanded hidden">
+        <% @school.amenity_type(@school, "academic").each do |a|%>
+            <li class="expand-title"> <h4><%= a.name %></h4> </li>
+            <ul>
+              <% @school.amenity_detail_list(@school, "academics", a.id).each do |detail|%>
+              <li><%= detail.academic.course %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' }%></li>
+              <% end %>
+            </ul>
+      <% end %>
+      </ul>
+      <% end %>
 		     
 
 	  <hr>
-
 	  <h2>Recreations</h2>
 	  <%= render 'school_recreations/form' %>
-	 <% if @school.amenity_type(@school, "recreations").exists? %>
+	 <% if @school.amenity_type(@school, "recreation").present? %>
 		  <h3>Recreations <span class="expand-recreations">&#9660;</span></h3>
 		  <ul class="recreations-expand expanded hidden">
-		  <% @school.amenity_type(@school, "recreations").each do |a|%>
-		      <li class="expand-title"> <h4><%= a.recreation.recreation_type %></h4> </li>
+		  <% @school.amenity_type(@school, "recreation").each do |a|%>
+		      <li class="expand-title"> <h4><%= a.name %></h4> </li>
 		      <ul>
-		        <% @school.amenity_detail_list(@school, "recreations", a.recreation.id).each do |detail|%>
+		        <% @school.amenity_detail_list(@school, "recreations", a.id).each do |detail|%>
 		        <li><%= detail.recreation.activity %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		        <% end %>
 		      </ul>
@@ -39,23 +41,24 @@
 		  </ul>
 		  <% end %>
 
+
 	  <hr>
 
 	  <h2>Campus</h2>
 	  <%= render 'school_campus/form' %>
-	<% if @school.amenity_type(@school, "campus").exists? %>
-		  <h3>Campus <span class="expand-campus">&#9660;</span></h3>
-		  <ul class="campus-expand expanded hidden">
-		  <% @school.amenity_type(@school, "campus").each do |a|%>
-		      <li class="expand-title"> <h4><%= a.campu.campu_type %></h4> </li>
-		      <ul>
-		        <% @school.amenity_detail_list(@school, "campus", a.campu.id).each do |detail|%>
-		        <li><%= detail.campu.feature %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		        <% end %>
-		      </ul>
-		  <% end %>
-		  </ul>
-		  <% end %>
+	<% if @school.amenity_type(@school, "campu").present? %>
+	  <h3>Campus <span class="expand-campus">&#9660;</span></h3>
+	  <ul class="campus-expand expanded hidden">
+	  <% @school.amenity_type(@school, "campu").each do |a|%>
+	      <li class="expand-title"> <h4><%= a.name %></h4> </li>
+	      <ul>
+	        <% @school.amenity_detail_list(@school, "campus", a.id).each do |detail|%>
+	        <li><%= detail.campu.feature %>| <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' }%></li>
+	        <% end %>
+	      </ul>
+	<% end %>
+	</ul>
+	<% end %>
 	</div>
 
 

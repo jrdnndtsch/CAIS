@@ -1,0 +1,28 @@
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Used</th>
+      <th>Type</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academic_types.each do |academic| %>
+      <tr>
+        <td><%= Academic.where(academic_type_id: academic.id).count%> times</td>
+        <td><%= academic.name %></td>
+        <td><% if Academic.where(academic_type_id: academic.id).count == 0 %>
+          <%= link_to 'Destroy', academic, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+

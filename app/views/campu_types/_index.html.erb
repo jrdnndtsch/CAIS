@@ -1,0 +1,28 @@
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Used</th>
+      <th>Type</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campu_types.each do |campu| %>
+      <tr>
+        <td><%= Campu.where(campu_type_id: campu.id).count%> times</td>
+        <td><%= campu.name %></td>
+        <td><% if Campu.where(campu_type_id: campu.id).count == 0 %>
+          <%= link_to 'Destroy', campu, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+

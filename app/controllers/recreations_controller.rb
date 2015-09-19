@@ -69,6 +69,6 @@ class RecreationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recreation_params
-      params.require(:recreation).permit(:recreation_type, :activity)
+      params.require(:recreation).permit(:recreation_type, :activity, :recreation_type_id)
     end
 end

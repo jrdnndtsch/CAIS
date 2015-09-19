@@ -27,6 +27,7 @@ class SchoolAcademicsController < ApplicationController
   # POST /school_academics
   # POST /school_academics.json
   def create
+    # raise "hell"
     school = School.find(params[:school_id])
     @school_academic = SchoolAcademic.new(school_academic_params)
     @school_academic.school_id = params[:school_id]

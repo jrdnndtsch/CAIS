@@ -1,0 +1,28 @@
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Used</th>
+      <th>Type</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recreation_types.each do |recreation| %>
+      <tr>
+        <td><%= Recreation.where(recreation_type_id: recreation.id).count%> times</td>
+        <td><%= recreation.name %></td>
+        <td><% if Recreation.where(recreation_type_id: recreation.id).count == 0 %>
+          <%= link_to 'Destroy', recreation, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+

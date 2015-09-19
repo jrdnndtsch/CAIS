@@ -1,0 +1,21 @@
+<%= form_for(@campu_type) do |f| %>
+  <% if @campu_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campu_type.errors.count, "error") %> prohibited this campus_type from being saved:</h2>
+
+      <ul>
+      <% @campu_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions camputype_submit">
+    <%= f.submit %>
+  </div>
+<% end %>

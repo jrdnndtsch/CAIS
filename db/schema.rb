@@ -11,21 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916223015) do
+ActiveRecord::Schema.define(version: 20150919202303) do
+
+  create_table "academic_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "academics", force: :cascade do |t|
     t.string   "subject"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "course"
+    t.integer  "academic_type_id"
+  end
+
+  add_index "academics", ["academic_type_id"], name: "index_academics_on_academic_type_id"
+
+  create_table "campu_types", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "course"
   end
 
   create_table "campus", force: :cascade do |t|
     t.string   "feature"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "campu_type"
+    t.integer  "campus_type_id"
+    t.integer  "campu_type_id"
   end
+
+  add_index "campus", ["campu_type_id"], name: "index_campus_on_campu_type_id"
+  add_index "campus", ["campus_type_id"], name: "index_campus_on_campus_type_id"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -60,12 +80,21 @@ ActiveRecord::Schema.define(version: 20150916223015) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "recreation_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recreations", force: :cascade do |t|
     t.string   "activity"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "recreation_type"
+    t.integer  "recreation_type_id"
   end
+
+  add_index "recreations", ["recreation_type_id"], name: "index_recreations_on_recreation_type_id"
 
   create_table "school_academics", force: :cascade do |t|
     t.integer  "school_id"
