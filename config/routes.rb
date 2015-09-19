@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :recreations_types
+  resources :campus_types
+  resources :academic_types
   devise_for :users
   resources :school_academics
   resources :school_campus

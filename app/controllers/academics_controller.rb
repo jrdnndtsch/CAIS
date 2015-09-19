@@ -15,10 +15,12 @@ class AcademicsController < ApplicationController
   # GET /academics/new
   def new
     @academic = Academic.new
+    @academic_types = AcademicType.all
   end
 
   # GET /academics/1/edit
   def edit
+    @academic_types = AcademicType.all
   end
 
   # POST /academics
@@ -69,6 +71,6 @@ class AcademicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def academic_params
-      params.require(:academic).permit(:subject, :course)
+      params.require(:academic).permit(:subject, :course, :academic_type_id)
     end
 end

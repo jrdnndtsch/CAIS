@@ -3,10 +3,13 @@ class School < ActiveRecord::Base
 	TRUE_FALSE = %w[ no_preference yes no]
 	has_many :school_recreations
 	has_many :recreations, through: :school_recreations
+	has_many :recreation_types, through: :recreations
 	has_many :school_campus
 	has_many :campus, through: :school_campus
+	has_many :campu_types, through: :campus
 	has_many :school_academics
 	has_many :academics, through: :school_academics
+	has_many :academic_types, through: :academics
 	belongs_to :city
 	delegate :province, :to => :city
 	validate :validate_student_body_size
@@ -19,13 +22,21 @@ class School < ActiveRecord::Base
 
 
 	def amenity_type(school, amenity)
-		school.send("school_"+amenity)
+		# amen = amenity.singularize
+		school.send(amenity+'_types').uniq
 	end
 
 
 	def amenity_detail_list(school,amenity, amenity_type_id)
 		amen = amenity.singularize
-		school.send("school_"+amenity).where(amen => amenity_type_id)
+		array = []
+		school.send("school_"+amenity).each do |a|
+			if a.send(amen).send(amen+'_type_id') == amenity_type_id
+				array << a
+			end
+		end
+		return array
+		# school.send("school_"+amenity).where(amen => amenity_type_id)
 	end
 
 	def arts

@@ -13,7 +13,11 @@
     <% @academics.each do |academic| %>
       <tr>
         <td><%= SchoolAcademic.where(academic_id: academic.id).count%> times</td>
-        <td><%= academic.subject.humanize %></td>
+        <% if academic.academic_type.present? %>
+          <td><%= academic.academic_type.name %></td>
+        <% else%>
+          <td>Blank</td>
+        <% end %>
         <td><%= academic.course %></td>
         <td><%= link_to 'Edit', edit_academic_path(academic) %></td>
         <td><% if SchoolAcademic.where(academic_id: academic.id).count == 0 %>
