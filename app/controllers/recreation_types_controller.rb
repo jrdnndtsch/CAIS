@@ -28,7 +28,7 @@ class RecreationTypesController < ApplicationController
 
     respond_to do |format|
       if @recreation_type.save
-        format.html { redirect_to @recreation_type, notice: 'Recreation type was successfully created.' }
+        format.html { redirect_to admin_path, notice: 'Recreation type was successfully created.' }
         format.json { render :show, status: :created, location: @recreation_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RecreationTypesController < ApplicationController
   def update
     respond_to do |format|
       if @recreation_type.update(recreation_type_params)
-        format.html { redirect_to @recreation_type, notice: 'Recreation type was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'Recreation type was successfully updated.' }
         format.json { render :show, status: :ok, location: @recreation_type }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RecreationTypesController < ApplicationController
   def destroy
     @recreation_type.destroy
     respond_to do |format|
-      format.html { redirect_to recreation_types_url, notice: 'Recreation type was successfully destroyed.' }
+      format.html { redirect_to admin_path, notice: 'Recreation type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

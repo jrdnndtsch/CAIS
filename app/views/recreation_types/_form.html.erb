@@ -1,10 +1,10 @@
-<%= form_for(@recreations_type) do |f| %>
-  <% if @recreations_type.errors.any? %>
+<%= form_for(@recreation_type) do |f| %>
+  <% if @recreation_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recreations_type.errors.count, "error") %> prohibited this recreations_type from being saved:</h2>
+      <h2><%= pluralize(@recreation_type.errors.count, "error") %> prohibited this recreations_type from being saved:</h2>
 
       <ul>
-      <% @recreations_type.errors.full_messages.each do |message| %>
+      <% @recreation_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -15,7 +15,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
+  <div class="actions recreationtype_submit">
     <%= f.submit %>
   </div>
 <% end %>

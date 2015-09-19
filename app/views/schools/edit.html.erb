@@ -2,6 +2,9 @@
 	<h1>Editing School</h1>
 	<%= render 'form' %>
 	<hr>
+
+	
+
 	<hr>
 	 <div class="expand-details">
 	  <h2>Academics</h2>
@@ -13,7 +16,7 @@
             <li class="expand-title"> <h4><%= a.name %></h4> </li>
             <ul>
               <% @school.amenity_detail_list(@school, "academics", a.id).each do |detail|%>
-              <li><%= detail.academic.course %></li>
+              <li><%= detail.academic.course %> | <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' }%></li>
               <% end %>
             </ul>
       <% end %>
@@ -50,7 +53,7 @@
 	      <li class="expand-title"> <h4><%= a.name %></h4> </li>
 	      <ul>
 	        <% @school.amenity_detail_list(@school, "campus", a.id).each do |detail|%>
-	        <li><%= detail.campu.feature %></li>
+	        <li><%= detail.campu.feature %>| <%= link_to 'Delete', detail, method: :delete, data: { confirm: 'Are you sure?' }%></li>
 	        <% end %>
 	      </ul>
 	<% end %>

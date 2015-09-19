@@ -40,6 +40,37 @@
 
 <hr>
 
+<h2>Add New Academic Type</h2>
+
+<%= render 'academic_types/form' %>
+
+<h3 id="academicstype" class="list">List of Academic Types</h3>
+<div id="academicstype-list" class="hidden">
+  <%= render 'academic_types/index' %>
+</div>
+
+<hr>
+
+<h2>Add New Campus Type</h2>
+
+<%= render 'campu_types/form' %>
+
+<h3 id="campustype" class="list">List of Campus Types</h3>
+<div id="campustype-list" class="hidden">
+  <%= render 'campu_types/index' %>
+</div>
+<hr>
+
+<h2>Add New Recreation Type</h2>
+
+<%= render 'recreation_types/form' %>
+
+<h3 id="recreationstype" class="list">List of Recreation Types</h3>
+<div id="recreationstype-list" class="hidden">
+  <%= render 'recreation_types/index' %>
+</div>
+<hr>
+
 <h2>Add new City</h2>
 
 <%= render 'cities/form' %>
@@ -69,6 +100,15 @@
   $('#academics').on('click', function(){
     $('#academics-list').toggleClass('hidden')
   });
+  $('#academicstype').on('click', function(){
+    $('#academicstype-list').toggleClass('hidden')
+  });
+  $('#campustype').on('click', function(){
+    $('#campustype-list').toggleClass('hidden')
+  });
+  $('#recreationstype').on('click', function(){
+    $('#recreationstype-list').toggleClass('hidden')
+  });
   $('#recreations').on('click', function(){
     $('#recreations-list').toggleClass('hidden')
   });
@@ -89,16 +129,34 @@
       alert('Please enter a course')
     }
   });
+  $('.academictype_submit :submit').on('click', function(e){
+    if($('#academic_type_name').val() === "" ){
+      e.preventDefault();
+      alert('Please enter an academic type')
+    }
+  });
     $('.campu_submit :submit').on('click', function(e){
     if($('#campu_feature').val() === "" ){
       e.preventDefault();
       alert('Please enter a feature')
     }
   });
+    $('.camputype_submit :submit').on('click', function(e){
+      if($('#campu_type_name').val() === "" ){
+        e.preventDefault();
+        alert('Please enter an campus type')
+      }
+    });
     $('.recreation_submit :submit').on('click', function(e){
       if($('#recreation_activity').val() === "" ){
         e.preventDefault();
         alert('Please enter an activity')
+      }
+    });
+    $('.recreationtype_submit :submit').on('click', function(e){
+      if($('#recreation_type_name').val() === "" ){
+        e.preventDefault();
+        alert('Please enter an recreation type')
       }
     });
     $('.city_submit :submit').on('click', function(e){
