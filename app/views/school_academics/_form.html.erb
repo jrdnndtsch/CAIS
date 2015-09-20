@@ -17,6 +17,8 @@
      <%= f.collection_select :academic_id, @academics, :id, :course %>
    </div>
   </div> 
+
+  
  <div class="actions">
    <%= f.submit %>
    <%= hidden_field_tag :school_id, @school.id %>

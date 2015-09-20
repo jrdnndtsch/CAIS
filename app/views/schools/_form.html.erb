@@ -166,6 +166,69 @@
         <%= f.text_area :summer_programs%>
       </div>
     </section>
+    
+    <div class="block">
+      <h2>Academics</h2>
+      <%= f.collection_check_boxes :academic_ids, Academic.all.order(:course), :id, :course %>
+        <div class="expand-details">
+        <p>Preview</p>
+        <% if @school.amenity_type(@school, "academic").present? %>
+              <h3>Academics <span class="expand-academics">&#9660;</span></h3>
+              <ul class="academics-expand expanded hidden">
+              <% @school.amenity_type(@school, "academic").each do |a|%>
+                  <li class="expand-title"> <h4><%= a.name %></h4> </li>
+                  <ul>
+                    <% @school.amenity_detail_list(@school, "academics", a.id).each do |detail|%>
+                    <li><%= detail.academic.course %></li>
+                    <% end %>
+                  </ul>
+            <% end %>
+            </ul>
+            <% end %>
+          </div>
+    </div>
+
+    <div class="block">
+      <h2>Recreation</h2>
+      <%= f.collection_check_boxes :recreation_ids, Recreation.all.order(:activity), :id, :activity %>
+      <div class="expand-details">
+        <p>Preview</p>
+       <% if @school.amenity_type(@school, "recreation").present? %>
+          <h3>Recreations <span class="expand-recreations">&#9660;</span></h3>
+          <ul class="recreations-expand expanded hidden">
+          <% @school.amenity_type(@school, "recreation").each do |a|%>
+              <li class="expand-title"> <h4><%= a.name %></h4> </li>
+              <ul>
+                <% @school.amenity_detail_list(@school, "recreations", a.id).each do |detail|%>
+                <li><%= detail.recreation.activity %></li>
+                <% end %>
+              </ul>
+           <% end %>
+          </ul>
+          <% end %>
+        </div>
+    </div>
+
+    <div class="block">
+      <h2>Campus</h2>
+      <%= f.collection_check_boxes :campu_ids, Campu.all.order(:feature), :id, :feature %>
+      <div class="expand-details">
+        <p>Preview</p>
+        <% if @school.amenity_type(@school, "campu").present? %>
+          <h3>Campus <span class="expand-campus">&#9660;</span></h3>
+          <ul class="campus-expand expanded hidden">
+          <% @school.amenity_type(@school, "campu").each do |a|%>
+              <li class="expand-title"> <h4><%= a.name %></h4> </li>
+              <ul>
+                <% @school.amenity_detail_list(@school, "campus", a.id).each do |detail|%>
+                <li><%= detail.campu.feature %></li>
+                <% end %>
+              </ul>
+        <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
 
 
     <div class="actions button">

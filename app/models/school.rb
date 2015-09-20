@@ -20,6 +20,19 @@ class School < ActiveRecord::Base
 		end	
 	end
 
+	def self.academic_with(course)
+		Academic.find_by_course!('test course').schools
+	end
+
+	def all_academics=(course)
+	  self.academics = course.split(",").map do |course|
+	      Academic.where(name: name.strip).first_or_create!
+	  end
+	end
+
+	def all_academics
+	  self.academics.map(&:course).join(", ")
+	end
 
 	def amenity_type(school, amenity)
 		# amen = amenity.singularize

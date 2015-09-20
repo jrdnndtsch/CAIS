@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :campus
   resources :recreations
   resources :academics
+  get 's_academics/:academic', to: 'schools#index', as: "s_academic"
+
   root 'schools#index'
   resources :cities
   resources :provinces
