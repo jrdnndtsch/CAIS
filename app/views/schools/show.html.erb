@@ -12,7 +12,7 @@
     </div><!--
     *--><div class="school-single__logo field--half last">
       <% if @school.logo_image_url.present? %>
-      <%= image_tag 'http://drive.google.com/uc?export=view&id=' + @school.logo_image_url %>
+      <%= image_tag @school.logo_image_url %>
       <% end %>
     </div>
 
