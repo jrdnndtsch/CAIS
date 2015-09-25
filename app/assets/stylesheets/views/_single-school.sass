@@ -27,7 +27,8 @@
 		:letter-spacing 1.2px
 		:margin 0
 		:width 100%
-		:text-align center	
+		:text-align center
+		:line-height 72px	
 #single-school
 	h2, a, h3
 		:color $red	
@@ -78,3 +79,6 @@
 	.rotate
 		:transform rotate(0deg)
 		:-webkit-transform rotate(0deg)	
+iframe 
+	+display-for(md sm xs)
+		:width 100%

@@ -51,7 +51,7 @@
 </div>
 
 <script>
-var width = $(window).width();
+
 
 	$('.dropdown').on('mouseenter', function(){
 		sub = $(this).children('.sub-menu')
@@ -67,6 +67,15 @@ var width = $(window).width();
 			$('.site-nav').css('display', 'none')
 			$('.site-nav').removeClass('open')
 		}else{
+			$('.site-nav').css('display', 'block')
+			$('.site-nav').addClass('open')
+		}
+	});
+
+	$(window).resize(function(){
+		var width = $(window).width();
+		console.log(width)
+		if(width > 500){
 			$('.site-nav').css('display', 'block')
 			$('.site-nav').addClass('open')
 		}
