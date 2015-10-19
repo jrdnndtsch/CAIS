@@ -27,7 +27,7 @@
 		:display inline-block
 		img
 			:width 90%
-		+display-for(xs)
+		+display-for(sm xs)
 			:display none	
 	.site-nav-container
 		:position relative	
@@ -35,11 +35,11 @@
 		:display inline-block
 		:padding 35px 0
 		:vertical-align top
-		+display-for(xs)
+		+display-for(sm xs)
 			+make-column(12)
 	.display-for-xs	
 		:display none
-		+display-for(xs)
+		+display-for(sm xs)
 			:display block
 			:position relative
 
@@ -58,17 +58,17 @@
 		:list-style none
 		:padding 0
 		:margin 0
-		+display-for(xs)
+		+display-for(sm xs)
 			:display none
 		.dropdown
-			+display-for(xs)
+			+display-for(sm xs)
 				&:before
 					:content '+'
 					:color rgb(127,127,127)
 	
 		li 
 			:display inline-block
-			+display-for(xs)
+			+display-for(sm xs)
 				:width 100%
 				:display block
 				:text-align center
@@ -80,7 +80,7 @@
 					:padding-left 5px
 					:content '/'
 					:color rgb(127,127,127)
-					+display-for(xs)
+					+display-for(sm xs)
 						:content ' '
 						:padding-left 0
 			.last
@@ -89,7 +89,7 @@
 		.sub-menu
 			:padding 0
 			:background #F7F7F7
-			+display-for(sm md lg xl)
+			+display-for(md lg xl)
 				:padding 10px
 				:position absolute
 				:background white
@@ -112,7 +112,7 @@
 	:margin 0
 	:vertical-align top 
 	:padding 35px 0
-	+display-for(xs)
+	+display-for(sm xs)
 		:display none
 	li 
 		:display inline-block

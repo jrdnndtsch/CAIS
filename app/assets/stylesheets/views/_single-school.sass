@@ -1,6 +1,7 @@
 @import variables/colors
 @import mixins/grid
 @import mixins/make-responsive
+@import mixins/button
 .school-single__header
 	:max-width 1601px
 	:height 350px
@@ -41,7 +42,23 @@
 		&:hover
 			:text-decoration underline
 	.expand
-		:font-size 12px		 
+		:font-size 12px	
+	.back-btn
+		+button-style
+		:width 200px
+		:background $red
+		:color white
+		:border 1px solid white
+		:text-align center
+		:cursor pointer
+		:margin-bottom 25px
+		a 
+			:color white
+			:margin-bottom 0
+		&:hover
+			:background $red-hover
+			a 
+				:text-decoration none			 
 .school-single
 	&__profile
 		+make-column(12)

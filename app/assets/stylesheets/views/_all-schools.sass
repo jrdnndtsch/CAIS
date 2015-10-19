@@ -111,16 +111,29 @@
 			:vertical-align middle
 	.quick-info
 		:padding-left 10px
-		+make-column(7)
+		+make-column(4)
 		:display inline-block
 		:vertical-align middle
-		+display-for(sm xs)
+		+display-for(md sm)
+			+make-column(5)
+		+display-for(xs)
+			+make-column(11)
+	.school-logo
+		+make-column(4)
+		:display inline-block
+		:vertical-align middle
+		img
+			:width 90%
+			:margin 0 auto	
+		+display-for(md sm)
+			+make-column(6)		
+		+display-for(xs)
 			+make-column(11)
 	.quick-stats
-		+make-column(4)	
+		+make-column(3)	
 		:display inline-block
 		:vertical-align middle
-		+display-for(sm xs)
+		+display-for(md sm xs)
 			+make-column(11)
 			+make-gutter(1,0)
 		ul 
