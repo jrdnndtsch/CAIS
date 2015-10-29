@@ -76,6 +76,7 @@
       <p>Need based aid: <span><%= human_boolean(@school.need_based_aid) %></span></p>
 
       <p>Merit scholarships: <span><%= human_boolean(@school.merit_scholarships) %></span></p>
+      <a href="mailto:jgreenshields@cais.ca?subject=Information%20request%20for%20<%= @school.name %>">Request Information</a>
     </div>  
     <div class="expand-details">
       <% if @school.amenity_type(@school, "academic").present? %>
@@ -147,8 +148,10 @@
     function expandOnLoad(){
       var arrow = $('.expand-arrow')
       var section =  $('.expanded');
-      $(section[0]).toggleClass('hidden')
-      $(arrow[0]).toggleClass('rotate');
+      if($('.expand-arrow')){
+        $(section[0]).toggleClass('hidden')
+        $(arrow[0]).toggleClass('rotate');
+      }
     }
     expandOnLoad();
 
