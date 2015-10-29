@@ -79,7 +79,7 @@
     </div>  
     <div class="expand-details">
       <% if @school.amenity_type(@school, "academic").present? %>
-        <h3>Academics <span class="expand-academics">&#9660;</span></h3>
+        <h3>Academics <span class="expand-academics expand-arrow">&#9660;</span></h3>
         <ul class="academics-expand expanded hidden">
         <% @school.amenity_type(@school, "academic").each do |a|%>
             <li class="expand-title"> <h4><%= a.name %></h4> </li>
@@ -93,7 +93,7 @@
       <% end %>
 
        <% if @school.amenity_type(@school, "recreation").present? %>
-          <h3>Recreations <span class="expand-recreations">&#9660;</span></h3>
+          <h3>Recreations <span class="expand-recreations expand-arrow">&#9660;</span></h3>
           <ul class="recreations-expand expanded hidden">
           <% @school.amenity_type(@school, "recreation").each do |a|%>
               <li class="expand-title"> <h4><%= a.name %></h4> </li>
@@ -108,7 +108,7 @@
 
 
       <% if @school.amenity_type(@school, "campu").present? %>
-        <h3>Campus <span class="expand-campus">&#9660;</span></h3>
+        <h3>Campus <span class="expand-campus expand-arrow">&#9660;</span></h3>
         <ul class="campus-expand expanded hidden">
         <% @school.amenity_type(@school, "campu").each do |a|%>
             <li class="expand-title"> <h4><%= a.name %></h4> </li>
@@ -121,7 +121,7 @@
       </ul>
       <% end %>
       <% if @school.summer_programs.present? %>
-      <h3>Summer Programs <span class="expand-summer">&#9660;</span></h3>
+      <h3>Summer Programs <span class="expand-summer expand-arrow">&#9660;</span></h3>
       <div class="summer-expand expanded hidden">
         <%= simple_format(@school.summer_programs) %>
       </div>
@@ -138,27 +138,29 @@
 
 <script>
   $(document).on('ready page:load', function(){
+    //TODO refactor this
     function expand(section){
       $('.'+ section + '-expand').toggleClass('hidden')
       console.log($('.'+ section + '-expand'))
     };
 
+    function expandOnLoad(){
+      var arrow = $('.expand-arrow')
+      var section =  $('.expanded');
+      $(section[0]).toggleClass('hidden')
+      $(arrow[0]).toggleClass('rotate');
+    }
+    expandOnLoad();
 
     $(document).on('click', '.expand-academics', function(){
-      // expand('academics');
-       console.log('it worked')
        $('.academics-expand').toggleClass('hidden')
        $('.expand-academics').toggleClass('rotate')
     });
     $(document).on('click', '.expand-recreations', function(){
-      // expand('recreations');
-       console.log('it worked')
        $('.recreations-expand').toggleClass('hidden')
        $('.expand-recreations').toggleClass('rotate')
     });
     $(document).on('click', '.expand-campus', function(){
-      // expand('campus');
-      console.log('it worked')
       $('.campus-expand').toggleClass('hidden')
       $('.expand-campus').toggleClass('rotate')
     });
