@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :recreation_types
   resources :campu_types
   resources :academic_types
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
   resources :school_academics
   resources :school_campus
   resources :school_recreations
