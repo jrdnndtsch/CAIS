@@ -2,7 +2,8 @@
 
 
 <div class="" id="single-school">
-   <div class="back-btn"> <%= link_to 'Back To All Schools', schools_path %></div> 
+   <div class="back-btn"> <%= link_to 'Back To All Schools', schools_path %></div>
+   <div class="back-btn"><a href="mailto:jgreenshields@cais.ca?subject=Information%20request%20for%20<%= @school.name %>" target="_blank">Request Information</a></div> 
   <div class="school-single__profile">
     <div class="school-single__summary field--half">
       <h2><%= @school.name %></h2>
@@ -76,7 +77,7 @@
       <p>Need based aid: <span><%= human_boolean(@school.need_based_aid) %></span></p>
 
       <p>Merit scholarships: <span><%= human_boolean(@school.merit_scholarships) %></span></p>
-      <a href="mailto:jgreenshields@cais.ca?subject=Information%20request%20for%20<%= @school.name %>">Request Information</a>
+      
     </div>  
     <div class="expand-details">
       <% if @school.amenity_type(@school, "academic").present? %>
