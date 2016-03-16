@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CAIS</title>
+  <title><%=h yield(:name)%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,6 +10,19 @@
 
 </head>
 <body>
+
+<!-- Place immediately after <body> tag on all pages -->
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PZKNZG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PZKNZG');</script>
+<!-- End Google Tag Manager -->
+
+
 	<div id="flash">
 		<% if notice %>
 		  <p class="alert alert-success"><%= notice %></p>
@@ -32,6 +45,8 @@
 			<%= render 'layouts/navigation'%>
 		</div>
 	</div>
+
+  <!-- created in layouts because it is a full-bleed image -->
 	<%= render(:partial => 'layouts/imageheader') if (params[:action] == 'show') %>
 
 	<div class="container">

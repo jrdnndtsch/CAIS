@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% content_for :meta_description, @school.meta_description %>
+<% content_for :name, @school.name %>
 
 <div class="" id="single-school">
    <div class="back-btn"> <%= link_to 'Back To All Schools', schools_path %></div>
@@ -14,7 +15,7 @@
     </div><!--
     *--><div class="school-single__logo field--half last">
       <% if @school.logo_image_url.present? %>
-      <%= image_tag @school.logo_image_url %>
+      <%= image_tag @school.logo_image_url, alt: "#{@school.name} - Boarding School" %>
       <% end %>
     </div>
 
