@@ -64,6 +64,10 @@ class School < ActiveRecord::Base
 		return array
 	end
 
+  def total_students
+    self.total_boarding + self.total_day
+  end
+
 	def total_boarding
 		self.girls_boarding + self.boys_boarding
 	end

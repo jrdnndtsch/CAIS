@@ -11,7 +11,7 @@
 				    <p><%= @school.street_address %></p>
 				    <p><%= @school.city.name %>, <%= @school.city.province.name%>, <%= @school.postal_code %> (<a href="https://www.google.ca/maps/place/<%= @school.street_address %>,+<%= @school.city.name %>,+<%= @school.city.province.name%>+<%= @school.postal_code %>" target="_blank" class="map-link">View map</a>)</p>
 				    <%= link_to @school.website_url, "http://#{@school.website_url}", :target => "_blank" %>
-				    <p><%= @school.contact_name %></p>	
+				    <p><%= @school.contact_name %></p>
 				    <p><%= @school.contact_email %></p>
 					<p> <%=simple_format(@school.description) %></p>
 				</div>
@@ -30,19 +30,19 @@
 								<td>Girls</td>
 								<td><%= @school.girls_boarding %></td>
 								<td> <%= @school.girls_day %></td>
-								<td>girls total</td>
+								<td><%= @school.total_girls %></td>
 							</tr>
 							<tr>
 								<td>Boys</td>
 								<td><%= @school.boys_boarding %></td>
 								<td><%= @school.boys_day %></td>
-								<td>boys total</td>
+								<td><%= @school.total_boys %></td>
 							</tr>
 							<tr>
 								<td>Total</td>
-								<td>total </td>
-								<td>total </td>
-								<td>total</td>
+								<td><%= @school.total_boarding %></td>
+								<td><%= @school.total_day %></td>
+								<td><%= @school.total_students %></td>
 							</tr>
 						</tbody>
 					</table>
@@ -55,7 +55,8 @@
 					<li>Student/Teacher Ratio: <span><%= @school.student_teacher_ratio %>:1</span></li>
 					<li>Dress Code: <span><%= human_boolean(@school.dress_code) %></span></li>
 					<li>Student Body: <span><%=@school.student_body%></span></li>
-					<li>7-Day Boarding Tuition: <span><%= number_to_currency(@school.seven_day_tuition)  %></span></li>
+					<li>Domestic 7-Day Boarding Tuition: <span><%= number_to_currency(@school.seven_day_tuition)  %></span></li>
+          <li>International 7-Day Boarding Tuition <span><%= number_to_currency(@school.international_seven_day_tuition) %></span></li>
 					<li>5-Day Boarding Tuition: <span><%= number_to_currency(@school.five_day_tuition) %></span></li>
 					<li>Boarding Grades: <span> <%= @school.boarding_grades %></span></li>
 					<li>Day Grades: <span><%= @school.day_grades %></span></li>
@@ -68,12 +69,12 @@
 					<li>Payment Plans: <span><%= human_boolean(@school.payment_plans) %></span></li>
 					<li>Need-Based Aid: <span><%= human_boolean(@school.need_based_aid)%></span></li>
 					<li>Merit Scholarships: <span><%= human_boolean(@school.merit_scholarships) %></span></li>
-				</ul>	
+				</ul>
 				<%= link_to 'View Full Profile', @school %>
-			</div>		
-		</div>	
+			</div>
+		</div>
 	<% end %>
 	<% end %>
-	</div>	
+	</div>
 </div>
 
