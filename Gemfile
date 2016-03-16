@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 #authentication
 gem 'devise'
 
+# Vanity URLs
+gem 'friendly_id', '~> 5.1.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-turbolinks'

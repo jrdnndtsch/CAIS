@@ -15,21 +15,21 @@ class SchoolsController < ApplicationController
         elsif params[:advanced_placement] == 'no'
           advanced_placement = false
         else
-          advanced_placement = params[:advanced_placement]  
+          advanced_placement = params[:advanced_placement]
       end
       if params[:international_bac] == 'yes'
          international_bac = true
         elsif params[:international_bac] == 'no'
           international_bac = false
         else
-          international_bac = params[:international_bac]  
+          international_bac = params[:international_bac]
       end
       if params[:pre_grade_nine_boarding] == 'yes'
          pre_grade_nine_boarding = true
         elsif params[:pre_grade_nine_boarding] == 'no'
           pre_grade_nine_boarding = false
         else
-          pre_grade_nine_boarding = params[:pre_grade_nine_boarding]  
+          pre_grade_nine_boarding = params[:pre_grade_nine_boarding]
       end
       if params[:province].present?
         province = params[:province]
@@ -65,7 +65,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1/edit
   def edit
     @academics = Academic.all
-    @campus = Campu.all 
+    @campus = Campu.all
     @recreations = Recreation.all
     @school_academic = SchoolAcademic.new
     @school_campu = SchoolCampu.new
@@ -115,7 +115,7 @@ class SchoolsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school
-      @school = School.find(params[:id])
+      @school = School.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

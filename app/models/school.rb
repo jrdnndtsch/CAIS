@@ -1,4 +1,6 @@
 class School < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 	STUDENT_BODY = %w[ no_preference co-ed boys girls ]
 	TRUE_FALSE = %w[ no_preference yes no]
 	has_many :school_recreations
@@ -13,11 +15,11 @@ class School < ActiveRecord::Base
 	belongs_to :city
 	delegate :province, :to => :city
 	validate :validate_student_body_size
-	
+
 	def validate_student_body_size
 		if self.student_body_size.present?
 			errors.add(:student_body_size, "student body size must match total boarding and day") if self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day != self.student_body_size
-		end	
+		end
 	end
 
 	def self.academic_with(course)
@@ -93,13 +95,13 @@ class School < ActiveRecord::Base
 		else
 			return School.joins(:city).where(cities: {province_id: province_id})
 		end
-		
+
 	end
 
 
 	def self.search(province="any", student_body, min, max, international_bac, advanced_placement, pre_grade_nine_boarding)
 		# schools = School.order(:name)
-		schools = School.school_from_province(province) 
+		schools = School.school_from_province(province)
 		schools = schools.where(student_body_size: min..max)
 		if student_body != 'no_preference'
 			schools = schools.where(student_body: student_body)
@@ -107,7 +109,7 @@ class School < ActiveRecord::Base
 		# raise "hell"
 		if international_bac == true || international_bac == false
 			schools = schools.where(international_bac: international_bac)
-		end	
+		end
 		if advanced_placement == true || advanced_placement == false
 			schools = schools.where(advanced_placement: advanced_placement)
 		end
