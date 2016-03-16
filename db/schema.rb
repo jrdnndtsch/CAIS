@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316141737) do
+ActiveRecord::Schema.define(version: 20160316143112) do
 
   create_table "academic_types", force: :cascade do |t|
     t.string   "name"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160316141737) do
     t.boolean  "esl"
     t.string   "contact_name"
     t.string   "slug"
+    t.string   "meta_description"
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"

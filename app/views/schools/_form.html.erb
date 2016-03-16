@@ -70,6 +70,10 @@
         <%= f.label :description %>
         <%= f.text_area :description %>
       </div>
+      <div class="field">
+        <%= f.label :meta_description %>
+        <%= f.text_field :meta_description %>
+      </div>
     </section>
     <section class="school__at-a-glance block">
       <h2>Additonal School Information</h2>
@@ -166,7 +170,7 @@
         <%= f.text_area :summer_programs%>
       </div>
     </section>
-    
+
     <div class="block">
       <h2>Academics</h2>
       <%= f.collection_check_boxes :academic_ids, Academic.all.order(:course), :id, :course %>
@@ -237,5 +241,5 @@
 
 <% end %>
 
-</div>  
+</div>
 

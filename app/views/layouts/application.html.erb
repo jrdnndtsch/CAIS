@@ -6,6 +6,7 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="description" content="<%=h yield(:meta_description) %>">
 
 </head>
 <body>
@@ -29,7 +30,7 @@
 	<div class="main-navigation">
 		<div class="container">
 			<%= render 'layouts/navigation'%>
-		</div>	
+		</div>
 	</div>
 	<%= render(:partial => 'layouts/imageheader') if (params[:action] == 'show') %>
 
@@ -43,7 +44,7 @@
 			<%= yield %>
 		</div><!--
 		*--><div class="sidebar-section">
-			<%= render 'layouts/sidebar'%>	
+			<%= render 'layouts/sidebar'%>
 		</div>
 	</div>
 	<div class="footer">
@@ -61,5 +62,5 @@
     }, 2000);
    })
 
-  
+
 </script>

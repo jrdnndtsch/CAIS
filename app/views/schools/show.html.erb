@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :meta_description, @school.meta_description %>
 
 <div class="" id="single-school">
    <div class="back-btn"> <%= link_to 'Back To All Schools', schools_path %></div>
-   <div class="back-btn"><a href="mailto:jgreenshields@cais.ca?subject=Information%20request%20for%20<%= @school.name %>" target="_blank">Request Information</a></div> 
+   <div class="back-btn"><a href="mailto:jgreenshields@cais.ca?subject=Information%20request%20for%20<%= @school.name %>" target="_blank">Request Information</a></div>
   <div class="school-single__profile">
     <div class="school-single__summary field--half">
       <h2><%= @school.name %></h2>
@@ -21,7 +21,7 @@
     <p>
       <%= simple_format(@school.description) %>
     </p>
-    
+
     <% if @school.video_url.present? %>
     <div class="video">
       <iframe width="560" height="315" src="<%= @school.video_url%>" frameborder="0" allowfullscreen></iframe>
@@ -61,7 +61,7 @@
       <p>
         Day tuition:
         <span><%= number_to_currency(@school.day_tuition) %></span>
-        
+
       </p>
 
       <p>Accreditations: <span><%= @school.accreditations %></span></p>
@@ -77,8 +77,8 @@
       <p>Need based aid: <span><%= human_boolean(@school.need_based_aid) %></span></p>
 
       <p>Merit scholarships: <span><%= human_boolean(@school.merit_scholarships) %></span></p>
-      
-    </div>  
+
+    </div>
     <div class="expand-details">
       <% if @school.amenity_type(@school, "academic").present? %>
         <h3>Academics <span class="expand-academics expand-arrow">&#9660;</span></h3>
@@ -129,13 +129,13 @@
       </div>
       <% end %>
     </div>
-    
-  </div>  
-</div>  
+
+  </div>
+</div>
 
 <%= link_to 'Back', schools_path %>
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_school_path(@school) %> 
+<%= link_to 'Edit', edit_school_path(@school) %>
 <% end %>
 
 <script>
@@ -172,6 +172,6 @@
       $('.summer-expand').toggleClass('hidden')
       $('.expand-summer').toggleClass('rotate')
     });
-  });  
-  
+  });
+
 </script>
