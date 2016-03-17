@@ -1,3 +1,5 @@
+<% content_for :meta_description, 'Canada is home to many of the best schools in the world, and our 27 CAIS Boarding Schools represent the best of the best. Find your boarding school today' %>
+<% content_for :name, 'Boarding School Finder - Canadian Accredited Independent Schools' %>
 <div class="" id="all-schools">
 
   <div class="search-space">
@@ -9,12 +11,12 @@
         <%= select_tag :province, options_from_collection_for_select(@provinces.order('name ASC').all, :id, :name,0), prompt: "Any Province", :class => "inline-block functional_area_filter" %>
       </div>
       <div class="option">
-        <p class="slider-text">My school should be between <%= text_field_tag 'slider_min', nil, class: 'select-num' %> and  <%= text_field_tag 'slider_max', nil, class: 'select-num' %> students</p><!--  
+        <p class="slider-text">My school should be between <%= text_field_tag 'slider_min', nil, class: 'select-num' %> and  <%= text_field_tag 'slider_max', nil, class: 'select-num' %> students</p><!--
         *--><div id="slider"></div>
-      </div> 
+      </div>
       <div class="option">
         <label for="student_body">The student body should be</label>
-        <%= select_tag :student_body, options_for_select(School::STUDENT_BODY.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>  
+        <%= select_tag :student_body, options_for_select(School::STUDENT_BODY.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       </div>
       <p class="show-advanced-search option">Show Advanced Options</p>
     </div>
@@ -22,17 +24,17 @@
       <div class="option">
        <%= label_tag :international_baccalaureate%>
        <%= select_tag :international_bac, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
-      </div> 
+      </div>
       <div class="option">
       <%= label_tag :advanced_placement%>
        <%= select_tag :advanced_placement, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
-      </div> 
+      </div>
       <div class="option">
         <%= label_tag :pre_grade_nine_boarding%>
          <%= select_tag :pre_grade_nine_boarding, options_for_select(School::TRUE_FALSE.map { |s| [s.humanize, s]},), :class => "inline-block functional_area_filter" %>
       </div>
       <p class="hide-advanced-search option">Hide Advanced Options</p>
-    </div>  
+    </div>
       <%= submit_tag 'Search', remote: true, id: 'editor' %>
       <%= submit_tag 'Reset Form', remote: true, :type => 'reset', id:'reset-form' %>
       <!-- <a href="#" id="reset-form">Reset</a> -->
@@ -49,12 +51,12 @@
     </div>
 
   <div class="compare-btn">Compare Selected Schools</div>
-    
+
   <% if user_signed_in? %>
   <%= link_to 'New School', new_school_path %>
   <% end %>
 
-    
+
   </div>
 </div>
 
@@ -78,7 +80,7 @@ slider.noUiSlider.on('update', function( values, handle ) {
   var num = slider.noUiSlider.get()
   var min = Math.floor(num[0])
   var max = Math.floor(num[1])
-   
+
   $('#slider_min').val(min)
   $('#slider_max').val(max)
   console.log('updating' + min + max)
@@ -124,7 +126,7 @@ $(document).ready(function() {
   });
 
 
-     
+
 
   $(document).on('click', '#reset-form', function(e){
     e.preventDefault();
@@ -137,7 +139,7 @@ $(document).ready(function() {
 
 $(document).on('change', '.check', function(){
     checked_array = []
-   
+
 
     if ($('.check').filter(':checked').length > 3){
       $(this).removeAttr('checked');
@@ -159,13 +161,13 @@ $(document).on('change', '.check', function(){
       $.ajax({
         url: 'schools',
         type: "get",
-        data: { 
+        data: {
           is_checked : checked_array
         },
         dataType: "script"
 
       });
-    
+
   });
 
 });
