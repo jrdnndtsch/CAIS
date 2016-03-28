@@ -16,6 +16,9 @@ class School < ActiveRecord::Base
 	delegate :province, :to => :city
 	validate :validate_student_body_size
 
+	has_attached_file :header_image
+	validates_attachment_content_type :header_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 	def validate_student_body_size
 		if self.student_body_size.present?
 			errors.add(:student_body_size, "student body size must match total boarding and day") if self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day != self.student_body_size

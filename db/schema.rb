@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316160406) do
+ActiveRecord::Schema.define(version: 20160328143801) do
 
   create_table "academic_types", force: :cascade do |t|
     t.string   "name"
@@ -191,6 +191,10 @@ ActiveRecord::Schema.define(version: 20160316160406) do
     t.string   "slug"
     t.string   "meta_description"
     t.float    "international_seven_day_tuition", default: 0.0
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
   end
 
   add_index "schools", ["city_id"], name: "index_schools_on_city_id"
