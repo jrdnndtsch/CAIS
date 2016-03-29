@@ -25,14 +25,20 @@ class School < ActiveRecord::Base
 		      thumbnail: " -gravity center -crop '200x200+0+0'",
 		      header: " -gravity center -crop '1400x800+0+0'"
 		    }
-	validates_attachment :header_image, presence: true,
+	validates_attachment :header_image, allow_blank: true,
 	  content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
 	  size: { in: 0..1600.kilobytes },
 	  processors: [:thumbnail, :paperclip_optimizer]
-	     
 
-	# validates_attachment_content_type :header_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-	# validates_attachment_size :header_image, :less_than => 2.megabytes, 
+	has_attached_file :school_logo, 
+		styles: {
+		      thumbnail: '400x400>'
+		    }
+	validates_attachment :school_logo, allow_blank: true,
+	  content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
+	  size: { in: 0..900.kilobytes },
+	  processors: [:thumbnail, :paperclip_optimizer]  
+	      
 	def validate_student_body_size
 		if self.student_body_size.present?
 			errors.add(:student_body_size, "student body size must match total boarding and day") if self.girls_boarding + self.girls_day + self.boys_boarding + self.boys_day != self.student_body_size
