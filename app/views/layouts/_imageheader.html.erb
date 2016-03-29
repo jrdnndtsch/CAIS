@@ -1,4 +1,9 @@
-<% if @school.featured_image_url.present? %>
+<% if @school.header_image.url(:header).present?%>
+	<div class="school-single__header" aria-label="<%= @school.name %> - Boarding School" style="background: url(<%=@school.header_image.url(:header) %>); background-size:cover;">
+		<div class="header-overlay"></div>
+		<h1 class="single-title"><%= @school.name %></h1>
+	</div>
+<% else @school.featured_image_url.present? %>
 <div class="school-single__header" aria-label="<%= @school.name %> - Boarding School" style="background: url(<%=@school.featured_image_url%>); background-size:cover;">
 	<div class="header-overlay"></div>
 	<h1 class="single-title"><%= @school.name %></h1>

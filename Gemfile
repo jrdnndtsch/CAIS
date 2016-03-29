@@ -32,11 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'omniauth'
 
-gem 'paperclip-googledrive'
+# gem 'paperclip-googledrive'
+gem "paperclip", "~>4.2"
 
-gem "paperclip"
+gem 'aws-sdk-v1'
+gem "image_optim_bin", group: :production
 
-gem "aws-sdk"
+gem 'paperclip-optimizer'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
