@@ -17,7 +17,7 @@
       <% if @school.school_logo.file? %>
         <%= image_tag @school.school_logo.url(:thumbnail), alt: "#{@school.name} - Boarding School" %>
       <% elsif @school.logo_image_url.present? %>
-      <%= image_tag @school.logo_image_url, alt: "#{school.name} - Boarding School" %>
+      <%= image_tag @school.logo_image_url, alt: "#{@school.name} - Boarding School" %>
       <% else %>
       <% end %>
     </div>
